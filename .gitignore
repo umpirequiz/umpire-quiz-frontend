@@ -1,3 +1,13 @@
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
 
 ### IntelliJ IDEA ###
 .idea/
@@ -26,6 +36,20 @@ build/
 
 ### VS Code ###
 .vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
 
 ### Mac OS ###
 .DS_Store
