@@ -1,0 +1,35 @@
+<div class="col-md-12 col-lg-12 d-flex flex-column flex-md-row mb-4">
+
+  <div *ngFor="let question of results" class="card p-0 p-lg-0 text-black border w-100">
+    <div class="card-header">
+      Question {{ question.questionIndex + 1 }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ question.question.NL_NL }}</h5>
+      <ul class="list-group">
+        <li class="list-group-item" style="background-color: var(--bs-card-cap-bg);">Answers:</li>
+        <li *ngFor="let answer of question.answers" class="list-group-item click" id="{{answer.id}}"
+            [ngClass]="{'list-group-item-primary': isSelected(answer.id)}" >
+          {{ answer.answer.NL_NL }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div *ngFor="let question of results" class="card p-0 p-lg-0 text-black border w-100">
+    <div class="card-header">
+      Question {{ question.id }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ question.question.NL_NL }}</h5>
+      <p *ngIf="question.selectedAnswer !== undefined" class="card-text">
+        Your Answer: {{ getAnswerText(question, question.selectedAnswer) }}
+      </p>
+      <p *ngIf="question.selectedAnswer === undefined" class="card-text text-danger">
+        You did not answer this question.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
