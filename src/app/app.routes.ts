@@ -5,6 +5,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {QuizComponent} from "./components/quiz/quiz.component";
 import {QuizHomeComponent} from "./components/quiz/home/quiz-home.component";
 import {PlayQuizComponent} from "./components/quiz/play/play-quiz.component";
+import {ResultsComponent} from "./components/quiz/results/results.component";
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -14,7 +15,8 @@ export const routes: Routes = [
     path: 'quiz', component: QuizComponent,
     children: [
       {path: '', component: QuizHomeComponent},
-      {path: 'play', component: PlayQuizComponent}
+      {path: 'play', component: PlayQuizComponent},
+      {path: 'results', component: ResultsComponent}
     ]
   }
 ];

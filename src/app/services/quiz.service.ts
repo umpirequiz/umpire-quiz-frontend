@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Question} from "../domain/Question";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {Quiz} from "../domain/Quiz";
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,11 @@ import {Question} from "../domain/Question";
 export class QuizService {
 
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
+  }
+
+  getQuizQuestions(): Observable<Quiz> {
+    return this.httpClient.get<Quiz>("http://localhost:9080/quizzes")
   }
 
   clearExistingQuiz() {
@@ -21,13 +27,11 @@ export class QuizService {
     return storedQuiz !== null;
   }
 
-  getQuizResults() {
-    let index: number = 0;
-    let lastResult = sessionStorage.getItem('lastResult');
-    const results: Question[] = JSON.parse(lastResult !== null ? lastResult : "[]");
-    for (let question of results) {
-      question.questionIndex = index++;
-    }
-    return results;
+  getQuizResults(): Quiz {
+    return JSON.parse(sessionStorage.getItem('lastResult') ?? "");
+  }
+
+  postQuizResults(quiz: Quiz) {
+    this.httpClient.post<Quiz>("http://localhost:9080/quizzes", quiz).subscribe(data => sessionStorage.setItem('lastResult', JSON.stringify(data)))
   }
 }

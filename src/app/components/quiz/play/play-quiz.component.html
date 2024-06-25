@@ -4,13 +4,16 @@
       Question {{ currentQuestionIndex + 1 }}
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{ currentQuestion.question.NL_NL }}</h5>
+      <h5 class="card-title">{{ currentQuestion.i18nValue.NL_NL }}</h5>
       <ul class="list-group">
         <li class="list-group-item" style="background-color: var(--bs-card-cap-bg);">Answers:</li>
-        <li *ngFor="let answer of currentQuestion.answers" class="list-group-item click" id="{{answer.id}}"
-            (click)="selectAnswer(answer.id)" [ngClass]="{'list-group-item-primary': isSelected(answer.id)}">
-          {{ answer.answer.NL_NL }}
-        </li>
+        @for(answer of currentQuestion.answers; track $index) {
+          <li class="list-group-item click"
+              id="{{answer.id}}"
+              (click)="selectAnswer(answer.id)"
+              (keyup)="selectAnswerKeyboardWrapper(answer.id, $event)" tabindex="{{$index+1}}"
+              [ngClass]="{'list-group-item-primary': isSelected(answer.id)}">{{ answer.i18nValue.NL_NL}}</li>
+        }
       </ul>
     </div>
   </div>
@@ -20,8 +23,8 @@
       <h5 class="card-title">Stats</h5>
     </div>
     <div class="card-body">
-      <p>Questions answered: {{ questionsAnswered }}/{{ questions.length }}</p>
-      <button class="btn btn-primary">Submit</button>
+      <p>Questions answered: {{ questionsAnswered }}/{{ quiz.questions.length }}</p>
+      <button class="btn btn-primary" (click)="submitAnswers()" routerLink="/quiz/results">Submit</button>
     </div>
   </div>
 </div>
@@ -31,13 +34,13 @@
     <li class="page-item" [class.disabled]="currentQuestionIndex === 0">
       <a class="page-link click" (click)="prevQuestion()">Previous</a>
     </li>
-    <li *ngFor="let question of questions; let i = index" class="page-item"
+    <li *ngFor="let question of quiz.questions; let i = index" class="page-item"
         [ngClass]="{'active': currentQuestionIndex === i}"
         [class.bg-primary]="isAnswered(i)">
       <a class="page-link click" (click)="goToQuestion(i)"
          [ngClass]="{'bg-secondary text-white': isAnswered(i) && currentQuestionIndex !== i}">{{ i + 1 }}</a>
     </li>
-    <li class="page-item" [class.disabled]="currentQuestionIndex === questions.length - 1">
+    <li class="page-item" [class.disabled]="currentQuestionIndex === quiz.questions.length - 1">
       <a class="page-link click" (click)="nextQuestion()">Next</a>
     </li>
   </ul>
