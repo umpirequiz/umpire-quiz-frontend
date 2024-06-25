@@ -57,16 +57,17 @@ export class UserService {
   }
 
 
-  register(user: User) {
-    this.http.post<User>(`${userService}`, user, {observe: 'response'})
+  register(u: User): void {
+    this.http.post<User>(`${userService}`, u, { observe: 'response' })
       .subscribe({
         next: (response) => {
-          // get the body from the response:
           const registeredUser = response.body ?? UserService.emptyUser;
-          this.message$.next(`${registeredUser.username} registered successfully.`);
+          
+          this.message$.next(`Registration successful for user ${registeredUser.username}.`);
+          this.router.navigate(['/login']);
         },
         error: (errorResponse) => {
-          this.message$.next(`Login failed.  Reason: ${errorResponse.statusText}.`);
+          this.message$.next(`Registration failed. Reason: ${errorResponse.statusText}.`);
         }
       });
   }
