@@ -1,8 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import {serverUrl} from '../../environments/environment';
-import { userService } from '../../environments/environment';
+import {userService} from '../../environments/environment';
 import {Router} from "@angular/router";
 import {User} from "../domain/User";
 
@@ -55,5 +54,18 @@ export class UserService {
   }
 
 
+  register(user: User) {
+    this.http.post<User>(`${userService}`, user, {observe: 'response'})
+      .subscribe({
+        next: (response) => {
+          // get the body from the response:
+          const registeredUser = response.body ?? UserService.emptyUser;
+          this.message$.next(`${registeredUser.username} registered successfully.`);
+        },
+        error: (errorResponse) => {
+          this.message$.next(`Login failed.  Reason: ${errorResponse.statusText}.`);
+        }
+      });
+  }
 }
 
