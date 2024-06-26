@@ -17,7 +17,7 @@ pipeline {
     SONAR_PROJECT_NAME = 'Umpire Quiz Frontend'
   }
   tools {
-    nodejs 'Node22.2'
+    nodejs 'Node20.12'
     dockerTool 'Docker 17.09'
   }
   stages {
