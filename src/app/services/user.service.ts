@@ -4,6 +4,7 @@ import {Subject} from 'rxjs';
 import {userService} from '../../environments/environment';
 import {Router} from "@angular/router";
 import {User} from "../domain/User";
+import {MessageService} from "./message.service";
 
 @Injectable({providedIn: 'root'}) // ApplicationScoped
 export class UserService {
@@ -14,7 +15,7 @@ export class UserService {
   public message$ = new Subject<string>();
 
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private messageService: MessageService) {
   }
 
   login(u: User): void {
@@ -25,7 +26,8 @@ export class UserService {
           const loggedInUser = response.body ?? UserService.emptyUser;
 
           this.loggedInMessage$.next(`Logged in as ${loggedInUser.username}`);
-          this.message$.next(`User ${loggedInUser.username} is logged in.`);
+          this.messageService.success(`User ${loggedInUser.username} is logged in.`)
+          // this.message$.next(`User ${loggedInUser.username} is logged in.`);
           localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
 
           // ... or get the Authorization header from the response:
@@ -33,7 +35,8 @@ export class UserService {
           // localStorage.setItem('token', JSON.stringify(token));
         },
         error: (errorResponse) => {
-          this.message$.next(`Login failed.  Reason: ${errorResponse.statusText}.`);
+          this.messageService.error(`Login failed.  Reason: ${errorResponse.statusText}.`)
+          // this.message$.next(`Login failed.  Reason: ${errorResponse.statusText}.`);
         }
       });
   }
@@ -55,11 +58,11 @@ export class UserService {
 
 
   register(u: User): void {
-    this.http.post<User>(`${userService}`, u, { observe: 'response' })
+    this.http.post<User>(`${userService}`, u, {observe: 'response'})
       .subscribe({
         next: (response) => {
           const registeredUser = response.body ?? UserService.emptyUser;
-          
+
           this.message$.next(`Registration successful for user ${registeredUser.username}.`);
           this.router.navigate(['/login']);
         },
