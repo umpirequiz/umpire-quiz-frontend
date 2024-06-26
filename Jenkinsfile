@@ -90,18 +90,18 @@ pipeline {
         }
       }
     }
-  }
 
-  stage('Update Gebruikers Test Omgeving') {
-    when {
-      allOf {
-        not { equals(actual: "${VERSION}", expected: "${PREV_VERSION}") }
-        branch 'main'
+    stage('Update Gebruikers Test Omgeving') {
+      when {
+        allOf {
+          not { equals(actual: "${VERSION}", expected: "${PREV_VERSION}") }
+          branch 'main'
+        }
       }
-    }
-    steps {
-      withCredentials([sshUserPrivateKey(credentialsId: 'Umpire-Quiz-Acceptatie', keyFileVariable: 'KEY', usernameVariable: 'USER')]) {
-        sh 'ssh -i $KEY $USER@192.168.178.240 ~/update-Quiz.sh'
+      steps {
+        withCredentials([sshUserPrivateKey(credentialsId: 'Umpire-Quiz-Acceptatie', keyFileVariable: 'KEY', usernameVariable: 'USER')]) {
+          sh 'ssh -i $KEY $USER@192.168.178.240 ~/update-Quiz.sh'
+        }
       }
     }
   }
