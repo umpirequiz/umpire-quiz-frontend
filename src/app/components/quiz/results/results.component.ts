@@ -3,13 +3,21 @@ import {NgClass, NgForOf} from "@angular/common";
 import {Answer, Question} from "../../../domain/Question";
 import {QuizService} from "../../../services/quiz.service";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
+import {QuestionComponent} from "../question/question.component";
+import {GameStateComponent} from "../game-state/game-state.component";
+import {AnswersComponent} from "../answers/answers.component";
+import {RulingComponent} from "../ruling/ruling.component";
 
 @Component({
   selector: 'app-results',
   standalone: true,
   imports: [
     NgForOf,
-    NgClass
+    NgClass,
+    QuestionComponent,
+    GameStateComponent,
+    AnswersComponent,
+    RulingComponent
   ],
   templateUrl: './results.component.html',
   styleUrl: './results.component.scss'
@@ -35,17 +43,6 @@ export class ResultsComponent implements OnInit {
 
   getQuestions(): Question[] {
     return this.quizService.getQuizResults().questions
-  }
-
-  wasAnsweredCorrectly(questionId: number, answerId: number): 'bg-success' | 'bg-danger' | '' {
-    const givenAnswers: SelectedAnswers[] = JSON.parse(sessionStorage.getItem('selectedAnswers') ?? "")
-    const givenAnswer: SelectedAnswers | undefined = givenAnswers.find(a => a.questionId == questionId)
-    const questions: Question[] = JSON.parse(sessionStorage.getItem('lastResult') ?? "").questions
-    const correctAnswer: Answer | undefined = questions.find(q => q.id == questionId)?.answers.find(a => a.correct)
-
-    if ( answerId == correctAnswer?.id ) { return 'bg-success' }
-    else if ( answerId == givenAnswer?.answerId ) { return 'bg-danger' }
-    else { return '' }
   }
 
   getQuestionsCorrect(): number {

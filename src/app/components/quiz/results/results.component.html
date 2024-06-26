@@ -13,19 +13,14 @@
         <div class="card text-black border w-100">
           <div class="card-header">Question {{ $index + 1 }}</div>
           <div class="card-body">
-            <h5 class="card-title">{{ question.i18nValue.NL_NL }}</h5>
-            <ul class="list-group">
-              <li class="list-group-item" style="background-color: var(--bs-card-cap-bg);">Answers:</li>
-              @for (answer of question.answers; track $index) {
-                <li class="list-group-item"
-                    [class]="wasAnsweredCorrectly(question.id, answer.id)">{{ answer.i18nValue.NL_NL }}
-                </li>
-              }
-            </ul>
-            <div class="card mt-2">
-              <h5 class="card-header">Ruling:</h5>
-              <p class="card-body">{{ question.i18nRuling?.NL_NL }}</p>
-            </div>
+            <app-game-state [gameState]="question.gameState"></app-game-state>
+            <app-question [question]="question"></app-question>
+            <app-answers
+              [answers]="question.answers"
+              [resultsScreen]="true"
+              [selectedAnswer]="question.selectedAnswer"
+              [questionId]="question.id"></app-answers>
+            <app-ruling [ruling]="question.i18nRuling"></app-ruling>
           </div>
         </div>
       </div>
