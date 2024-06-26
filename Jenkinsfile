@@ -18,7 +18,6 @@ pipeline {
   }
   tools {
     nodejs 'Node20.12'
-    dockerTool 'Docker 17.09'
   }
   stages {
     stage('Install Dependencies') {
@@ -63,17 +62,17 @@ pipeline {
         }
       }
       steps {
-        sh 'docker build -t ${IMAGE_NAME} .'
-        sh 'docker tag ${IMAGE_NAME}:latest ${IMAGE_NAME}:${VERSION}'
-        sh 'docker tag ${IMAGE_NAME}:latest ${IMAGE_NAME}:${MAJOR_VERSION}-latest'
-        sh 'docker tag ${IMAGE_NAME}:latest ${IMAGE_NAME}:${MAJOR_VERSION}.${MINOR_VERSION}-latest'
+        sh 'podman build -t ${IMAGE_NAME} .'
+        sh 'podman tag ${IMAGE_NAME}:latest ${IMAGE_NAME}:${VERSION}'
+        sh 'podman tag ${IMAGE_NAME}:latest ${IMAGE_NAME}:${MAJOR_VERSION}-latest'
+        sh 'podman tag ${IMAGE_NAME}:latest ${IMAGE_NAME}:${MAJOR_VERSION}.${MINOR_VERSION}-latest'
         withCredentials([usernamePassword(credentialsId: 'Harbor_Robot', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-          sh 'docker push --creds $USERNAME:$PASSWORD ${IMAGE_NAME}:latest'
-          sh 'docker push --creds $USERNAME:$PASSWORD ${IMAGE_NAME}:${VERSION}'
-          sh 'docker push --creds $USERNAME:$PASSWORD ${IMAGE_NAME}:${MAJOR_VERSION}-latest'
-          sh 'docker push --creds $USERNAME:$PASSWORD ${IMAGE_NAME}:${MAJOR_VERSION}.${MINOR_VERSION}-latest'
+          sh 'podman push --creds $USERNAME:$PASSWORD ${IMAGE_NAME}:latest'
+          sh 'podman push --creds $USERNAME:$PASSWORD ${IMAGE_NAME}:${VERSION}'
+          sh 'podman push --creds $USERNAME:$PASSWORD ${IMAGE_NAME}:${MAJOR_VERSION}-latest'
+          sh 'podman push --creds $USERNAME:$PASSWORD ${IMAGE_NAME}:${MAJOR_VERSION}.${MINOR_VERSION}-latest'
         }
-        sh 'docker image rm ${IMAGE_NAME}:latest \
+        sh 'podman image rm ${IMAGE_NAME}:latest \
                             ${IMAGE_NAME}:${VERSION} \
                             ${IMAGE_NAME}:${MAJOR_VERSION}-latest \
                             ${IMAGE_NAME}:${MAJOR_VERSION}.${MINOR_VERSION}-latest'
