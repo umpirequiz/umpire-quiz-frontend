@@ -16,7 +16,7 @@ export class MessageService {
   }
 
   error(message: string) {
-    this._alert$.next({type: 'error', text: message});
+    this._alert$.next({type: 'danger', text: message});
   }
 
   warn(message: string) {
@@ -25,6 +25,6 @@ export class MessageService {
 }
 
 export interface AlertMessage {
-  type: 'success' | 'error' | 'warning';
+  type: 'success' | 'info' | 'warning' | 'danger' | 'primary' | 'secondary' | 'light' | 'dark';
   text: string;
 }
