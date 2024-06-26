@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RouterOutlet } from '@angular/router';
+import {AlertComponent} from "./components/message/message.component";
 import {EnvironmentService} from "./services/environment.service";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavBarComponent],
+  imports: [RouterOutlet, NavBarComponent, AlertComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
