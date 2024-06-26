@@ -2,18 +2,20 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Quiz} from "../domain/Quiz";
+import {EnvironmentService} from "./environment.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
+  private readonly baseUrl: string
 
-
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private environmentService: EnvironmentService) {
+    this.baseUrl = this.environmentService.env.questionServiceUrl
   }
 
   getQuizQuestions(): Observable<Quiz> {
-    return this.httpClient.get<Quiz>("http://localhost:9080/quizzes")
+    return this.httpClient.get<Quiz>(this.baseUrl + "/quizzes")
   }
 
   clearExistingQuiz() {
@@ -32,6 +34,6 @@ export class QuizService {
   }
 
   postQuizResults(quiz: Quiz) {
-    this.httpClient.post<Quiz>("http://localhost:9080/quizzes", quiz).subscribe(data => sessionStorage.setItem('lastResult', JSON.stringify(data)))
+    this.httpClient.post<Quiz>(this.baseUrl + "/quizzes", quiz).subscribe(data => sessionStorage.setItem('lastResult', JSON.stringify(data)))
   }
 }
