@@ -1,10 +1,12 @@
 describe('QuizService', () => {
   it('empty test', () => expect(true).toBeTruthy())
-  // let service: QuizService;
+  // let service: EnvironmentService;
   //
   // beforeEach(() => {
-  //   TestBed.configureTestingModule({});
-  //   service = TestBed.inject(QuizService);
+  //   TestBed.configureTestingModule({
+  //     providers: [provideHttpClientTesting()]
+  //   });
+  //   service = TestBed.inject(EnvironmentService);
   // });
   //
   // it('should be created', () => {

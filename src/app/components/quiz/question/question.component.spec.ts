@@ -1,15 +1,15 @@
-describe('NavBarComponent', () => {
+describe('QuestionComponent', () => {
   it('empty test', () => expect(true).toBeTruthy())
-  // let component: NavBarComponent;
-  // let fixture: ComponentFixture<NavBarComponent>;
+  // let component: PlayQuizComponent;
+  // let fixture: ComponentFixture<PlayQuizComponent>;
   //
   // beforeEach(async () => {
   //   await TestBed.configureTestingModule({
-  //     imports: [NavBarComponent]
+  //     imports: [PlayQuizComponent]
   //   })
   //   .compileComponents();
   //
-  //   fixture = TestBed.createComponent(NavBarComponent);
+  //   fixture = TestBed.createComponent(PlayQuizComponent);
   //   component = fixture.componentInstance;
   //   fixture.detectChanges();
   // });

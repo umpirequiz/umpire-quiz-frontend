@@ -14,12 +14,12 @@ export interface Answer {
   correct?: boolean;
 }
 
-interface InternationalizedString {
+export interface InternationalizedString {
   NL_NL: string;
   EN_US: string;
 }
 
-interface GameState {
+export interface GameState {
   balls: number
   outs: number
   strikes: number

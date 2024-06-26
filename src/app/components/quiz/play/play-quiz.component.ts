@@ -1,10 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {Question} from '../../../domain/Question'
+import {GameState, Question} from '../../../domain/Question'
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {QuizService} from "../../../services/quiz.service";
 import {Quiz} from "../../../domain/Quiz";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
+import {GameStateComponent} from "../game-state/game-state.component";
+import {QuestionComponent} from "../question/question.component";
+import {AnswersComponent} from "../answers/answers.component";
 
 @Component({
   selector: 'app-play',
@@ -14,7 +17,10 @@ import {SelectedAnswers} from "../../../domain/SelectedAnswers";
     RouterLink,
     NgForOf,
     NgIf,
-    NgClass
+    NgClass,
+    GameStateComponent,
+    QuestionComponent,
+    AnswersComponent
   ],
   templateUrl: './play-quiz.component.html',
   styleUrl: './play-quiz.component.scss'
@@ -57,13 +63,6 @@ export class PlayQuizComponent implements OnInit {
     this.quizService.clearExistingQuiz();
   }
 
-  selectAnswerKeyboardWrapper(answer: number, e: KeyboardEvent) {
-    if (e.key == " " ||
-      e.code == "Space") {
-      this.selectAnswer(answer)
-    }
-  }
-
   selectAnswer(answer: number): void {
     if (this.currentQuestion.selectedAnswer === answer
     ) {
@@ -104,10 +103,6 @@ export class PlayQuizComponent implements OnInit {
     }
   }
 
-  isSelected(id: number): boolean {
-    return this.currentQuestion.selectedAnswer == id;
-  }
-
   isAnswered(index: number): boolean {
     return this.quiz.questions[index].selectedAnswer != undefined;
   }
@@ -131,5 +126,9 @@ export class PlayQuizComponent implements OnInit {
   goToQuestion(index: number): void {
     this.currentQuestionIndex = index;
     this.saveQuizProgress();
+  }
+
+  get currentGameState(): GameState {
+    return this.currentQuestion.gameState;
   }
 }

@@ -1,13 +1,13 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import {serverUrl} from '../../environments/environment';
-import { userService } from '../../environments/environment';
 import {Router} from "@angular/router";
 import {User} from "../domain/User";
+import {EnvironmentService} from "./environment.service";
 
 @Injectable({providedIn: 'root'}) // ApplicationScoped
 export class UserService {
+  private readonly baseUrl: string
 
   public static readonly emptyUser = {} as User;
 
@@ -15,11 +15,12 @@ export class UserService {
   public message$ = new Subject<string>();
 
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private environmentService: EnvironmentService) {
+    this.baseUrl = this.environmentService.env.userServiceUrl
   }
 
   login(u: User): void {
-    this.http.post<User>(`${userService}/login`, u, {observe: 'response'} /* = to receive the full httpresponse instead of only the body */)
+    this.http.post<User>(`${this.baseUrl}/auth-api/auth/login`, u, {observe: 'response'} /* = to receive the full httpresponse instead of only the body */)
       .subscribe({
         next: (response) => {
           // get the body from the response:

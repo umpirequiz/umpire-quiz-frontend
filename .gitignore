@@ -53,3 +53,4 @@ testem.log
 
 ### Mac OS ###
 .DS_Store
+/TESTS*.xml
