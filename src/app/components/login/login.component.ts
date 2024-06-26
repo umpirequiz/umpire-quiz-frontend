@@ -39,6 +39,5 @@ export class LoginComponent implements OnInit {
     console.log(this.user)
     this.service.login(this.user);
     this.user = {} as User;
-    this.router.navigate(['/']);
   }
 }

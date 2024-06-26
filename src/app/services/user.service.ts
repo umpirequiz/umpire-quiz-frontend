@@ -1,7 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Subject, BehaviorSubject } from 'rxjs';
-import {userService} from '../../environments/environment';
 import {Router} from "@angular/router";
 import {User} from "../domain/User";
 import {EnvironmentService} from "./environment.service";
@@ -34,7 +33,8 @@ export class UserService {
           // this.message$.next(`User ${loggedInUser.username} is logged in.`);
           localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
           this.loggedIn.next(true);
-
+          this.router.navigate(['/']);
+          
           // ... or get the Authorization header from the response:
           // const token = response.headers.get('Authorization')?.substr(7);
           // localStorage.setItem('token', JSON.stringify(token));
@@ -67,7 +67,7 @@ export class UserService {
 
 
   register(u: User): void {
-    this.http.post<User>(`${userService}`, u, {observe: 'response'})
+    this.http.post<User>(`${this.baseUrl}/auth-api/auth`, u, {observe: 'response'})
       .subscribe({
         next: (response) => {
           const registeredUser = response.body ?? UserService.emptyUser;

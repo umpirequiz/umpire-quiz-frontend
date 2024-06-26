@@ -1,5 +1,5 @@
 {
-  "userServiceUrl": "http://localhost:9081",
+  "userServiceUrl": "http://localhost:9080",
   "questionServiceUrl": "http://localhost:9080",
   "importerServiceUrl": "http://localhost:9082/",
   "health": "READY"
