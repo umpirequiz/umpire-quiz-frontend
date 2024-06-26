@@ -14,8 +14,15 @@
           </li>
           
         </ul>
-        <div class="ms-auto">
-            <a routerLink="/login" class="d-fl"><button class="btn btn-outline-light">Login</button></a>
+        <div class="ms-auto text-white">
+            @if(isLoggedIn$ | async) {
+              <a (click)="logout()" class="d-fl"><button class="btn btn-outline-light m-auto">Log out</button></a>  Logged in as: <b>{{ loggedInUser() }} </b> 
+              
+            }
+            @else {
+              <a routerLink="/login" class="d-fl"><button class="btn btn-outline-light">Login</button></a>
+            }
+            
         </div>
       </div>
     </div>
