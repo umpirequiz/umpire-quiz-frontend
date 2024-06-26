@@ -54,6 +54,15 @@ pipeline {
       }
     }
 
+    stage('Build') {
+      when {
+        branch 'main'
+      }
+      steps {
+        sh 'npx ng build'
+      }
+    }
+
     stage('Docker push') {
       when {
         allOf {
