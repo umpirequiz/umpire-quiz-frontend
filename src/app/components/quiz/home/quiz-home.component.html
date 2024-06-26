@@ -1,0 +1,13 @@
+<p>To start the Umpire Quiz:</p>
+<a routerLink="play">
+  <button class="btn btn-outline-primary" (click)="clearQuiz()">Start Quiz</button>
+</a>
+@if (quizInProgress()) {
+  <hr/>
+  <p>
+    To continue your quiz in progress:
+  </p>
+  <a routerLink="play">
+    <button class="btn btn-outline-primary">Continue Quiz</button>
+  </a>
+}

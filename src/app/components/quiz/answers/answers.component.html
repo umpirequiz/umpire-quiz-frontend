@@ -1,0 +1,19 @@
+<ul class="list-group mt-1">
+  <li class="list-group-item" style="background-color: var(--bs-card-cap-bg);">Answers:</li>
+  @if (resultsScreen) {
+    @for (answer of answers; track $index) {
+      <li class="list-group-item"
+          [class]="wasAnsweredCorrectly(questionId, answer.id)">{{ answer.i18nValue.NL_NL }}
+      </li>
+    }
+  } @else {
+    @for (answer of answers; track $index) {
+      <li class="list-group-item click"
+          id="{{answer.id}}"
+          (click)="selectAnswer(answer.id)"
+          (keyup)="selectAnswerKeyboardWrapper(answer.id, $event)" tabindex="{{$index+1}}"
+          [ngClass]="{'list-group-item-primary': isSelected(answer.id)}">{{ answer.i18nValue.NL_NL }}
+      </li>
+    }
+  }
+</ul>

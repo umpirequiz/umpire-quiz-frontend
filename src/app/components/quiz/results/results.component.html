@@ -1,0 +1,31 @@
+<div class="col-md-12 col-lg-12 d-flex flex-column flex-md-row mb-4">
+  <div class="vstack">
+    <div class="progress">
+      <div class="progress-bar bg-success" role="progressbar"
+           [style.width]="getPercentage(getQuestionsCorrect()) + '%'">{{ getQuestionsCorrect() }}
+      </div>
+      <div class="progress-bar bg-danger" role="progressbar"
+           [style.width]="getPercentage(getQuestionsIncorrect()) + '%'">{{ getQuestionsIncorrect() }}
+      </div>
+    </div>
+    @for (question of getQuestions(); track $index) {
+      <div class="p-2">
+        <div class="card text-black border w-100">
+          <div class="card-header">Question {{ $index + 1 }}</div>
+          <div class="card-body">
+            <app-game-state [gameState]="question.gameState"></app-game-state>
+            <app-question [question]="question"></app-question>
+            <app-answers
+              [answers]="question.answers"
+              [resultsScreen]="true"
+              [selectedAnswer]="question.selectedAnswer"
+              [questionId]="question.id"></app-answers>
+            <app-ruling [ruling]="question.i18nRuling"></app-ruling>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+</div>
+
