@@ -1,6 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
+import {Subject, BehaviorSubject } from 'rxjs';
 import {userService} from '../../environments/environment';
 import {Router} from "@angular/router";
 import {User} from "../domain/User";
@@ -13,6 +13,7 @@ export class UserService {
 
   public loggedInMessage$ = new Subject<string>();
   public message$ = new Subject<string>();
+  public loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
 
 
   constructor(private http: HttpClient, private router: Router, private messageService: MessageService) {
@@ -29,6 +30,7 @@ export class UserService {
           this.messageService.success(`User ${loggedInUser.username} is logged in.`)
           // this.message$.next(`User ${loggedInUser.username} is logged in.`);
           localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+          this.loggedIn.next(true);
 
           // ... or get the Authorization header from the response:
           // const token = response.headers.get('Authorization')?.substr(7);
@@ -51,9 +53,13 @@ export class UserService {
   }
 
   logout(): void {
-    localStorage.removeItem('loggedInUser')
-    this.loggedInMessage$.next('Not logged in')
-    this.router.navigate(['/login']);
+    console.log('Logging out...');
+    localStorage.removeItem('loggedInUser');
+    this.loggedInMessage$.next('Not logged in');
+    this.messageService.success('Logged out');
+    console.log('should be loggged out now');
+    this.loggedIn.next(false);
+    // this.router.navigate(['/login']);
   }
 
 

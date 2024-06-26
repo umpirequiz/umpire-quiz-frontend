@@ -5,6 +5,6 @@
 export const environment = {production: false};
 
 export const serverUrl = 'http://localhost:9080/baseball-quiz/api';
-export const userService = 'http://localhost:9080/user-service/auth-api/auth'
+export const userService = 'http://localhost:9080/auth-api/auth'
 // export const serverUrl = 'http://localhost:3000';
 // export const serverUrl = 'http://localhost:8080/javawebapp_war_exploded';
