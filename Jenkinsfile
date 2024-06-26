@@ -45,7 +45,10 @@ pipeline {
       steps {
         script {
           withSonarQubeEnv(credentialsId: 'Sonar-Secret') {
-            sh "npx sonarqube-scanner -Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.projectName='${SONAR_PROJECT_NAME}'"
+            sh "npx sonarqube-scanner \
+                    -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+                    -Dsonar.projectName='${SONAR_PROJECT_NAME}' \
+                    -Dsonar.projectVersion='${VERSION}'"
           }
         }
         waitForQualityGate abortPipeline: SONAR_BREAKS_BUILD, credentialsId: 'Sonar-Secret'
