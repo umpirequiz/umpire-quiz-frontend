@@ -25,7 +25,7 @@ export class EnvironmentService {
 
   get env(): Environment {
     if (this._env.health == "") {
-      let _env = sessionStorage.getItem("env");
+      const _env = sessionStorage.getItem("env");
       if (_env !== null) {
         const env: Environment = JSON.parse(_env)
         this.env = env;
