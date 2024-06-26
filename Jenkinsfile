@@ -71,7 +71,7 @@ pipeline {
         }
       }
       steps {
-        sh 'podman build -t ${IMAGE_NAME} .'
+        sh 'podman build --net host -t ${IMAGE_NAME} .'
         sh 'podman tag ${IMAGE_NAME}:latest ${IMAGE_NAME}:${VERSION}'
         sh 'podman tag ${IMAGE_NAME}:latest ${IMAGE_NAME}:${MAJOR_VERSION}-latest'
         sh 'podman tag ${IMAGE_NAME}:latest ${IMAGE_NAME}:${MAJOR_VERSION}.${MINOR_VERSION}-latest'
