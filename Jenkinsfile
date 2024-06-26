@@ -16,7 +16,10 @@ pipeline {
     SONAR_PROJECT_KEY = 'Umpire-Quiz-Frontend'
     SONAR_PROJECT_NAME = 'Umpire Quiz Frontend'
   }
-  tools { nodejs 'Node22.2' }
+  tools {
+    nodejs 'Node22.2'
+    dockerTool 'Docker 17.09'
+  }
   stages {
     stage('Install Dependencies') {
       steps {
@@ -85,6 +88,20 @@ pipeline {
         script {
           id = release()
         }
+      }
+    }
+  }
+
+  stage('Update Gebruikers Test Omgeving') {
+    when {
+      allOf {
+        not { equals(actual: "${VERSION}", expected: "${PREV_VERSION}") }
+        branch 'main'
+      }
+    }
+    steps {
+      withCredentials([sshUserPrivateKey(credentialsId: 'Umpire-Quiz-Acceptatie', keyFileVariable: 'KEY', usernameVariable: 'USER')]) {
+        sh 'ssh -i $KEY $USER@192.168.178.240 ~/update-Quiz.sh'
       }
     }
   }
