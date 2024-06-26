@@ -18,9 +18,12 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^17.0.0",
+    "bootstrap": "^5.3.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.3"
+    "zone.js": "~0.14.3",
+    "@popperjs/core": "^2.11.8"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.0.4",

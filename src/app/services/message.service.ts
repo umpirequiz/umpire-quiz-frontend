@@ -1,34 +1,30 @@
-import {Injectable, ViewChild} from '@angular/core';
-import {debounceTime, Subject, tap} from "rxjs";
-import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
-import { NgbAlert, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import {Injectable} from '@angular/core';
+import {Observable, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
+  private _alert$ = new Subject<AlertMessage>();
 
-  private _message$ = new Subject<string>();
-
-  staticAlertClosed = false;
-  successMessage = '';
-
-  @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
-  @ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert;
-
-  constructor() {
-    setTimeout(() => this.staticAlert.close(), 20000);
-
-    this._message$
-      .pipe(
-        takeUntilDestroyed(),
-        tap((message) => (this.successMessage = message)),
-        debounceTime(5000),
-      )
-      .subscribe(() => this.selfClosingAlert?.close());
+  get alert$(): Observable<AlertMessage> {
+    return this._alert$.asObservable();
   }
 
-  public changeSuccessMessage() {
-    this._message$.next(`${new Date()} - Message successfully changed.`);
+  success(message: string) {
+    this._alert$.next({type: 'success', text: message});
   }
+
+  error(message: string) {
+    this._alert$.next({type: 'error', text: message});
+  }
+
+  warn(message: string) {
+    this._alert$.next({type: 'warning', text: message});
+  }
+}
+
+export interface AlertMessage {
+  type: 'success' | 'error' | 'warning';
+  text: string;
 }
