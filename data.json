@@ -1,0 +1,367 @@
+{
+  "quizzes": {
+    "difficulties": [
+      "UMPIRE_1",
+      "UMPIRE_2",
+      "UMPIRE_3",
+      "UMPIRE_4"
+    ],
+    "questions": [
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "Dead ball, R2 is placed on 3rd.",
+              "NL_NL": "Dead ball, R2 is placed on 3rd."
+            },
+            "id": 86
+          },
+          {
+            "i18nValue": {
+              "EN_US": "R2 is out.",
+              "NL_NL": "R2 is out."
+            },
+            "id": 169
+          }
+        ],
+        "gameState": {
+          "balls": 0,
+          "batterRunner": false,
+          "outs": 0,
+          "runnerBase1": false,
+          "runnerBase2": true,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner.",
+          "NL_NL": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner."
+        },
+        "id": 153
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "Yes",
+              "NL_NL": "Yes"
+            },
+            "id": 206
+          },
+          {
+            "i18nValue": {
+              "EN_US": "No",
+              "NL_NL": "No"
+            },
+            "id": 214
+          }
+        ],
+        "gameState": {
+          "balls": 0,
+          "batterRunner": false,
+          "outs": 0,
+          "runnerBase1": false,
+          "runnerBase2": false,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "Batter hits a fair ball along the first base line.  The ball takes an awkward bounce and hits the BR as he passes the ball.  Is he out?",
+          "NL_NL": "Batter hits a fair ball along the first base line.  The ball takes an awkward bounce and hits the BR as he passes the ball.  Is he out?"
+        },
+        "id": 84
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "Umpire interference, ball is dead, R1 is placed back on 1st base.",
+              "NL_NL": "Umpire interference, ball is dead, R1 is placed back on 1st base."
+            },
+            "id": 176
+          },
+          {
+            "i18nValue": {
+              "EN_US": "No interference, play stands",
+              "NL_NL": "No interference, play stands"
+            },
+            "id": 351
+          }
+        ],
+        "gameState": {
+          "balls": 0,
+          "batterRunner": true,
+          "outs": 0,
+          "runnerBase1": true,
+          "runnerBase2": false,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "Pitch is in the dirt and gets behind the catcher. Runner on first takes off for second base. Catcher attempts to throw to 2nd, but runs into the plate umpire they are unable to throw the runner out.",
+          "NL_NL": "Pitch is in the dirt and gets behind the catcher. Runner on first takes off for second base. Catcher attempts to throw to 2nd, but runs into the plate umpire they are unable to throw the runner out."
+        },
+        "id": 116
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "Interference, R2 is out.",
+              "NL_NL": "Interference, R2 is out."
+            },
+            "id": 235
+          },
+          {
+            "i18nValue": {
+              "EN_US": "No obstruction.  No penalty.",
+              "NL_NL": "No obstruction.  No penalty."
+            },
+            "id": 364
+          },
+          {
+            "i18nValue": {
+              "EN_US": "Obstruction, R2 is awarded 3rd base.",
+              "NL_NL": "Obstruction, R2 is awarded 3rd base."
+            },
+            "id": 399
+          },
+          {
+            "i18nValue": {
+              "EN_US": "R2 is out for running out of the base line",
+              "NL_NL": "R2 is out for running out of the base line"
+            },
+            "id": 424
+          }
+        ],
+        "gameState": {
+          "balls": 0,
+          "batterRunner": true,
+          "outs": 0,
+          "runnerBase1": false,
+          "runnerBase2": true,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball.",
+          "NL_NL": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball."
+        },
+        "id": 112
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "R1 to 2nd, BR to 1st.",
+              "NL_NL": "R1 to 2nd, BR to 1st."
+            },
+            "id": 109
+          },
+          {
+            "i18nValue": {
+              "EN_US": "R1 to 3rd, BR to 2nd.",
+              "NL_NL": "R1 to 3rd, BR to 2nd."
+            },
+            "id": 212
+          },
+          {
+            "i18nValue": {
+              "EN_US": "R1 scores, BR to 3rd.",
+              "NL_NL": "R1 scores, BR to 3rd."
+            },
+            "id": 250
+          }
+        ],
+        "gameState": {
+          "balls": 0,
+          "batterRunner": true,
+          "outs": 0,
+          "runnerBase1": true,
+          "runnerBase2": false,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "Batter hits a line drive to right field.  The right fielder throws to 2nd base before R1 crosses 2nd base, but it sails through the infield, bouncing around for a while.  The ball finally settles into the dugout as R1 passes third base.  Who goes where?",
+          "NL_NL": "Batter hits a line drive to right field.  The right fielder throws to 2nd base before R1 crosses 2nd base, but it sails through the infield, bouncing around for a while.  The ball finally settles into the dugout as R1 passes third base.  Who goes where?"
+        },
+        "id": 124
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "BR is out.",
+              "NL_NL": "BR is out."
+            },
+            "id": 40
+          },
+          {
+            "i18nValue": {
+              "EN_US": "BR is not out",
+              "NL_NL": "BR is not out"
+            },
+            "id": 118
+          }
+        ],
+        "gameState": {
+          "balls": 0,
+          "batterRunner": true,
+          "outs": 0,
+          "runnerBase1": false,
+          "runnerBase2": false,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "Fielder in attempting to make a catch has the ball ricochet off his glove and against his body where he traps the ball with his arm.  The fielder grabs the ball and holds it up and throws it back to the infield.",
+          "NL_NL": "Fielder in attempting to make a catch has the ball ricochet off his glove and against his body where he traps the ball with his arm.  The fielder grabs the ball and holds it up and throws it back to the infield."
+        },
+        "id": 183
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "Infield fly, batter is out, R2 is out for interference. Ball is dead, all runners return. 3 outs, inning over.",
+              "NL_NL": "Infield fly, batter is out, R2 is out for interference. Ball is dead, all runners return. 3 outs, inning over."
+            },
+            "id": 5
+          },
+          {
+            "i18nValue": {
+              "EN_US": "Ball is dead immediately on the infield fly. Batter is out. All runners return",
+              "NL_NL": "Ball is dead immediately on the infield fly. Batter is out. All runners return"
+            },
+            "id": 311
+          },
+          {
+            "i18nValue": {
+              "EN_US": "Ball is dead immediatedly for interference by R2. R2 is out. BR is awarded 1st base, R1 to 2nd base.",
+              "NL_NL": "Ball is dead immediatedly for interference by R2. R2 is out. BR is awarded 1st base, R1 to 2nd base."
+            },
+            "id": 347
+          }
+        ],
+        "gameState": {
+          "balls": 0,
+          "batterRunner": true,
+          "outs": 1,
+          "runnerBase1": true,
+          "runnerBase2": true,
+          "runnerBase3": true,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "Batter hits a high fly ball above the shortstop. R2 takes off on contact and F6 runs into R2 and is unable to catch the ball.",
+          "NL_NL": "Batter hits a high fly ball above the shortstop. R2 takes off on contact and F6 runs into R2 and is unable to catch the ball."
+        },
+        "id": 8
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "R1 is safe.",
+              "NL_NL": "R1 is safe."
+            },
+            "id": 186
+          },
+          {
+            "i18nValue": {
+              "EN_US": "R1 is out for sliding head first.",
+              "NL_NL": "R1 is out for sliding head first."
+            },
+            "id": 363
+          }
+        ],
+        "gameState": {
+          "balls": 0,
+          "batterRunner": false,
+          "outs": 0,
+          "runnerBase1": false,
+          "runnerBase2": false,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "R1 takes a few steps off of 1st base after a wild pitch.  When the catcher throws to first, he dives headfirst back to first base.",
+          "NL_NL": "R1 takes a few steps off of 1st base after a wild pitch.  When the catcher throws to first, he dives headfirst back to first base."
+        },
+        "id": 71
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "Shake her hand and let Shiraz warm up!",
+              "NL_NL": "Shake her hand and let Shiraz warm up!"
+            },
+            "id": 133
+          },
+          {
+            "i18nValue": {
+              "EN_US": "Don't let Gabby catch",
+              "NL_NL": "Don't let Gabby catch"
+            },
+            "id": 160
+          },
+          {
+            "i18nValue": {
+              "EN_US": "Warn the manager that Gabby is probably tired and should sit an inning before catching",
+              "NL_NL": "Warn the manager that Gabby is probably tired and should sit an inning before catching"
+            },
+            "id": 433
+          }
+        ],
+        "gameState": {
+          "balls": 0,
+          "batterRunner": false,
+          "outs": 0,
+          "runnerBase1": false,
+          "runnerBase2": false,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "It’s the bottom of the 5th inning and Gabby has pitched a heckuva game, and efficient too! Only 60 pitches! The manager decides its time to bring in Shiraz in relief and Gabby is going to catch since she knows what this umipre likes.",
+          "NL_NL": "It’s the bottom of the 5th inning and Gabby has pitched a heckuva game, and efficient too! Only 60 pitches! The manager decides its time to bring in Shiraz in relief and Gabby is going to catch since she knows what this umipre likes."
+        },
+        "id": 17
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "R2 is out on appeal, BR does not score",
+              "NL_NL": "R2 is out on appeal, BR does not score"
+            },
+            "id": 285
+          },
+          {
+            "i18nValue": {
+              "EN_US": "R2 is out on appeal.  BR scores",
+              "NL_NL": "R2 is out on appeal.  BR scores"
+            },
+            "id": 358
+          }
+        ],
+        "gameState": {
+          "balls": 0,
+          "batterRunner": true,
+          "outs": 2,
+          "runnerBase1": true,
+          "runnerBase2": true,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "BR hits a bullet into right field and rolls all the way to the fence  R2 misses 3rd base and motors home.  R1 takes off and makes it home as well while the right fielder tracks down the ball.  Defensive team properly appeals.  What happens?",
+          "NL_NL": "BR hits a bullet into right field and rolls all the way to the fence  R2 misses 3rd base and motors home.  R1 takes off and makes it home as well while the right fielder tracks down the ball.  Defensive team properly appeals.  What happens?"
+        },
+        "id": 9
+      }
+    ]
+  }
+}
