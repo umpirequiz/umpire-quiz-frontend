@@ -1,5 +1,5 @@
 export interface Question {
-  id: number;
+  id: number; 
   i18nValue: InternationalizedString;
   gameState: GameState;
   answers: Answer[];
