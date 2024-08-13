@@ -1,18 +1,18 @@
 <div class="card mt-1">
-  <div class="card-header">Gamestate:</div>
+  <div class="card-header">Gamestate</div>
   <div class="card-body">
     <table class="w-100" aria-hidden="true">
       <tr>
-        <td>Balls: {{ currentGameState.balls }}</td>
-        <td>Runner Base 1: {{ currentGameState.runnerBase1 ? "Yes" : "No" }}</td>
+        <td>
+          Balls {{ currentGameState.balls }} -
+          Strikes  {{ currentGameState.strikes }} -
+          Outs {{ currentGameState.outs }}
+        </td>
       </tr>
       <tr>
-        <td>Strikes: {{ currentGameState.strikes }}</td>
-        <td>Runner Base 2: {{ currentGameState.runnerBase2 ? "Yes" : "No" }}</td>
-      </tr>
-      <tr>
-        <td>Outs: {{ currentGameState.outs }}</td>
-        <td>Runner Base 3: {{ currentGameState.runnerBase3 ? "Yes" : "No" }}</td>
+        <td>
+          {{ runners() }}
+        </td>
       </tr>
     </table>
   </div>
