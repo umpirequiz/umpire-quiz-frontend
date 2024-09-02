@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {Question} from "../../../domain/Question";
+import {emptyQuestion, Question} from "../../../domain/Question";
 import {FormsModule, NgForm, NgModel} from "@angular/forms";
 import {QuestionService} from "../../../services/question.service";
 
@@ -14,18 +14,15 @@ import {QuestionService} from "../../../services/question.service";
 export class QuestionComponent implements OnInit {
 
   editMode = true;
-  question: Question = {} as Question;
-  modeLabel: string = "Wijzig";
+  question: Question = emptyQuestion;
+  modeLabel: string = "Edit";
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private service: QuestionService) {
-    console.log("QuestionComponent constructor")
-
   }
 
   ngOnInit(): void {
-    console.log("QuestionComponent ngOnInit")
     this.route.paramMap.subscribe(
       (params: ParamMap) => this.processUrlParams(params.get('subPath') ?? "")
     )
@@ -34,7 +31,7 @@ export class QuestionComponent implements OnInit {
   private processUrlParams(subPath: string) {
     if (subPath === 'add') {
       this.editMode = false;
-      this.modeLabel = "Toevoegen"
+      this.modeLabel = "Add"
     } else {
       this.loadQuestion(subPath);
     }

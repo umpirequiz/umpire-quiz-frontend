@@ -1,5 +1,5 @@
 export interface Question {
-  id: number; 
+  id: number;
   i18nValue: InternationalizedString;
   gameState: GameState;
   answers: Answer[];
@@ -27,4 +27,18 @@ export interface GameState {
   runnerBase2: boolean
   runnerBase3: boolean
   batterRunner: boolean
+}
+
+let emptyI18dString = {
+  NL_NL: "", EN_US: ""
+}
+
+export let emptyQuestion = {
+  id: 0,
+  i18nValue: {} as InternationalizedString,
+  gameState: {} as GameState,
+  answers: [] as Answer[],
+  selectedAnswer: 0,
+  questionIndex: 0,
+  i18nRuling:  {} as InternationalizedString
 }
