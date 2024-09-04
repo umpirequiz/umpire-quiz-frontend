@@ -8,7 +8,7 @@ import {GameStateComponent} from "../../quiz/game-state/game-state.component";
 import {QuestionComponent as QuizQuestionComponent}  from "../../quiz/question/question.component";
 
 @Component({
-  selector: 'bq-question',
+  selector: 'app-admin-question',
   standalone: true,
   imports: [FormsModule, AnswersComponent, GameStateComponent, QuizQuestionComponent],
   templateUrl: './question.component.html',

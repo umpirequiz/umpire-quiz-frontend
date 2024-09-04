@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 
 @Component({
-  selector: 'bq-search',
+  selector: 'app-search',
   standalone: true,
   templateUrl: './search.component.html',
   imports: [

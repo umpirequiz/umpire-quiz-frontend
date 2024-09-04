@@ -3,7 +3,7 @@
     New
   </div>
   <div class="col-5 my-auto">
-    <bq-search placeholder="Search question..." (search)="handleSearch($event)"></bq-search>
+    <app-search placeholder="Search question..." (search)="handleSearch($event)"></app-search>
   </div>
   <div class="col-5">
     <mat-paginator [length]="totalItems" [pageIndex]="currentPage"
@@ -19,7 +19,7 @@
       <th>#</th>
       <th></th>
       <th>Question</th>
-      <th>Details</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>

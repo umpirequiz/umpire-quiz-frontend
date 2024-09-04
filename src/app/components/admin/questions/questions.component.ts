@@ -9,7 +9,7 @@ import {SearchComponent} from "../../search/search.component";
 import {QuestionService} from "../../../services/question.service";
 
 @Component({
-  selector: 'bq-questions',
+  selector: 'app-questions',
   standalone: true,
   imports: [
     RouterLink,

@@ -147,7 +147,8 @@
           "EN_US": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball.",
           "NL_NL": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball."
         },
-        "id": 112
+        "id": 112,
+        "selectedAnswer": 399
       },
       {
         "answers": [
@@ -360,7 +361,8 @@
           "EN_US": "BR hits a bullet into right field and rolls all the way to the fence  R2 misses 3rd base and motors home.  R1 takes off and makes it home as well while the right fielder tracks down the ball.  Defensive team properly appeals.  What happens?",
           "NL_NL": "BR hits a bullet into right field and rolls all the way to the fence  R2 misses 3rd base and motors home.  R1 takes off and makes it home as well while the right fielder tracks down the ball.  Defensive team properly appeals.  What happens?"
         },
-        "id": 9
+        "id": 9,
+        "selectedAnswer": 358
       }
     ]
   },

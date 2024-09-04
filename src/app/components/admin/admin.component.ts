@@ -4,7 +4,7 @@ import {RouterOutlet} from "@angular/router";
 import {QuestionsComponent} from "./questions/questions.component";
 
 @Component({
-  selector: 'bq-admin',
+  selector: 'app-admin',
   standalone: true,
   imports: [
     QuestionsComponent,
