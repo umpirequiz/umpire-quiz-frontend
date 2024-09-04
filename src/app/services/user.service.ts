@@ -34,7 +34,7 @@ export class UserService {
           localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
           this.loggedIn.next(true);
           this.router.navigate(['/']);
-          
+
           // ... or get the Authorization header from the response:
           // const token = response.headers.get('Authorization')?.substr(7);
           // localStorage.setItem('token', JSON.stringify(token));
@@ -62,7 +62,7 @@ export class UserService {
     this.messageService.success('Logged out');
     console.log('should be loggged out now');
     this.loggedIn.next(false);
-    // this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 
 
