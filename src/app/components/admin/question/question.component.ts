@@ -14,8 +14,8 @@ import {QuestionService} from "../../../services/question.service";
 export class QuestionComponent implements OnInit {
 
   editMode = true;
-  question: Question = emptyQuestion;
-  modeLabel: string = "Edit";
+  question = emptyQuestion;
+  modeLabel = "Edit";
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -46,9 +46,9 @@ export class QuestionComponent implements OnInit {
     if(!questionForm.valid) return;
 
     if (this.editMode) {
-      this.service.update(questionForm.value)
+      this.service.update(this.question)
     } else {
-      this.service.add(questionForm.value)
+      this.service.add(this.question)
     }
     this.back();
   }

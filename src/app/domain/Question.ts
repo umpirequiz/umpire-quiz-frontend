@@ -33,12 +33,28 @@ let emptyI18dString = {
   NL_NL: "", EN_US: ""
 }
 
-export let emptyQuestion = {
+let emptyGameState = {
+  balls: 0,
+  outs: 0,
+  strikes: 0,
+  runnerBase1: false,
+  runnerBase2: false,
+  runnerBase3: false,
+  batterRunner: false
+}
+
+let emptyAnswer = {
   id: 0,
-  i18nValue: {} as InternationalizedString,
-  gameState: {} as GameState,
-  answers: [] as Answer[],
+  i18nValue: emptyI18dString,
+  correct: false
+}
+
+export let emptyQuestion: Question = {
+  id: 0,
+  i18nValue: emptyI18dString,
+  gameState: emptyGameState,
+  answers: [emptyAnswer] as Answer[],
   selectedAnswer: 0,
   questionIndex: 0,
-  i18nRuling:  {} as InternationalizedString
+  i18nRuling:  emptyI18dString
 }

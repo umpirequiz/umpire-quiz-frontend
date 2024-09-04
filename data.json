@@ -395,8 +395,35 @@
   ],
   "questions": [
     {
-      "text": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner.vvvvvvvvvv",
-      "cStrikes": 1,
+      "answers": [
+        {
+          "i18nValue": {
+            "EN_US": "Dead ball, R2 is placed on 3rd.",
+            "NL_NL": "Dead ball, R2 is placed on 3rd."
+          },
+          "id": 86
+        },
+        {
+          "i18nValue": {
+            "EN_US": "R2 is out.",
+            "NL_NL": "R2 is out."
+          },
+          "id": 169
+        }
+      ],
+      "gameState": {
+        "balls": 0,
+        "batterRunner": false,
+        "outs": 0,
+        "runnerBase1": false,
+        "runnerBase2": true,
+        "runnerBase3": false,
+        "strikes": 0
+      },
+      "i18nValue": {
+        "EN_US": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner.",
+        "NL_NL": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner."
+      },
       "id": 153
     },
     {
@@ -423,7 +450,7 @@
         "runnerBase1": false,
         "runnerBase2": false,
         "runnerBase3": false,
-        "strikes": 1
+        "strikes": 0
       },
       "i18nValue": {
         "EN_US": "Batter hits a fair ball along the first base line.  The ball takes an awkward bounce and hits the BR as he passes the ball.  Is he out?",
@@ -508,6 +535,45 @@
         "NL_NL": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball."
       },
       "id": 112
+    },
+    {
+      "answers": [
+        {
+          "i18nValue": {
+            "EN_US": "R1 to 2nd, BR to 1st.",
+            "NL_NL": "R1 to 2nd, BR to 1st."
+          },
+          "id": 109
+        },
+        {
+          "i18nValue": {
+            "EN_US": "R1 to 3rd, BR to 2nd.",
+            "NL_NL": "R1 to 3rd, BR to 2nd."
+          },
+          "id": 212
+        },
+        {
+          "i18nValue": {
+            "EN_US": "R1 scores, BR to 3rd.",
+            "NL_NL": "R1 scores, BR to 3rd."
+          },
+          "id": 250
+        }
+      ],
+      "gameState": {
+        "balls": 0,
+        "batterRunner": true,
+        "outs": 0,
+        "runnerBase1": true,
+        "runnerBase2": false,
+        "runnerBase3": false,
+        "strikes": 0
+      },
+      "i18nValue": {
+        "EN_US": "Batter hits a line drive to right field.  The right fielder throws to 2nd base before R1 crosses 2nd base, but it sails through the infield, bouncing around for a while.  The ball finally settles into the dugout as R1 passes third base.  Who goes where?",
+        "NL_NL": "Batter hits a line drive to right field.  The right fielder throws to 2nd base before R1 crosses 2nd base, but it sails through the infield, bouncing around for a while.  The ball finally settles into the dugout as R1 passes third base.  Who goes where?"
+      },
+      "id": 124
     },
     {
       "answers": [
@@ -682,6 +748,38 @@
         "NL_NL": "BR hits a bullet into right field and rolls all the way to the fence  R2 misses 3rd base and motors home.  R1 takes off and makes it home as well while the right fielder tracks down the ball.  Defensive team properly appeals.  What happens?"
       },
       "id": 9
+    },
+    {
+      "id": 184,
+      "i18nValue": {
+        "NL_NL": "",
+        "EN_US": "test"
+      },
+      "gameState": {
+        "balls": 0,
+        "outs": 0,
+        "strikes": 2,
+        "runnerBase1": false,
+        "runnerBase2": false,
+        "runnerBase3": false,
+        "batterRunner": false
+      },
+      "answers": [
+        {
+          "id": 0,
+          "i18nValue": {
+            "NL_NL": "",
+            "EN_US": "test"
+          },
+          "correct": false
+        }
+      ],
+      "selectedAnswer": 0,
+      "questionIndex": 0,
+      "i18nRuling": {
+        "NL_NL": "",
+        "EN_US": "test"
+      }
     }
   ]
 }
