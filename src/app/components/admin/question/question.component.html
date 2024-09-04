@@ -1,27 +1,24 @@
 {{ this.modeLabel }} question:
 <form (ngSubmit)="save(questionForm)" #questionForm="ngForm" class="card p-2 m-2" novalidate>
   <div class="card-body">
-    @if (this.editMode) {
-      <label for="id" class="form-label">Id</label>
-      <input type="number" class="form-control mb-2"
-             id="id" name="id"
-             required disabled
-             [(ngModel)]="question.id">
-    }
+    <div class="card p-0 p-lg-0 text-black border w-100">
+      <div class="card-header">
+        Question {{ question.id }}
+      </div>
+      <div class="card-body">
+        <app-game-state [edit]="true" [gameState]="question.gameState"></app-game-state>
+        <app-question [edit]="true" [question]="question"></app-question>
+        <hr/>
+        <app-answers
+          [answers]="question.answers"
+          [resultsScreen]="false"
+          [selectedAnswer]="question.selectedAnswer"
+          [questionId]="question.id"
+        ></app-answers>
+      </div>
+    </div>
 
-    <label for="i18nValue.EN_US" class="form-label">Question<span>{{ asterisk(qText) }}</span></label>
-    <textarea type="text" rows="5" class="form-control mb-2"
-              id="i18nValue.EN_US" name="i18nValue.EN_US"
-              required
-              [(ngModel)]="question.i18nValue.EN_US" #qText="ngModel"></textarea>
-
-    <label for="gameState.strikes" class="form-label">Strikes</label>
-    <input type="number" class="form-control mb-2"
-           id="gameState.strikes" name="gameState.strikes"
-           maxlength="1" max="3" required
-           [(ngModel)]="question.gameState.strikes">
-
-    <div class="btn-group" role="group" aria-label="Buttons">
+    <div class="btn-group py-3" role="group" aria-label="Buttons">
       <button class="btn btn-success" [disabled]="questionForm.invalid">Ok</button>
       <div class="btn btn-warning" (click)="cancel()">Cancel</div>
     </div>

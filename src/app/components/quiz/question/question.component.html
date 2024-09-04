@@ -1,4 +1,13 @@
 <div class="card mt-1">
   <div class="card-header">Question:</div>
-  <div class="card-body">{{question.i18nValue.NL_NL}}</div>
+  <div class="card-body">
+    @if (this.edit) {
+      <textarea type="text" rows="3" class="form-control mb-2"
+                id="i18nValue.EN_US" name="i18nValue.EN_US"
+                required
+                [(ngModel)]="question.i18nValue.EN_US"></textarea>
+    } @else {
+      {{ question.i18nValue.EN_US }}
+    }
+  </div>
 </div>

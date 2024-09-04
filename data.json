@@ -391,6 +391,11 @@
       "username": "admin",
       "password": "admin",
       "id": 5
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 6
     }
   ],
   "questions": [
@@ -414,10 +419,10 @@
       "gameState": {
         "balls": 0,
         "batterRunner": false,
-        "outs": 0,
-        "runnerBase1": false,
+        "outs": 1,
+        "runnerBase1": true,
         "runnerBase2": true,
-        "runnerBase3": false,
+        "runnerBase3": true,
         "strikes": 0
       },
       "i18nValue": {

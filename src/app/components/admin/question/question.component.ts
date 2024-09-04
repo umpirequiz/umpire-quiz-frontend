@@ -1,13 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {emptyQuestion, Question} from "../../../domain/Question";
+import {emptyQuestion} from "../../../domain/Question";
 import {FormsModule, NgForm, NgModel} from "@angular/forms";
 import {QuestionService} from "../../../services/question.service";
+import {AnswersComponent} from "../../quiz/answers/answers.component";
+import {GameStateComponent} from "../../quiz/game-state/game-state.component";
+import {QuestionComponent as QuizQuestionComponent}  from "../../quiz/question/question.component";
 
 @Component({
   selector: 'bq-question',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, AnswersComponent, GameStateComponent, QuizQuestionComponent],
   templateUrl: './question.component.html',
   styleUrl: './question.component.scss'
 })
@@ -43,7 +46,7 @@ export class QuestionComponent implements OnInit {
   }
 
   save(questionForm: NgForm) {
-    if(!questionForm.valid) return;
+    if (!questionForm.valid) return;
 
     if (this.editMode) {
       this.service.update(this.question)
