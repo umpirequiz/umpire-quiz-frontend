@@ -43,18 +43,22 @@ let emptyGameState = {
   batterRunner: false
 }
 
-let emptyAnswer = {
-  id: 0,
-  i18nValue: emptyI18dString,
-  correct: false
+export function emptyQuestion(): Question {
+  return {
+    id: 0,
+    i18nValue: emptyI18dString,
+    gameState: emptyGameState,
+    answers: [createAnswer()] as Answer[],
+    selectedAnswer: 0,
+    questionIndex: 0,
+    i18nRuling: emptyI18dString
+  }
 }
 
-export let emptyQuestion: Question = {
-  id: 0,
-  i18nValue: emptyI18dString,
-  gameState: emptyGameState,
-  answers: [emptyAnswer] as Answer[],
-  selectedAnswer: 0,
-  questionIndex: 0,
-  i18nRuling:  emptyI18dString
+export function createAnswer(): Answer {
+  return {
+    id: 0,
+    i18nValue: {NL_NL: "", EN_US: ""},
+    correct: false
+  };
 }

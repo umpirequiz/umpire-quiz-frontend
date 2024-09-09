@@ -17,7 +17,7 @@ import {QuestionComponent as QuizQuestionComponent}  from "../../quiz/question/q
 export class QuestionComponent implements OnInit {
 
   editMode = true;
-  question = emptyQuestion;
+  question = emptyQuestion();
   modeLabel = "Edit";
 
   constructor(private route: ActivatedRoute,

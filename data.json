@@ -436,10 +436,10 @@
         {
           "i18nValue": {
             "EN_US": "Dead ball, R2 is placed on 3rd.",
-            "NL_NL": "Dead ball, R2 gaat naar 333333333."
+            "NL_NL": "Dead ball, R2 gaat naar 3."
           },
           "id": 86,
-          "correct": false
+          "correct": true
         },
         {
           "i18nValue": {
@@ -447,7 +447,15 @@
             "NL_NL": "R2 is uit."
           },
           "id": 169,
-          "correct": true
+          "correct": false
+        },
+        {
+          "id": 0,
+          "i18nValue": {
+            "NL_NL": "R1 is uit.",
+            "EN_US": "R1 is out."
+          },
+          "correct": false
         }
       ],
       "gameState": {
@@ -792,38 +800,6 @@
         "NL_NL": "BR hits a bullet into right field and rolls all the way to the fence  R2 misses 3rd base and motors home.  R1 takes off and makes it home as well while the right fielder tracks down the ball.  Defensive team properly appeals.  What happens?"
       },
       "id": 9
-    },
-    {
-      "id": 184,
-      "i18nValue": {
-        "NL_NL": "",
-        "EN_US": "test"
-      },
-      "gameState": {
-        "balls": 0,
-        "outs": 0,
-        "strikes": 2,
-        "runnerBase1": false,
-        "runnerBase2": false,
-        "runnerBase3": false,
-        "batterRunner": false
-      },
-      "answers": [
-        {
-          "id": 0,
-          "i18nValue": {
-            "NL_NL": "",
-            "EN_US": "test"
-          },
-          "correct": false
-        }
-      ],
-      "selectedAnswer": 0,
-      "questionIndex": 0,
-      "i18nRuling": {
-        "NL_NL": "",
-        "EN_US": "test"
-      }
     }
   ]
 }

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Answer, Question} from "../../../domain/Question";
+import {Answer, createAnswer, Question} from "../../../domain/Question";
 import {NgClass} from "@angular/common";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
 import {FormsModule} from "@angular/forms";
@@ -62,4 +62,9 @@ export class AnswersComponent {
   isCorrectAnswer(index: number): boolean {
     return this.answers[index]?.correct ?? false
   }
+
+  newAnswer() {
+    this.answers.push(createAnswer())
+  }
+
 }

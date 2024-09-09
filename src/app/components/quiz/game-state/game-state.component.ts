@@ -32,5 +32,5 @@ export class GameStateComponent {
     return runners.length == 0 ? "No runners" : runners.join(', ')
   }
 
-  protected readonly question = emptyQuestion;
+  protected readonly question = emptyQuestion();
 }
