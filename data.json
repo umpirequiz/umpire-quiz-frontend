@@ -398,6 +398,36 @@
       "username": "admin",
       "password": "admin",
       "id": 6
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 7
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 8
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 9
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 10
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 11
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 12
     }
   ],
   "questions": [
@@ -406,16 +436,18 @@
         {
           "i18nValue": {
             "EN_US": "Dead ball, R2 is placed on 3rd.",
-            "NL_NL": "Dead ball, R2 is placed on 3rd."
+            "NL_NL": "Dead ball, R2 gaat naar 3."
           },
-          "id": 86
+          "id": 86,
+          "correct": false
         },
         {
           "i18nValue": {
             "EN_US": "R2 is out.",
-            "NL_NL": "R2 is out."
+            "NL_NL": "R2 is uit."
           },
-          "id": 169
+          "id": 169,
+          "correct": false
         }
       ],
       "gameState": {

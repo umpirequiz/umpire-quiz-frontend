@@ -1,9 +1,29 @@
 <ul class="list-group mt-1">
   <li class="list-group-item" style="background-color: var(--bs-card-cap-bg);">Answers:</li>
-  @if (resultsScreen) {
+  @if (edit) {
+    <div class="input-group">
+      <label for="checkHead" class="form-check-label m-2">
+        <input type="checkbox" class="form-check-input p-1" id="checkHead" checked disabled />
+      </label>
+      <input type="text" class="form-control" value="EN" disabled>
+      <input type="text" class="form-control" value="NL" disabled>
+    </div>
+    @for (answer of answers; track $index) {
+      <div class="input-group">
+        <label for="{{answer.id}}" class="form-check-label m-2">
+          <input type="checkbox" class="form-check-input p-1" id="{{answer.id}}"
+                 [(ngModel)]="answer.correct">
+        </label>
+        <input type="text" class="form-control" id="{{answer.id}}"
+               [(ngModel)]="answer.i18nValue.EN_US" name="{{answer.id}}"/>
+        <input type="text" class="form-control" id="{{answer.id}}"
+               [(ngModel)]="answer.i18nValue.NL_NL" name="{{answer.id}}"/>
+      </div>
+    }
+  } @else if (resultsScreen) {
     @for (answer of answers; track $index) {
       <li class="list-group-item"
-          [class]="wasAnsweredCorrectly(questionId, answer.id)">{{ answer.i18nValue.NL_NL }}
+          [class]="wasAnsweredCorrectly(questionId, answer.id)">{{ answer.i18nValue.EN_US }}
       </li>
     }
   } @else {

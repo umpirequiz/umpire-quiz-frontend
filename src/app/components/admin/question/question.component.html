@@ -10,8 +10,9 @@
         <app-question [edit]="true" [question]="question"></app-question>
         <hr/>
         <app-answers
-          [answers]="question.answers"
+          [edit]="true"
           [resultsScreen]="false"
+          [answers]="question.answers"
           [selectedAnswer]="question.selectedAnswer"
           [questionId]="question.id"
         ></app-answers>
