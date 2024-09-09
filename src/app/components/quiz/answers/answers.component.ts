@@ -52,11 +52,14 @@ export class AnswersComponent {
     }
   }
 
-  selectCorrectAnswer(index: number) {
+  setCorrectAnswer(index: number) {
     this.answers.forEach((answer: Answer) => {
       answer.correct = false
     })
     this.answers[index].correct = true
-    console.log(this.answers);
+  }
+
+  isCorrectAnswer(index: number): boolean {
+    return this.answers[index]?.correct ?? false
   }
 }

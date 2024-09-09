@@ -436,7 +436,7 @@
         {
           "i18nValue": {
             "EN_US": "Dead ball, R2 is placed on 3rd.",
-            "NL_NL": "Dead ball, R2 gaat naar 3."
+            "NL_NL": "Dead ball, R2 gaat naar 333333333."
           },
           "id": 86,
           "correct": false
@@ -447,7 +447,7 @@
             "NL_NL": "R2 is uit."
           },
           "id": 169,
-          "correct": false
+          "correct": true
         }
       ],
       "gameState": {
@@ -472,14 +472,16 @@
             "EN_US": "Yes",
             "NL_NL": "Yes"
           },
-          "id": 206
+          "id": 206,
+          "correct": false
         },
         {
           "i18nValue": {
             "EN_US": "No",
             "NL_NL": "No"
           },
-          "id": 214
+          "id": 214,
+          "correct": false
         }
       ],
       "gameState": {
@@ -582,21 +584,24 @@
             "EN_US": "R1 to 2nd, BR to 1st.",
             "NL_NL": "R1 to 2nd, BR to 1st."
           },
-          "id": 109
+          "id": 109,
+          "correct": true
         },
         {
           "i18nValue": {
             "EN_US": "R1 to 3rd, BR to 2nd.",
             "NL_NL": "R1 to 3rd, BR to 2nd."
           },
-          "id": 212
+          "id": 212,
+          "correct": false
         },
         {
           "i18nValue": {
             "EN_US": "R1 scores, BR to 3rd.",
             "NL_NL": "R1 scores, BR to 3rd."
           },
-          "id": 250
+          "id": 250,
+          "correct": false
         }
       ],
       "gameState": {
