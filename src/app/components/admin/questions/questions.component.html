@@ -17,20 +17,21 @@
   <thead class="thead-dark">
     <tr>
       <th>#</th>
-      <th></th>
       <th>Question</th>
-      <th>Actions</th>
+      <th class="text-center"><i class="fa-solid fa-gears"></i></th>
     </tr>
   </thead>
   <tbody>
     @for (q of questions; track $index) {
       <tr>
-        <td>{{ q.id }}</td>
-        <td><i routerLink="{{q.id}}" class="fa-solid fa-circle-info"></i></td>
+        <td id="id" routerLink="{{q.id}}">{{ q.id }}</td>
         <td>{{ q.i18nValue.EN_US }}</td>
         <td>
-          <i routerLink="/questions/{{q.id}}" class="fa-solid fa-pencil pointer-hand" style='color: #0044ff;'></i>
-          <i (click)="remove(q.id)" class="m-2 fa-solid fa-square-xmark pointer-hand" style='color: #ff0303;'></i>
+          <div class="btn-group">
+            <i routerLink="{{q.id}}" class="m-1 fa-solid fa-circle-info" style='color: #176000;'></i>
+            <i routerLink="/questions/{{q.id}}" class="m-1 fa-solid fa-pen-to-square pointer-hand" style='color: #0044aa;'></i>
+            <i (click)="remove(q.id)" class="m-1 fa-solid fa-trash pointer-hand" style='color: #cc0303;'></i>
+          </div>
         </td>
       </tr>
     }

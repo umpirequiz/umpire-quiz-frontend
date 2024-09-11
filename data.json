@@ -434,287 +434,120 @@
     {
       "answers": [
         {
+          "correct": false,
           "i18nValue": {
-            "EN_US": "Dead ball, R2 is placed on 3rd.",
-            "NL_NL": "Dead ball, R2 gaat naar 3."
+            "EN_US": "B3 is out, B2 is up.  Runners get to advance because of the passed ball, but the double is nullified.  One run total scores.",
+            "NL_NL": "B3 is out, B2 is up.  Runners get to advance because of the passed ball, but the double is nullified.  One run total scores."
           },
-          "id": 86,
-          "correct": true
+          "id": 16
         },
         {
+          "correct": true,
           "i18nValue": {
-            "EN_US": "R2 is out.",
-            "NL_NL": "R2 is uit."
+            "EN_US": "B2 is out, B3 is up.  Runners get to advance because of the passed ball, but the double is nullified (B3 is removed).  One run total scores.",
+            "NL_NL": "B2 is out, B3 is up.  Runners get to advance because of the passed ball, but the double is nullified (B3 is removed).  One run total scores."
           },
-          "id": 169,
-          "correct": false
+          "id": 243
         },
         {
-          "id": 0,
+          "correct": false,
           "i18nValue": {
-            "NL_NL": "R1 is uit.",
-            "EN_US": "R1 is out."
+            "EN_US": "B3 is out, B2 is up.  All plays nullified.  No runs score, all runners return to their original bases.",
+            "NL_NL": "B3 is out, B2 is up.  All plays nullified.  No runs score, all runners return to their original bases."
           },
-          "correct": false
+          "id": 266
+        },
+        {
+          "correct": false,
+          "i18nValue": {
+            "EN_US": "B2 is out, B3 is up.  All plays nullified.  No runs score, all runners return to their original bases.",
+            "NL_NL": "B2 is out, B3 is up.  All plays nullified.  No runs score, all runners return to their original bases."
+          },
+          "id": 309
         }
       ],
+      "difficulty": "UMPIRE_3",
+      "enabled": true,
       "gameState": {
         "balls": 0,
-        "batterRunner": false,
-        "outs": 1,
+        "batterRunner": true,
+        "outs": 0,
         "runnerBase1": true,
         "runnerBase2": true,
         "runnerBase3": true,
         "strikes": 0
       },
-      "i18nValue": {
-        "EN_US": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner.",
-        "NL_NL": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner."
+      "i18nRuling": {
+        "EN_US": "7.03(b).  All plays as a result of the improper batter batting are nullified.  All plays that occurred *before* the batter became a runner stand.",
+        "NL_NL": "7.03(b).  All plays as a result of the improper batter batting are nullified.  All plays that occurred *before* the batter became a runner stand."
       },
-      "id": 153
+      "i18nValue": {
+        "EN_US": "Batting order B1, B2, B3, B4.  B2 is the proper batter, but B3 comes up to bat.  1st pitch gets by the catcher, all runners advance (R3 scores).  B3 then hits a clean double, scoring the remaining 2 runners.  Defense appeals that B3 is out of order, before any more plays are made.  Sort this mess out.",
+        "NL_NL": "Batting order B1, B2, B3, B4.  B2 is the proper batter, but B3 comes up to bat.  1st pitch gets by the catcher, all runners advance (R3 scores).  B3 then hits a clean double, scoring the remaining 2 runners.  Defense appeals that B3 is out of order, before any more plays are made.  Sort this mess out."
+      },
+      "id": 181
     },
     {
       "answers": [
         {
+          "correct": true,
           "i18nValue": {
-            "EN_US": "Yes",
-            "NL_NL": "Yes"
+            "EN_US": "BR scores",
+            "NL_NL": "BR scores"
           },
-          "id": 206,
-          "correct": false
+          "id": 277
         },
         {
+          "correct": false,
           "i18nValue": {
-            "EN_US": "No",
-            "NL_NL": "No"
+            "EN_US": "BR must return to 3rd, ball is dead.",
+            "NL_NL": "BR must return to 3rd, ball is dead."
           },
-          "id": 214,
-          "correct": false
+          "id": 359
         }
       ],
+      "difficulty": "UMPIRE_3",
+      "enabled": true,
       "gameState": {
         "balls": 0,
         "batterRunner": false,
         "outs": 0,
-        "runnerBase1": false,
-        "runnerBase2": false,
-        "runnerBase3": false,
-        "strikes": 0
-      },
-      "i18nValue": {
-        "EN_US": "Batter hits a fair ball along the first base line.  The ball takes an awkward bounce and hits the BR as he passes the ball.  Is he out?",
-        "NL_NL": "Batter hits a fair ball along the first base line.  The ball takes an awkward bounce and hits the BR as he passes the ball.  Is he out?"
-      },
-      "id": 84
-    },
-    {
-      "answers": [
-        {
-          "i18nValue": {
-            "EN_US": "Umpire interference, ball is dead, R1 is placed back on 1st base.",
-            "NL_NL": "Umpire interference, ball is dead, R1 is placed back on 1st base."
-          },
-          "id": 176
-        },
-        {
-          "i18nValue": {
-            "EN_US": "No interference, play stands",
-            "NL_NL": "No interference, play stands"
-          },
-          "id": 351
-        }
-      ],
-      "gameState": {
-        "balls": 0,
-        "batterRunner": true,
-        "outs": 0,
-        "runnerBase1": true,
-        "runnerBase2": false,
-        "runnerBase3": false,
-        "strikes": 0
-      },
-      "i18nValue": {
-        "EN_US": "Pitch is in the dirt and gets behind the catcher. Runner on first takes off for second base. Catcher attempts to throw to 2nd, but runs into the plate umpire they are unable to throw the runner out.",
-        "NL_NL": "Pitch is in the dirt and gets behind the catcher. Runner on first takes off for second base. Catcher attempts to throw to 2nd, but runs into the plate umpire they are unable to throw the runner out."
-      },
-      "id": 116
-    },
-    {
-      "answers": [
-        {
-          "i18nValue": {
-            "EN_US": "Interference, R2 is out.",
-            "NL_NL": "Interference, R2 is out."
-          },
-          "id": 235
-        },
-        {
-          "i18nValue": {
-            "EN_US": "No obstruction.  No penalty.",
-            "NL_NL": "No obstruction.  No penalty."
-          },
-          "id": 364
-        },
-        {
-          "i18nValue": {
-            "EN_US": "Obstruction, R2 is awarded 3rd base.",
-            "NL_NL": "Obstruction, R2 is awarded 3rd base."
-          },
-          "id": 399
-        },
-        {
-          "i18nValue": {
-            "EN_US": "R2 is out for running out of the base line",
-            "NL_NL": "R2 is out for running out of the base line"
-          },
-          "id": 424
-        }
-      ],
-      "gameState": {
-        "balls": 0,
-        "batterRunner": true,
-        "outs": 0,
-        "runnerBase1": false,
-        "runnerBase2": true,
-        "runnerBase3": false,
-        "strikes": 0
-      },
-      "i18nValue": {
-        "EN_US": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball.",
-        "NL_NL": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball."
-      },
-      "id": 112
-    },
-    {
-      "answers": [
-        {
-          "i18nValue": {
-            "EN_US": "R1 to 2nd, BR to 1st.",
-            "NL_NL": "R1 to 2nd, BR to 1st."
-          },
-          "id": 109,
-          "correct": true
-        },
-        {
-          "i18nValue": {
-            "EN_US": "R1 to 3rd, BR to 2nd.",
-            "NL_NL": "R1 to 3rd, BR to 2nd."
-          },
-          "id": 212,
-          "correct": false
-        },
-        {
-          "i18nValue": {
-            "EN_US": "R1 scores, BR to 3rd.",
-            "NL_NL": "R1 scores, BR to 3rd."
-          },
-          "id": 250,
-          "correct": false
-        }
-      ],
-      "gameState": {
-        "balls": 0,
-        "batterRunner": true,
-        "outs": 0,
-        "runnerBase1": true,
-        "runnerBase2": false,
-        "runnerBase3": false,
-        "strikes": 0
-      },
-      "i18nValue": {
-        "EN_US": "Batter hits a line drive to right field.  The right fielder throws to 2nd base before R1 crosses 2nd base, but it sails through the infield, bouncing around for a while.  The ball finally settles into the dugout as R1 passes third base.  Who goes where?",
-        "NL_NL": "Batter hits a line drive to right field.  The right fielder throws to 2nd base before R1 crosses 2nd base, but it sails through the infield, bouncing around for a while.  The ball finally settles into the dugout as R1 passes third base.  Who goes where?"
-      },
-      "id": 124
-    },
-    {
-      "answers": [
-        {
-          "i18nValue": {
-            "EN_US": "BR is out.",
-            "NL_NL": "BR is out."
-          },
-          "id": 40
-        },
-        {
-          "i18nValue": {
-            "EN_US": "BR is not out",
-            "NL_NL": "BR is not out"
-          },
-          "id": 118
-        }
-      ],
-      "gameState": {
-        "balls": 0,
-        "batterRunner": true,
-        "outs": 0,
-        "runnerBase1": false,
-        "runnerBase2": false,
-        "runnerBase3": false,
-        "strikes": 0
-      },
-      "i18nValue": {
-        "EN_US": "Fielder in attempting to make a catch has the ball ricochet off his glove and against his body where he traps the ball with his arm.  The fielder grabs the ball and holds it up and throws it back to the infield.",
-        "NL_NL": "Fielder in attempting to make a catch has the ball ricochet off his glove and against his body where he traps the ball with his arm.  The fielder grabs the ball and holds it up and throws it back to the infield."
-      },
-      "id": 183
-    },
-    {
-      "answers": [
-        {
-          "i18nValue": {
-            "EN_US": "Infield fly, batter is out, R2 is out for interference. Ball is dead, all runners return. 3 outs, inning over.",
-            "NL_NL": "Infield fly, batter is out, R2 is out for interference. Ball is dead, all runners return. 3 outs, inning over."
-          },
-          "id": 5
-        },
-        {
-          "i18nValue": {
-            "EN_US": "Ball is dead immediately on the infield fly. Batter is out. All runners return",
-            "NL_NL": "Ball is dead immediately on the infield fly. Batter is out. All runners return"
-          },
-          "id": 311
-        },
-        {
-          "i18nValue": {
-            "EN_US": "Ball is dead immediatedly for interference by R2. R2 is out. BR is awarded 1st base, R1 to 2nd base.",
-            "NL_NL": "Ball is dead immediatedly for interference by R2. R2 is out. BR is awarded 1st base, R1 to 2nd base."
-          },
-          "id": 347
-        }
-      ],
-      "gameState": {
-        "balls": 0,
-        "batterRunner": true,
-        "outs": 1,
         "runnerBase1": true,
         "runnerBase2": true,
-        "runnerBase3": true,
+        "runnerBase3": false,
         "strikes": 0
       },
-      "i18nValue": {
-        "EN_US": "Batter hits a high fly ball above the shortstop. R2 takes off on contact and F6 runs into R2 and is unable to catch the ball.",
-        "NL_NL": "Batter hits a high fly ball above the shortstop. R2 takes off on contact and F6 runs into R2 and is unable to catch the ball."
+      "i18nRuling": {
+        "EN_US": "7.05(b) The ball is still live and the runners may advance at their peril.",
+        "NL_NL": "7.05(b) The ball is still live and the runners may advance at their peril."
       },
-      "id": 8
+      "i18nValue": {
+        "EN_US": "Batter hits a ball deep to left field.  The left fielder holds his cap up to deflect the ball.  The umpire awards 3 bases.  The left fielder is slow to return the ball, and the batter (now on 3rd) runs home.",
+        "NL_NL": "Batter hits a ball deep to left field.  The left fielder holds his cap up to deflect the ball.  The umpire awards 3 bases.  The left fielder is slow to return the ball, and the batter (now on 3rd) runs home."
+      },
+      "id": 108
     },
     {
       "answers": [
         {
+          "correct": false,
           "i18nValue": {
-            "EN_US": "R1 is safe.",
-            "NL_NL": "R1 is safe."
+            "EN_US": "True",
+            "NL_NL": "True"
           },
-          "id": 186
+          "id": 272
         },
         {
+          "correct": true,
           "i18nValue": {
-            "EN_US": "R1 is out for sliding head first.",
-            "NL_NL": "R1 is out for sliding head first."
+            "EN_US": "False",
+            "NL_NL": "False"
           },
-          "id": 363
+          "id": 398
         }
       ],
+      "difficulty": "UMPIRE_1",
+      "enabled": true,
       "gameState": {
         "balls": 0,
         "batterRunner": false,
@@ -724,82 +557,335 @@
         "runnerBase3": false,
         "strikes": 0
       },
-      "i18nValue": {
-        "EN_US": "R1 takes a few steps off of 1st base after a wild pitch.  When the catcher throws to first, he dives headfirst back to first base.",
-        "NL_NL": "R1 takes a few steps off of 1st base after a wild pitch.  When the catcher throws to first, he dives headfirst back to first base."
+      "i18nRuling": {
+        "EN_US": "7.08(a)(1) - The runner is out when he runs more than 3 feet away from a direct line between the bases to avoid being tagged.  Here, the shortstop has no chance at a tag, so the runner is not avoiding a tag.  Therefore, the runner is not out.",
+        "NL_NL": "7.08(a)(1) - The runner is out when he runs more than 3 feet away from a direct line between the bases to avoid being tagged.  Here, the shortstop has no chance at a tag, so the runner is not avoiding a tag.  Therefore, the runner is not out."
       },
-      "id": 71
+      "i18nValue": {
+        "EN_US": "The shortstop has the ball very far from the runner advancing from second base to tag him.  The runner zig-zags 6 feet to each side of the base line.  As he retreats to second.  He is out for running out of the baseline.",
+        "NL_NL": "The shortstop has the ball very far from the runner advancing from second base to tag him.  The runner zig-zags 6 feet to each side of the base line.  As he retreats to second.  He is out for running out of the baseline."
+      },
+      "id": 147
     },
     {
       "answers": [
         {
+          "correct": false,
           "i18nValue": {
-            "EN_US": "Shake her hand and let Shiraz warm up!",
-            "NL_NL": "Shake her hand and let Shiraz warm up!"
+            "EN_US": "R2 scores, R3 scores.  R1 is out.  Tie game.",
+            "NL_NL": "R2 scores, R3 scores.  R1 is out.  Tie game."
           },
-          "id": 133
+          "id": 24
         },
         {
+          "correct": false,
           "i18nValue": {
-            "EN_US": "Don't let Gabby catch",
-            "NL_NL": "Don't let Gabby catch"
+            "EN_US": "Noone scores.  R1 is out.  Game over.",
+            "NL_NL": "Noone scores.  R1 is out.  Game over."
           },
-          "id": 160
+          "id": 357
         },
         {
+          "correct": true,
           "i18nValue": {
-            "EN_US": "Warn the manager that Gabby is probably tired and should sit an inning before catching",
-            "NL_NL": "Warn the manager that Gabby is probably tired and should sit an inning before catching"
+            "EN_US": "Everyone scores.  R1 is not out.  Game over.",
+            "NL_NL": "Everyone scores.  R1 is not out.  Game over."
           },
-          "id": 433
+          "id": 429
         }
       ],
-      "gameState": {
-        "balls": 0,
-        "batterRunner": false,
-        "outs": 0,
-        "runnerBase1": false,
-        "runnerBase2": false,
-        "runnerBase3": false,
-        "strikes": 0
-      },
-      "i18nValue": {
-        "EN_US": "It’s the bottom of the 5th inning and Gabby has pitched a heckuva game, and efficient too! Only 60 pitches! The manager decides its time to bring in Shiraz in relief and Gabby is going to catch since she knows what this umipre likes.",
-        "NL_NL": "It’s the bottom of the 5th inning and Gabby has pitched a heckuva game, and efficient too! Only 60 pitches! The manager decides its time to bring in Shiraz in relief and Gabby is going to catch since she knows what this umipre likes."
-      },
-      "id": 17
-    },
-    {
-      "answers": [
-        {
-          "i18nValue": {
-            "EN_US": "R2 is out on appeal, BR does not score",
-            "NL_NL": "R2 is out on appeal, BR does not score"
-          },
-          "id": 285
-        },
-        {
-          "i18nValue": {
-            "EN_US": "R2 is out on appeal.  BR scores",
-            "NL_NL": "R2 is out on appeal.  BR scores"
-          },
-          "id": 358
-        }
-      ],
+      "difficulty": "UMPIRE_4",
+      "enabled": true,
       "gameState": {
         "balls": 0,
         "batterRunner": true,
         "outs": 2,
         "runnerBase1": true,
         "runnerBase2": true,
+        "runnerBase3": true,
+        "strikes": 0
+      },
+      "i18nRuling": {
+        "EN_US": "7.10(d) \"...the appeal must be made before all the defensive players have left fair territory\"  All the defensive players left fair territory.  They forfeited their right to appeal.  All runs score, game over.",
+        "NL_NL": "7.10(d) \"...the appeal must be made before all the defensive players have left fair territory\"  All the defensive players left fair territory.  They forfeited their right to appeal.  All runs score, game over."
+      },
+      "i18nValue": {
+        "EN_US": "Bottom of the 6th.  Down by 2 runs.  Batter knocks one out of the park.  R1 is so excited, he misses 3rd base.  Everyone leaves the field before the defensive manager starts shouting at everyone to appeal.  The players run back on the field.  The pitcher, with the ball, steps back from the rubber with his pivot foot and announces he wants to appeal that R1 missed 3rd base.  When the crowd finally quiets down, what do you do?",
+        "NL_NL": "Bottom of the 6th.  Down by 2 runs.  Batter knocks one out of the park.  R1 is so excited, he misses 3rd base.  Everyone leaves the field before the defensive manager starts shouting at everyone to appeal.  The players run back on the field.  The pitcher, with the ball, steps back from the rubber with his pivot foot and announces he wants to appeal that R1 missed 3rd base.  When the crowd finally quiets down, what do you do?"
+      },
+      "id": 157
+    },
+    {
+      "answers": [
+        {
+          "correct": false,
+          "i18nValue": {
+            "EN_US": "Foul ball",
+            "NL_NL": "Foul ball"
+          },
+          "id": 295
+        },
+        {
+          "correct": true,
+          "i18nValue": {
+            "EN_US": "Fair ball",
+            "NL_NL": "Fair ball"
+          },
+          "id": 345
+        },
+        {
+          "correct": false,
+          "i18nValue": {
+            "EN_US": "Nothing (yet)",
+            "NL_NL": "Nothing (yet)"
+          },
+          "id": 397
+        }
+      ],
+      "difficulty": "UMPIRE_1",
+      "enabled": true,
+      "gameState": {
+        "balls": 0,
+        "batterRunner": false,
+        "outs": 0,
+        "runnerBase1": false,
+        "runnerBase2": false,
         "runnerBase3": false,
         "strikes": 0
       },
-      "i18nValue": {
-        "EN_US": "BR hits a bullet into right field and rolls all the way to the fence  R2 misses 3rd base and motors home.  R1 takes off and makes it home as well while the right fielder tracks down the ball.  Defensive team properly appeals.  What happens?",
-        "NL_NL": "BR hits a bullet into right field and rolls all the way to the fence  R2 misses 3rd base and motors home.  R1 takes off and makes it home as well while the right fielder tracks down the ball.  Defensive team properly appeals.  What happens?"
+      "i18nRuling": {
+        "EN_US": "2.00 \"Fair ball\"  The ball was touched while it was in fair territory.  It is a fair ball.  The ball is never judged by the position of the fielder, only the position of the ball",
+        "NL_NL": "2.00 \"Fair ball\"  The ball was touched while it was in fair territory.  It is a fair ball.  The ball is never judged by the position of the fielder, only the position of the ball"
       },
-      "id": 9
+      "i18nValue": {
+        "EN_US": "Fly ball is touched in fair territory by a fielder standing in foul territory",
+        "NL_NL": "Fly ball is touched in fair territory by a fielder standing in foul territory"
+      },
+      "id": 35
+    },
+    {
+      "answers": [
+        {
+          "correct": true,
+          "i18nValue": {
+            "EN_US": "False",
+            "NL_NL": "False"
+          },
+          "id": 283
+        },
+        {
+          "correct": false,
+          "i18nValue": {
+            "EN_US": "True",
+            "NL_NL": "True"
+          },
+          "id": 420
+        }
+      ],
+      "difficulty": "UMPIRE_1",
+      "enabled": true,
+      "gameState": {
+        "balls": 0,
+        "batterRunner": false,
+        "outs": 0,
+        "runnerBase1": false,
+        "runnerBase2": false,
+        "runnerBase3": false,
+        "strikes": 0
+      },
+      "i18nRuling": {
+        "EN_US": "7.05(g) - If it is the first play by an infielder (and *all* runners have not yet advanced a base), runners get 2 bases from the base they were on at the time of the pitch.  Otherwise, all runners get 2 bases from the base they legally held at the time of the throw. \r\n\r\nOften people believe this is \"the base they were going to plus one\", but consider a runner diving back to the bag on a pick off.  If the ball goes out of play, what's the award?  They were \"going [back] to the base\", so don't they only get the next base?  This is a case where the words we use can be interpreted wrong by a manager. The rule is clear -- two bases from the last legally held base.",
+        "NL_NL": "7.05(g) - If it is the first play by an infielder (and *all* runners have not yet advanced a base), runners get 2 bases from the base they were on at the time of the pitch.  Otherwise, all runners get 2 bases from the base they legally held at the time of the throw. \r\n\r\nOften people believe this is \"the base they were going to plus one\", but consider a runner diving back to the bag on a pick off.  If the ball goes out of play, what's the award?  They were \"going [back] to the base\", so don't they only get the next base?  This is a case where the words we use can be interpreted wrong by a manager. The rule is clear -- two bases from the last legally held base."
+      },
+      "i18nValue": {
+        "EN_US": "When a fielder throws the ball out-of-play, the runners are awarded the base they were going to plus one.",
+        "NL_NL": "When a fielder throws the ball out-of-play, the runners are awarded the base they were going to plus one."
+      },
+      "id": 155
+    },
+    {
+      "answers": [
+        {
+          "correct": true,
+          "i18nValue": {
+            "EN_US": "Batter is out",
+            "NL_NL": "Batter is out"
+          },
+          "id": 262
+        },
+        {
+          "correct": false,
+          "i18nValue": {
+            "EN_US": "Umpire calls Time, batter switches boxes",
+            "NL_NL": "Umpire calls Time, batter switches boxes"
+          },
+          "id": 418
+        }
+      ],
+      "difficulty": "UMPIRE_2",
+      "enabled": true,
+      "gameState": {
+        "balls": 0,
+        "batterRunner": false,
+        "outs": 0,
+        "runnerBase1": false,
+        "runnerBase2": false,
+        "runnerBase3": false,
+        "strikes": 0
+      },
+      "i18nRuling": {
+        "EN_US": "6.06(b).  Batter is out for illegal action when stepping from one batter's box to the other while the pitcher is in the position ready to pitch.",
+        "NL_NL": "6.06(b).  Batter is out for illegal action when stepping from one batter's box to the other while the pitcher is in the position ready to pitch."
+      },
+      "i18nValue": {
+        "EN_US": "Pitcher is ready to deliver the pitch.  Batter decides to switch from the left hand side of the plate to the right hand side.",
+        "NL_NL": "Pitcher is ready to deliver the pitch.  Batter decides to switch from the left hand side of the plate to the right hand side."
+      },
+      "id": 60
+    },
+    {
+      "answers": [
+        {
+          "correct": false,
+          "i18nValue": {
+            "EN_US": "R1 goes to 2nd on the passed ball, BR is not out.  Pitch is a strike.",
+            "NL_NL": "R1 goes to 2nd on the passed ball, BR is not out.  Pitch is a strike."
+          },
+          "id": 26
+        },
+        {
+          "correct": false,
+          "i18nValue": {
+            "EN_US": "R1 stays at first, BR is out.",
+            "NL_NL": "R1 stays at first, BR is out."
+          },
+          "id": 205
+        },
+        {
+          "correct": false,
+          "i18nValue": {
+            "EN_US": "R1 goes to 2nd, BR is awarded 1st because he was hit.",
+            "NL_NL": "R1 goes to 2nd, BR is awarded 1st because he was hit."
+          },
+          "id": 299
+        },
+        {
+          "correct": true,
+          "i18nValue": {
+            "EN_US": "R1 stays at first, BR is not out.  Pitch is a strike",
+            "NL_NL": "R1 stays at first, BR is not out.  Pitch is a strike"
+          },
+          "id": 389
+        }
+      ],
+      "difficulty": "UMPIRE_3",
+      "enabled": true,
+      "gameState": {
+        "balls": 1,
+        "batterRunner": true,
+        "outs": 0,
+        "runnerBase1": true,
+        "runnerBase2": false,
+        "runnerBase3": false,
+        "strikes": 1
+      },
+      "i18nRuling": {
+        "EN_US": "6.08(b).  Exception (1) The ball is in the strike zone when it touches the batter…it shall be called a strike.  Approved ruling:  When the batter is touched by a pitched ball which does not entitle that batter to first base, the ball is dead and no runner may advance.",
+        "NL_NL": "6.08(b).  Exception (1) The ball is in the strike zone when it touches the batter…it shall be called a strike.  Approved ruling:  When the batter is touched by a pitched ball which does not entitle that batter to first base, the ball is dead and no runner may advance."
+      },
+      "i18nValue": {
+        "EN_US": "Pitcher delivers a strike right down the middle.  The batter's elbow is hit over the plate while he turns away from the ball.  The ball bounces away from the catcher while R1 advances to 2nd base.  Sort it out.",
+        "NL_NL": "Pitcher delivers a strike right down the middle.  The batter's elbow is hit over the plate while he turns away from the ball.  The ball bounces away from the catcher while R1 advances to 2nd base.  Sort it out."
+      },
+      "id": 23
+    },
+    {
+      "answers": [
+        {
+          "correct": true,
+          "i18nValue": {
+            "EN_US": "False",
+            "NL_NL": "False"
+          },
+          "id": 207
+        },
+        {
+          "correct": false,
+          "i18nValue": {
+            "EN_US": "True",
+            "NL_NL": "True"
+          },
+          "id": 310
+        }
+      ],
+      "difficulty": "UMPIRE_3",
+      "enabled": true,
+      "gameState": {
+        "balls": 2,
+        "batterRunner": false,
+        "outs": 0,
+        "runnerBase1": false,
+        "runnerBase2": false,
+        "runnerBase3": false,
+        "strikes": 2
+      },
+      "i18nRuling": {
+        "EN_US": "2.00, Quick Return. Do not allow a pitcher to pitch when the batter is not alert and paying attention. If a pitcher's pace is naturally too fast, slow him down by giving him the count audibly, step away, etc.  (Don't hold up you're hand -- this implies \"Time\" and a dead ball).  If the batter is taking too long to get set, announce \"Let's go batter\" and get ready for a pitch -- you've given him due warning a pitch is coming.",
+        "NL_NL": "2.00, Quick Return. Do not allow a pitcher to pitch when the batter is not alert and paying attention. If a pitcher's pace is naturally too fast, slow him down by giving him the count audibly, step away, etc.  (Don't hold up you're hand -- this implies \"Time\" and a dead ball).  If the batter is taking too long to get set, announce \"Let's go batter\" and get ready for a pitch -- you've given him due warning a pitch is coming."
+      },
+      "i18nValue": {
+        "EN_US": "The count on the batter is two balls and two strikes. The pitcher delivers ball three to the batter and the catcher throws the ball back to the pitcher. While the batter is adjusting his/her batting glove the pitcher toes the pitcher’s plate and fires strike three. The manager of the offensive team argues that this is a quick return pitch and should not be allowed. The umpire rules in favor of the defense – strike three.",
+        "NL_NL": "The count on the batter is two balls and two strikes. The pitcher delivers ball three to the batter and the catcher throws the ball back to the pitcher. While the batter is adjusting his/her batting glove the pitcher toes the pitcher’s plate and fires strike three. The manager of the offensive team argues that this is a quick return pitch and should not be allowed. The umpire rules in favor of the defense – strike three."
+      },
+      "id": 99
+    },
+    {
+      "answers": [
+        {
+          "correct": false,
+          "i18nValue": {
+            "EN_US": "Foul ball",
+            "NL_NL": "Foul ball"
+          },
+          "id": 76
+        },
+        {
+          "correct": false,
+          "i18nValue": {
+            "EN_US": "Fair ball",
+            "NL_NL": "Fair ball"
+          },
+          "id": 88
+        },
+        {
+          "correct": true,
+          "i18nValue": {
+            "EN_US": "Nothing (yet)",
+            "NL_NL": "Nothing (yet)"
+          },
+          "id": 470
+        }
+      ],
+      "difficulty": "UMPIRE_1",
+      "enabled": true,
+      "gameState": {
+        "balls": 0,
+        "batterRunner": false,
+        "outs": 0,
+        "runnerBase1": false,
+        "runnerBase2": false,
+        "runnerBase3": false,
+        "strikes": 0
+      },
+      "i18nRuling": {
+        "EN_US": "The ball has not come to rest yet, nor has it been touched.  It is neither fair nor foul (yet).",
+        "NL_NL": "The ball has not come to rest yet, nor has it been touched.  It is neither fair nor foul (yet)."
+      },
+      "i18nValue": {
+        "EN_US": "Ball hits home plate",
+        "NL_NL": "Ball hits home plate"
+      },
+      "id": 182
     }
   ]
 }
