@@ -434,7 +434,7 @@
     {
       "answers": [
         {
-          "correct": false,
+          "correct": true,
           "i18nValue": {
             "EN_US": "B3 is out, B2 is up.  Runners get to advance because of the passed ball, but the double is nullified.  One run total scores.",
             "NL_NL": "B3 is out, B2 is up.  Runners get to advance because of the passed ball, but the double is nullified.  One run total scores."
@@ -442,7 +442,7 @@
           "id": 16
         },
         {
-          "correct": true,
+          "correct": false,
           "i18nValue": {
             "EN_US": "B2 is out, B3 is up.  Runners get to advance because of the passed ball, but the double is nullified (B3 is removed).  One run total scores.",
             "NL_NL": "B2 is out, B3 is up.  Runners get to advance because of the passed ball, but the double is nullified (B3 is removed).  One run total scores."

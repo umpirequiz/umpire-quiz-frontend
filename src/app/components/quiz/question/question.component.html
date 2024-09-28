@@ -2,16 +2,27 @@
   <div class="card-header">Question:</div>
   <div class="card-body">
     @if (this.edit) {
-      <label for="i18nValue.EN_US" class="form-label">EN</label>
+      <h5>{{ Lang.English.displayValue }}</h5>
       <textarea type="text" rows="3" class="form-control mb-2"
                 id="i18nValue.EN_US" name="i18nValue.EN_US"
                 required
                 [(ngModel)]="question.i18nValue.EN_US"></textarea>
-      <label for="i18nValue.NL_NL" class="form-label">NL</label>
+      <label for="i18nRuling.EN_US" class="form-label">Ruling</label>
+      <textarea type="text" rows="3" class="form-control mb-2"
+                id="i18nRuling.EN_US" name="i18nRuling.EN_US"
+                required
+                [(ngModel)]="question.i18nRuling!.EN_US"></textarea>
+      <hr/>
+      <h5>{{ Lang.Dutch.displayValue }}</h5>
       <textarea type="text" rows="3" class="form-control mb-2"
                 id="i18nValue.NL_NL" name="i18nValue.NL_NL"
                 required
                 [(ngModel)]="question.i18nValue.NL_NL"></textarea>
+      <label for="i18nRuling.NL_NL" class="form-label">Ruling</label>
+      <textarea type="text" rows="3" class="form-control mb-2"
+                id="i18nRuling.NL_NL" name="i18nRuling.NL_NL"
+                required
+                [(ngModel)]="question.i18nRuling!.NL_NL"></textarea>
     } @else {
       {{ question.i18nValue.EN_US }}
     }

@@ -24,7 +24,7 @@
   <tbody>
     @for (q of questions; track $index) {
       <tr>
-        <td id="id" routerLink="{{q.id}}">{{ q.id }}</td>
+        <td routerLink="{{q.id}}">{{ q.id }}</td>
         <td>{{ q.i18nValue.EN_US }}</td>
         <td>
           <div class="btn-group">

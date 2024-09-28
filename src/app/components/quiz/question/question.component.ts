@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Question} from "../../../domain/Question";
 import {FormsModule} from "@angular/forms";
+import {Lang} from "./Lang";
 
 @Component({
   selector: 'app-question',
@@ -14,4 +15,6 @@ import {FormsModule} from "@angular/forms";
 export class QuestionComponent {
   @Input() question!: Question
   @Input() edit!: boolean;
+
+  protected readonly Lang = Lang;
 }
