@@ -2,6 +2,7 @@ export interface Question {
   id: number;
   i18nValue: InternationalizedString;
   gameState: GameState;
+  enabled: boolean;
   answers: Answer[];
   selectedAnswer?: number;
   questionIndex?: number;
@@ -48,6 +49,7 @@ export function emptyQuestion(): Question {
     id: 0,
     i18nValue: emptyI18dString,
     gameState: emptyGameState,
+    enabled: true,
     answers: [createAnswer()] as Answer[],
     selectedAnswer: 0,
     questionIndex: 0,

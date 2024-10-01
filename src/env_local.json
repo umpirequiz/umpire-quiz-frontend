@@ -1,6 +1,6 @@
 {
-  "userServiceUrl": "http://localhost:9081",
-  "questionServiceUrl": "http://localhost:9080",
-  "importerServiceUrl": "http://localhost:9082/",
+  "importerServiceUrl": "http://localhost:9081/importer-api",
+  "questionServiceUrl": "http://localhost:9082/api",
+  "userServiceUrl": "http://localhost:9083/user-api",
   "health": "READY"
 }

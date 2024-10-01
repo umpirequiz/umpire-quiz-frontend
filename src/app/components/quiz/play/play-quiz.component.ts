@@ -96,6 +96,7 @@ export class PlayQuizComponent implements OnInit {
           batterRunner: false
         },
         id: 0,
+        enabled: true,
         i18nValue: {NL_NL: "", EN_US: ""}
       }
     } else {
