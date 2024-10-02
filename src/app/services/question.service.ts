@@ -19,8 +19,8 @@ export class QuestionService {
     this.questions = this.host + this.resourcePath
   }
 
-  findAll(): void { // R
-    this.httpClient.get<Question[]>(this.questions).subscribe((r) => this._questionsUpdated$.next(r));
+  findAll(active = false): void { // R
+    this.httpClient.get<Question[]>(`${this.questions}?a=${active}`).subscribe((r) => this._questionsUpdated$.next(r));
   }
 
   find(id: number): Observable<Question> { // R

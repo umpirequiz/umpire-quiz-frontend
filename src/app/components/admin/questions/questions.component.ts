@@ -7,6 +7,7 @@ import {MatPaginator, MatPaginatorIntl, PageEvent} from "@angular/material/pagin
 import {MyPaginatorConfig} from "../../../my.paginator.config";
 import {SearchComponent} from "../../search/search.component";
 import {QuestionService} from "../../../services/question.service";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-questions',
@@ -18,7 +19,8 @@ import {QuestionService} from "../../../services/question.service";
     LowerCasePipe,
     DatePipe,
     MatPaginator,
-    SearchComponent
+    SearchComponent,
+    FormsModule
   ],
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.scss',
@@ -33,6 +35,7 @@ export class QuestionsComponent implements OnInit {
   pageSize = 5;
   currentPage = 0;
   pageSizeOptions = [1, 5, 10, 25]
+  private active: boolean = false;
 
   constructor(private questionService: QuestionService) {
   }
@@ -43,7 +46,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   getAllQuestions() {
-    this.questionService.findAll();
+    this.questionService.findAll(this.active);
     this.questions$?.subscribe(r => {
         this.totalItems = r.length
 
@@ -66,6 +69,11 @@ export class QuestionsComponent implements OnInit {
 
   handleSearch(searchTerm: string) {
     this.questionService.search(searchTerm)
+  }
+
+  toggleActive() {
+    this.active = !this.active;
+    this.getAllQuestions()
   }
 }
 
