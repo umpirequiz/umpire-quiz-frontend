@@ -35,18 +35,19 @@ export class QuestionsComponent implements OnInit {
   pageSize = 5;
   currentPage = 0;
   pageSizeOptions = [1, 5, 10, 25]
-  private active: boolean = false;
+  private includeAll: boolean = false;
+  private searchTerm: string = '';
 
   constructor(private questionService: QuestionService) {
   }
 
   ngOnInit(): void {
     this.questions$ = this.questionService.questionsUpdated$;
-    this.getAllQuestions()
+    this.getQuestions()
   }
 
-  getAllQuestions() {
-    this.questionService.findAll(this.active);
+  getQuestions() {
+    this.questionService.search(this.searchTerm, this.includeAll);
     this.questions$?.subscribe(r => {
         this.totalItems = r.length
 
@@ -64,16 +65,21 @@ export class QuestionsComponent implements OnInit {
   pageChanged(event: PageEvent) {
     this.currentPage = event.pageIndex;
     this.pageSize = event.pageSize;
-    this.getAllQuestions()
+    this.getQuestions()
   }
 
-  handleSearch(searchTerm: string) {
-    this.questionService.search(searchTerm)
+  handleSearch(input: string) {
+    this.searchTerm = input;
+    this.getQuestions()
   }
 
-  toggleActive() {
-    this.active = !this.active;
-    this.getAllQuestions()
+  toggleAll() {
+    this.includeAll = !this.includeAll;
+    this.getQuestions()
+  }
+
+  handleSearchInputChanged(input: string) {
+    this.searchTerm = input;
   }
 }
 

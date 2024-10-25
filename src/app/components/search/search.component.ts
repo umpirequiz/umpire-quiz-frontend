@@ -14,6 +14,7 @@ export class SearchComponent {
 
   @Input() placeholder = "search terms..."
   @Output() search = new EventEmitter<string>()
+  @Output() inputChanged = new EventEmitter<string>()
 
   input: string = '';
 
@@ -25,5 +26,9 @@ export class SearchComponent {
     if (this.input === '') {
       this.search.emit(this.input)
     }
+  }
+
+  keyup() {
+    this.inputChanged.emit(this.input)
   }
 }

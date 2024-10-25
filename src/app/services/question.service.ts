@@ -19,8 +19,8 @@ export class QuestionService {
     this.questions = this.host + this.resourcePath
   }
 
-  findAll(active = false): void {
-    this.httpClient.get<Question[]>(`${this.questions}?a=${active}`).subscribe((r) => this._questionsUpdated$.next(r));
+  findAll(): void {
+    this.search();
   }
 
   find(id: number): Observable<Question> {
@@ -42,8 +42,8 @@ export class QuestionService {
       .subscribe(() => this.findAll());
   }
 
-  search(term: string): void {
-    this.httpClient.get<Question[]>(`${this.questions}?q=${term}`).subscribe(
+  search(term = '', includeAll = false): void {
+    this.httpClient.get<Question[]>(`${this.questions}?q=${term}&all=${includeAll}`).subscribe(
       (result) => this._questionsUpdated$.next(result)
     )
   }
