@@ -26,16 +26,16 @@ pipeline {
       }
     }
 
-//     stage('Test') {
-//       steps {
-//         sh 'npx ng test --watch=false --code-coverage'
-//       }
-//       post {
-//         always {
-//           junit 'TESTS-*.xml'
-//         }
-//       }
-//     }
+    stage('Test') {
+      steps {
+        sh 'npx ng test --watch=false --code-coverage'
+      }
+      post {
+        always {
+          junit 'TESTS-*.xml'
+        }
+      }
+    }
 
     stage('SonarQube Analysis') {
       when {
