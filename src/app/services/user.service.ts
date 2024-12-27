@@ -22,7 +22,7 @@ export class UserService {
   }
 
   login(u: User): void {
-    this.http.post<User>(`${this.baseUrl}/auth-api/auth/login`, u, {observe: 'response'} /* = to receive the full httpresponse instead of only the body */)
+    this.http.post<User>(`${this.baseUrl}/auth/login`, u, {observe: 'response'} /* = to receive the full httpresponse instead of only the body */)
       .subscribe({
         next: (response) => {
           // get the body from the response:
@@ -67,7 +67,7 @@ export class UserService {
 
 
   register(u: User): void {
-    this.http.post<User>(`${this.baseUrl}/auth-api/auth`, u, {observe: 'response'})
+    this.http.post<User>(`${this.baseUrl}/auth`, u, {observe: 'response'})
       .subscribe({
         next: (response) => {
           const registeredUser = response.body ?? UserService.emptyUser;
