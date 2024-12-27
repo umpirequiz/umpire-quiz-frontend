@@ -9,3 +9,21 @@ Run:
 ```console
 json-server data.json --routes routes.json
 ```
+
+## Local build and deploy
+To build the app, create the docker image and push it, run:
+
+```shell
+ng build
+```
+```shell
+docker build -t bramjanssens/umpire-quiz-front-end . 
+```
+```shell
+docker push bramjanssens/umpire-quiz-front-end
+```
+
+To run the image, run:
+```shell
+docker run -p 8080:80 bramjanssens/umpire-quiz-front-end
+```

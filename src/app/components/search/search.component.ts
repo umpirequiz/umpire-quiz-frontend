@@ -22,7 +22,7 @@ export class SearchComponent {
     this.search.emit(this.input)
   }
 
-  clearIfEmpty() {
+  searchWhenEmpty() {
     if (this.input === '') {
       this.search.emit(this.input)
     }

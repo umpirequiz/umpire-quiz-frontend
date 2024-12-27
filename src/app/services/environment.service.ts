@@ -27,11 +27,10 @@ export class EnvironmentService {
     if (this._env.health == "") {
       const _env = sessionStorage.getItem("env");
       if (_env !== null) {
-        const env: Environment = JSON.parse(_env)
-        this.env = env;
+        this.env = JSON.parse(_env);
       }
     }
-      return this._env
+    return this._env
   }
 
   set env(env: Environment) {
