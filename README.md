@@ -17,10 +17,10 @@ To build the app, create the docker image and push it, run:
 ng build
 ```
 ```shell
-docker build -t bramjanssens/umpire-quiz-front-end . 
+docker build -t bramjanssens/umpire-quiz-frontend . 
 ```
 ```shell
-docker push bramjanssens/umpire-quiz-front-end
+docker push bramjanssens/umpire-quiz-frontend
 ```
 
 To run the image, run:
