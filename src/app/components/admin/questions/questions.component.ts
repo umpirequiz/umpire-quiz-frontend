@@ -32,7 +32,7 @@ export class QuestionsComponent implements OnInit {
 
   // for paging:
   totalItems = 100;
-  pageSize = 5;
+  pageSize = 10;
   currentPage = 0;
   pageSizeOptions = [1, 5, 10, 25]
   private includeAll: boolean = false;
