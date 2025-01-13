@@ -12,9 +12,9 @@ import {EnvironmentService} from "./services/environment.service";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'umpire-quiz';
 
   constructor(private environmentService: EnvironmentService) {
+    console.log("this.environmentService.getEnv()")
     this.environmentService.getEnv()
   }
 }
