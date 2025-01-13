@@ -1,6 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Subject, BehaviorSubject } from 'rxjs';
+import {BehaviorSubject, Subject} from 'rxjs';
 import {Router} from "@angular/router";
 import {User} from "../domain/User";
 import {EnvironmentService} from "./environment.service";
@@ -8,7 +8,7 @@ import {MessageService} from "./message.service";
 
 @Injectable({providedIn: 'root'}) // ApplicationScoped
 export class UserService {
-  private readonly baseUrl: string
+  private baseUrl!: string
 
   public static readonly emptyUser = {} as User;
 
@@ -16,13 +16,14 @@ export class UserService {
   public message$ = new Subject<string>();
   public loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
 
-
   constructor(private http: HttpClient, private router: Router, private environmentService: EnvironmentService, private messageService: MessageService) {
-    this.baseUrl = this.environmentService.env.userServiceUrl
+    this.environmentService.env.subscribe(e =>
+        this.baseUrl = e.userServiceUrl + '/users'
+    )
   }
 
   login(u: User): void {
-    this.http.post<User>(`${this.baseUrl}/users/login`, u, {observe: 'response'} /* = to receive the full httpresponse instead of only the body */)
+    this.http.post<User>(`${this.baseUrl}/login`, u, {observe: 'response'} /* = to receive the full httpresponse instead of only the body */)
       .subscribe({
         next: (response) => {
           // get the body from the response:
@@ -67,7 +68,7 @@ export class UserService {
 
 
   register(u: User): void {
-    this.http.post<User>(`${this.baseUrl}/users`, u, {observe: 'response'})
+    this.http.post<User>(`${this.baseUrl}`, u, {observe: 'response'})
       .subscribe({
         next: (response) => {
           const registeredUser = response.body ?? UserService.emptyUser;

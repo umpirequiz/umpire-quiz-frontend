@@ -26,7 +26,8 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/env.json",
+              "src/env_prod.json",
+              "src/env_prod_rewritten.json",
               "src/env_local.json",
               "src/env_local_mock.json",
               {

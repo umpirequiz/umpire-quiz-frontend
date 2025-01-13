@@ -8,15 +8,14 @@ import {EnvironmentService} from "./environment.service";
   providedIn: 'root'
 })
 export class QuestionService {
-  private host
-  private resourcePath = '/questions';
-  private questions;
+  private baseUrl!: string;
 
   private _questionsUpdated$ = new Subject<Question[]>()
 
   constructor(private httpClient: HttpClient, private environmentService: EnvironmentService) {
-    this.host = this.environmentService.env.questionServiceUrl
-    this.questions = this.host + this.resourcePath
+    this.environmentService.env.subscribe(e =>
+      this.baseUrl = e.questionServiceUrl + '/questions'
+    )
   }
 
   findAll(): void {
@@ -24,26 +23,26 @@ export class QuestionService {
   }
 
   find(id: number): Observable<Question> {
-    return this.httpClient.get<Question>(`${this.questions}/${id}`);
+    return this.httpClient.get<Question>(`${this.baseUrl}/${id}`);
   }
 
   add(q: Question) {
-    this.httpClient.post<Question>(this.questions, q, {observe: 'response'} /* = to receive the full httpresponse including the token as http header, instead of only the body */)
+    this.httpClient.post<Question>(this.baseUrl, q, {observe: 'response'} /* = to receive the full httpresponse including the token as http header, instead of only the body */)
       .subscribe(() => this.findAll());
   }
 
   remove(id: number) {
-    this.httpClient.delete<Question>(`${this.questions}/${id}`)
+    this.httpClient.delete<Question>(`${this.baseUrl}/${id}`)
       .subscribe(() => this.findAll());
   }
 
   update(q: Question) {
-    this.httpClient.put<Question>(`${this.questions}/${q.id}`, q, {observe: 'response'})
+    this.httpClient.put<Question>(`${this.baseUrl}/${q.id}`, q, {observe: 'response'})
       .subscribe(() => this.findAll());
   }
 
   search(term = '', includeAll = false): void {
-    this.httpClient.get<Question[]>(`${this.questions}?q=${term}&all=${includeAll}`).subscribe(
+    this.httpClient.get<Question[]>(`${this.baseUrl}?q=${term}&all=${includeAll}`).subscribe(
       (result) => this._questionsUpdated$.next(result)
     )
   }

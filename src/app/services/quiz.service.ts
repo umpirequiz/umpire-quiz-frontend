@@ -8,14 +8,16 @@ import {EnvironmentService} from "./environment.service";
   providedIn: 'root'
 })
 export class QuizService {
-  private readonly baseUrl: string
+  private baseUrl!: string
 
   constructor(private httpClient: HttpClient, private environmentService: EnvironmentService) {
-    this.baseUrl = this.environmentService.env.questionServiceUrl
+    this.environmentService.env.subscribe(e =>
+      this.baseUrl = e.questionServiceUrl + '/quizzes'
+    )
   }
 
   getQuizQuestions(): Observable<Quiz> {
-    return this.httpClient.get<Quiz>(this.baseUrl + "/quizzes")
+    return this.httpClient.get<Quiz>(this.baseUrl)
   }
 
   clearExistingQuiz() {
@@ -34,6 +36,6 @@ export class QuizService {
   }
 
   postQuizResults(quiz: Quiz) {
-    this.httpClient.post<Quiz>(this.baseUrl + "/quizzes", quiz).subscribe(data => sessionStorage.setItem('lastResult', JSON.stringify(data)))
+    this.httpClient.post<Quiz>(this.baseUrl, quiz).subscribe(data => sessionStorage.setItem('lastResult', JSON.stringify(data)))
   }
 }
