@@ -25,5 +25,5 @@ docker push bramjanssens/umpire-quiz-frontend
 
 To run the image, run:
 ```shell
-docker run -p 8080:80 bramjanssens/umpire-quiz-front-end
+docker run -p 8080:80 bramjanssens/umpire-quiz-frontend
 ```

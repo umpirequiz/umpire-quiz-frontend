@@ -1,11 +1,11 @@
-.click:hover {
+.click:hover .click:focus {
   cursor: pointer;
   background-color: rgba(13, 110, 253, 0.52);
   color: white;
 }
 
-.click:focus {
+.my-bg-info {
   cursor: pointer;
-  background-color: rgba(13, 110, 253, 0.52);
+  background-color: rgba(196, 17, 80, 0.12) !important;
   color: white;
 }
