@@ -1,0 +1,1 @@
+{ "questionServiceUrl": "http://umpire.quiz/question-service", "userServiceUrl": "http://umpire.quiz/user-service", "importerServiceUrl": "http://umpire.quiz/importer-service", "health": "READY" }

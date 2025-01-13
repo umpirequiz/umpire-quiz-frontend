@@ -1,0 +1,6 @@
+{
+  "userServiceUrl": "http://localhost:3000",
+  "questionServiceUrl": "http://localhost:3000",
+  "importerServiceUrl": "http://localhost:3000/",
+  "health": "READY"
+}

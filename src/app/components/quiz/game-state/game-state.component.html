@@ -4,15 +4,55 @@
     <table class="w-100" aria-hidden="true">
       <tr>
         <td>
-          Balls {{ currentGameState.balls }} -
-          Strikes  {{ currentGameState.strikes }} -
-          Outs {{ currentGameState.outs }}
+          @if (this.edit) {
+            <div class="input-group w-50">
+              <span class="input-group-text" id="ballsLabel">Balls</span>
+              <input type="number" class="form-control"
+                     id="balls" name="balls"
+                     required
+                     [(ngModel)]="currentGameState.balls">
+              <span class="input-group-text" id="strikesLabel">Strikes</span>
+              <input type="number" class="form-control"
+                     id="strikes" name="strikes"
+                     required
+                     [(ngModel)]="currentGameState.strikes">
+              <span class="input-group-text" id="outsLabel">Outs</span>
+              <input type="number" class="form-control"
+                     id="outs" name="outs"
+                     required
+                     [(ngModel)]="currentGameState.outs">
+            </div>
+            <div class="input-group mb-3 p-2">
+              <label for="r1" class="form-check-label me-2">R1:</label>
+              <input type="checkbox" class="form-check-input me-3"
+                     id="r1" name="r1"
+                     required
+                     [(ngModel)]="currentGameState.runnerBase1">
+              <label for="r2" class="form-check-label me-2">R2: </label>
+              <input type="checkbox" class="form-check-input me-3"
+                     id="r2" name="r2"
+                     required
+                     [(ngModel)]="currentGameState.runnerBase2">
+              <label for="r3" class="form-check-label me-2">R3:</label>
+              <input type="checkbox" class="form-check-input me-3"
+                     id="r3" name="r3"
+                     required
+                     [(ngModel)]="currentGameState.runnerBase3">
+            </div>
+          } @else {
+            Balls {{ currentGameState.balls }} -
+              Strikes  {{ currentGameState.strikes }} -
+              Outs {{ currentGameState.outs }}
+          }
         </td>
       </tr>
       <tr>
         <td>
-          {{ runners() }}
+          @if (!this.edit) {
+            {{ runners() }}
+          }
         </td>
+
       </tr>
     </table>
   </div>

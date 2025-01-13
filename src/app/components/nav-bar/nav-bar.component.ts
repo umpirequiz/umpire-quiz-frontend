@@ -43,7 +43,6 @@ export class NavBarComponent implements OnInit {
   }
 
   logout(): void {
-    console.log('logout function started')
     this.userService.logout();
   }
 

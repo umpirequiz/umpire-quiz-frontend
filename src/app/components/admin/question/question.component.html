@@ -1,0 +1,27 @@
+{{ this.modeLabel }}
+<form (ngSubmit)="save(questionForm)" #questionForm="ngForm" class="card p-2 m-2" novalidate>
+  <div class="card-body">
+    <div class="card p-0 p-lg-0 text-black border w-100">
+      <div class="card-header">
+        Question {{ question.id }}
+      </div>
+      <div class="card-body">
+        <app-game-state [edit]="true" [gameState]="question.gameState"></app-game-state>
+        <app-question [edit]="true" [question]="question"></app-question>
+        <hr/>
+        <app-answers
+          [edit]="true"
+          [resultsScreen]="false"
+          [answers]="question.answers"
+          [selectedAnswer]="question.selectedAnswer"
+          [questionId]="question.id"
+        ></app-answers>
+      </div>
+    </div>
+
+    <div class="btn-group py-3" role="group" aria-label="Buttons">
+      <button class="btn btn-success" [disabled]="questionForm.invalid">Ok</button>
+      <div class="btn btn-warning" (click)="cancel()">Cancel</div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,1 @@
+{ "\"questionServiceUrl\"": "\"$QUESTION_SERVICE_URL\"", "\"userServiceUrl\"": "\"$USER_SERVICE_URL\"", "\"importerServiceUrl\"": "\"$IMPORTER_URL\"", "\"health\"": "\"READY\"" }

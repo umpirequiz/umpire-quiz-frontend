@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -16,22 +17,15 @@ export class EnvironmentService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getEnv() {
+  private refresh() {
     this.httpClient.get<Environment>(window.location.origin + '/' + environment.env_file).subscribe(data => {
       this._env = data
       sessionStorage.setItem('env', JSON.stringify(data))
     })
   }
 
-  get env(): Environment {
-    if (this._env.health == "") {
-      const _env = sessionStorage.getItem("env");
-      if (_env !== null) {
-        const env: Environment = JSON.parse(_env)
-        this.env = env;
-      }
-    }
-      return this._env
+  get env(): Observable<Environment> {
+    return this.httpClient.get<Environment>(window.location.origin + '/' + environment.env_file);
   }
 
   set env(env: Environment) {
