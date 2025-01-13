@@ -7,6 +7,7 @@ import {QuestionComponent} from "../question/question.component";
 import {GameStateComponent} from "../game-state/game-state.component";
 import {AnswersComponent} from "../answers/answers.component";
 import {RulingComponent} from "../ruling/ruling.component";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-results',
@@ -17,7 +18,8 @@ import {RulingComponent} from "../ruling/ruling.component";
     QuestionComponent,
     GameStateComponent,
     AnswersComponent,
-    RulingComponent
+    RulingComponent,
+    RouterLink
   ],
   templateUrl: './results.component.html',
   styleUrl: './results.component.scss'
