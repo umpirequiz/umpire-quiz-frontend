@@ -1,13 +1,19 @@
 <div class="row">
-  <div class="col-1 my-auto" routerLink="/questions/add"><i class="fa-solid fa-square-plus" style='color: #177b00;'></i>
-    New
+  <div class="col-1 my-auto" routerLink="/questions/add">
+    <label for="all" class="form-check-label m-2">
+      <i class="fa-solid fa-square-plus" style='color: #177b00;'></i>
+      <span> New</span>
+    </label>
   </div>
   <div class="col-1 my-auto">
-    <label for="all" class="form-check-label me-2">All</label>
-    <input type="checkbox" class="form-check-input me-3" id="all" name="all" (click)="toggleAll()">
+    <label for="all" class="form-check-label m-2">
+      <span>All </span>
+      <input type="checkbox" class="form-check-input " id="all" name="all" (click)="toggleAll()">
+    </label>
   </div>
   <div class="col-5 my-auto">
-    <app-search placeholder="Search question..." (inputChanged)="handleSearchInputChanged($event)"  (search)="handleSearch($event)"></app-search>
+    <app-search placeholder="Search question..." (inputChanged)="handleSearchInputChanged($event)"
+                (search)="handleSearch($event)"></app-search>
   </div>
   <div class="col-5">
     <mat-paginator [length]="totalItems" [pageIndex]="currentPage"
@@ -35,7 +41,8 @@
         <td class="text-center">
           <div class="btn-group">
             <i routerLink="{{q.id}}" class="m-1 fa-solid fa-circle-info" style='color: #176000;'></i>
-            <i routerLink="/questions/{{q.id}}" class="m-1 fa-solid fa-pen-to-square pointer-hand" style='color: #0044aa;'></i>
+            <i routerLink="/questions/{{q.id}}" class="m-1 fa-solid fa-pen-to-square pointer-hand"
+               style='color: #0044aa;'></i>
             <i (click)="remove(q.id)" class="m-1 fa-solid fa-trash pointer-hand" style='color: #cc0303;'></i>
           </div>
         </td>
