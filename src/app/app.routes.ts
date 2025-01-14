@@ -23,7 +23,7 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'admin', component: AdminComponent/*, canActivate: [authGuard]*/, // now, add router-outlet to AdminComponent's template
+    path: 'admin', component: AdminComponent, canActivate: [authGuard], // now, add router-outlet to AdminComponent's template
     children: [
       {path: ':subPath', component: QuestionComponent}
     ]
