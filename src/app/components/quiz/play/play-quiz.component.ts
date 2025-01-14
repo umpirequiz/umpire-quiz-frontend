@@ -124,6 +124,10 @@ export class PlayQuizComponent implements OnInit {
     }
   }
 
+  scrollTo(el: HTMLElement) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+
   goToQuestion(index: number): void {
     this.currentQuestionIndex = index;
     this.saveQuizProgress();
