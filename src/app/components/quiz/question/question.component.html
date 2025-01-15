@@ -1,6 +1,9 @@
-<div class="card mt-1">
-  <div class="card-header">Situation</div>
+<div class="card border-secondary my-1">
+  <div class="card-header d-flex align-items-center">
+    <h6 class="mb-0">Situation</h6>
+  </div>
   <div class="card-body">
+    <app-game-state [gameState]="currentGameState"></app-game-state>
     @if (this.edit) {
       <h5>{{ Lang.English.displayValue }}</h5>
       <textarea type="text" rows="3" class="form-control mb-2"

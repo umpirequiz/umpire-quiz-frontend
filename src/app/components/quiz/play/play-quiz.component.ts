@@ -136,4 +136,8 @@ export class PlayQuizComponent implements OnInit {
   get currentGameState(): GameState {
     return this.currentQuestion.gameState;
   }
+
+  allAnswered() {
+    return (this.questionsAnswered == this.quiz.questions.length)
+  }
 }

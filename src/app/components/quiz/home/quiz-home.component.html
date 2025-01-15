@@ -1,7 +1,7 @@
 <h5>Ready?</h5>
-<p>The next quiz will have five questions. Answer them all and then click "Finish" to see the results.</p>
+<p>The next quiz has five questions. Answer them all, then click "Finish" to see the results.</p>
 <a routerLink="play">
-  <button class="btn btn-outline-primary" (click)="clearQuiz()">Start Quiz</button>
+  <button class="btn btn-primary" (click)="clearQuiz()">Start quiz</button>
 </a>
 @if (quizInProgress()) {
   <hr/>
@@ -9,6 +9,6 @@
     To continue your quiz in progress:
   </p>
   <a routerLink="play">
-    <button class="btn btn-outline-primary">Continue Quiz</button>
+    <button class="btn btn-outline-primary">Continue quiz</button>
   </a>
 }

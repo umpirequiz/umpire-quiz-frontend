@@ -5,21 +5,19 @@
     </h5>
     <h6 class="mt-2">Correct vs. incorrect</h6>
     <div class="progress">
-      <div class="progress-bar bg-success" role="progressbar"
+      <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
            [style.width]="getPercentage(getQuestionsCorrect()) + '%'">{{ getQuestionsCorrect() }}
       </div>
-      <div class="progress-bar bg-danger" role="progressbar"
+      <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar"
            [style.width]="getPercentage(getQuestionsIncorrect()) + '%'">{{ getQuestionsIncorrect() }}
       </div>
     </div>
-    <h6 class="mt-3">Questions and answers</h6>
     @for (question of getQuestions(); track $index) {
       <div class="mt-2">
         <div class="card text-black border w-100">
-          <div class="card-header">Question {{ $index + 1 }}</div>
+          <h5 class="card-header">Question {{ $index + 1 }}</h5>
           <div class="card-body">
-            <app-game-state [gameState]="question.gameState"></app-game-state>
-            <app-question [question]="question"></app-question>
+            <app-question [question]="question" [gameState]="question.gameState"></app-question>
             <app-answers
               [answers]="question.answers"
               [resultsScreen]="true"

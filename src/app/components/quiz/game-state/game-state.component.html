@@ -1,6 +1,6 @@
-<div class="card mt-1">
+<div class="card mb-2" style="max-width: 300px;">
   <div class="card-body">
-    <table class="w-100" aria-hidden="true">
+    <table aria-hidden="true">
       <tr>
         <td>
           @if (this.edit) {
@@ -39,19 +39,9 @@
                      [(ngModel)]="currentGameState.runnerBase3">
             </div>
           } @else {
-            Balls {{ currentGameState.balls }} -
-              Strikes  {{ currentGameState.strikes }} -
-              Outs {{ currentGameState.outs }}
+            {{ runners() }}, {{ currentGameState.outs }} out, count {{ currentGameState.balls }}-{{ currentGameState.strikes }}
           }
         </td>
-      </tr>
-      <tr>
-        <td>
-          @if (!this.edit) {
-            {{ runners() }}
-          }
-        </td>
-
       </tr>
     </table>
   </div>
