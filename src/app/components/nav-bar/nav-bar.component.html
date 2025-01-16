@@ -13,11 +13,6 @@
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="/quiz">Quiz</a>
         </li>
-        @if (isLoggedIn$ | async) {
-          <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="/admin">Admin</a>
-          </li>
-        }
       </ul>
       <div class="ms-auto text-white">
         @if (isLoggedIn$ | async) {
