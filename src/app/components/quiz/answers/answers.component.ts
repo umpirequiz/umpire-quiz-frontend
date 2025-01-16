@@ -21,6 +21,7 @@ export class AnswersComponent {
   @Input() questionId: number = 0
   @Input() edit?: boolean
   @Output() selectedAnswerEvent: EventEmitter<number> = new EventEmitter<number>()
+  @Output() next: EventEmitter<void> = new EventEmitter<void>()
 
   selectAnswer(id: number): void {
     this.selectedAnswerEvent.emit(id);
@@ -67,4 +68,7 @@ export class AnswersComponent {
     this.answers.push(emptyAnswer())
   }
 
+  onNext() {
+    this.next.next();
+  }
 }

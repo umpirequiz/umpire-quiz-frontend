@@ -3,6 +3,7 @@
     <h6 class="mb-0">Answer</h6>
   </div>
   <div class="card-body">
+    Select one option
     <ul class="list-group mt-1">
       @if (edit) {
         <div class="input-group">
@@ -46,5 +47,6 @@
         }
       }
     </ul>
+    <button class="btn btn-outline-secondary mt-2" (click)="onNext()">Next</button>
   </div>
 </div>
