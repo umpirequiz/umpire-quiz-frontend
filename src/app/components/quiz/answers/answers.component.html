@@ -40,12 +40,16 @@
         @for (answer of answers; track $index) {
           <li class="list-group-item click"
               id="{{answer.id}}"
-              (click)="selectAnswer(answer.id)"
+              (click)="onSelect(answer.id)"
               (keyup)="selectAnswerKeyboardWrapper(answer.id, $event)" tabindex="{{$index+1}}"
               [ngClass]="{'list-group-item-primary': isSelected(answer.id)}">{{ answer.i18nValue.NL_NL }}
           </li>
         }
-        <button class="btn btn-outline-secondary mt-2" (click)="onNext()">Next</button>
+        @if (!allAnswered()) {
+          <button class="btn btn-secondary mt-2" (click)="onNext()">Next</button>
+        } @else {
+          <span class="mt-2" (click)="onNext()">All answered. Finish?</span>
+        }
       }
     </ul>
   </div>

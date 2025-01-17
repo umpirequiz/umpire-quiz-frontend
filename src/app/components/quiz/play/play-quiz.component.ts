@@ -30,28 +30,19 @@ export class PlayQuizComponent implements OnInit {
   currentQuestionIndex: number = 0;
   quiz!: Quiz;
 
+  constructor(private quizService: QuizService) {
+  }
+
   ngOnInit(): void {
     if (this.quizService.quizInProgress()) {
       this.quiz = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "").quiz;
       this.currentQuestionIndex = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "").currentQuestionIndex;
-      this.questionsAnswered = this.checkQuestionsAnswered();
+      this.questionsAnswered = this.quizService.checkQuestionsAnswered(this.quiz);
     } else {
       this.quizService.getQuizQuestions().subscribe((data) => this.quiz = data)
     }
   }
 
-  constructor(private quizService: QuizService) {
-  }
-
-  checkQuestionsAnswered(): number {
-    let count: number = 0;
-    for (let question of this.quiz.questions) {
-      if (question.selectedAnswer !== undefined) {
-        count++;
-      }
-    }
-    return count;
-  }
 
   submitAnswers() {
     this.quizService.postQuizResults(this.quiz)
@@ -63,23 +54,18 @@ export class PlayQuizComponent implements OnInit {
     this.quizService.clearExistingQuiz();
   }
 
-  selectAnswer(answer: number): void {
-    if (this.currentQuestion.selectedAnswer === answer
-    ) {
-      this.currentQuestion.selectedAnswer = undefined;
-    } else {
-      this.currentQuestion.selectedAnswer = answer;
-    }
+  onSelect(answer: number): void {
+    this.currentQuestion.selectedAnswer = this.currentQuestion.selectedAnswer === answer ? undefined : answer;
     this.saveQuizProgress();
   }
 
   saveQuizProgress(): void {
-    const quizProgress: {currentQuestionIndex: number, quiz: Quiz} = {
+    const quizProgress: { currentQuestionIndex: number, quiz: Quiz } = {
       currentQuestionIndex: this.currentQuestionIndex,
       quiz: this.quiz
     };
     sessionStorage.setItem('activeQuiz', JSON.stringify(quizProgress));
-    this.questionsAnswered = this.checkQuestionsAnswered()
+    this.questionsAnswered = this.quizService.checkQuestionsAnswered(this.quiz);
   }
 
   get currentQuestion(): Question {
@@ -114,6 +100,7 @@ export class PlayQuizComponent implements OnInit {
       this.currentQuestionIndex--;
       this.saveQuizProgress();
     }
+    this.scrollToTop()
   }
 
   nextQuestion(): void {
@@ -122,10 +109,7 @@ export class PlayQuizComponent implements OnInit {
       this.currentQuestionIndex++;
       this.saveQuizProgress();
     }
-  }
-
-  scrollTo(el: HTMLElement) {
-    el.scrollIntoView({ behavior: "smooth" });
+    this.scrollToTop()
   }
 
   goToQuestion(index: number): void {
@@ -138,6 +122,10 @@ export class PlayQuizComponent implements OnInit {
   }
 
   allAnswered() {
-    return (this.questionsAnswered == this.quiz.questions.length)
+    return this.quizService.allAnswered(this.quiz);
+  }
+
+  scrollToTop() {
+    window.scrollTo(0, 0);
   }
 }

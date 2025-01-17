@@ -38,4 +38,17 @@ export class QuizService {
   postQuizResults(quiz: Quiz) {
     this.httpClient.post<Quiz>(this.baseUrl, quiz).subscribe(data => sessionStorage.setItem('lastResult', JSON.stringify(data)))
   }
+  checkQuestionsAnswered(quiz: Quiz): number {
+    let count: number = 0;
+    for (let question of quiz.questions) {
+      if (question.selectedAnswer !== undefined) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  allAnswered(quiz: Quiz) {
+    return (this.checkQuestionsAnswered(quiz) == quiz.questions.length)
+  }
 }
