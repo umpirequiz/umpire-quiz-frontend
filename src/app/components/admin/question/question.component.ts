@@ -47,8 +47,6 @@ export class QuestionComponent implements OnInit {
 
   save(questionForm: NgForm) {
     if (!questionForm.valid) return;
-
-    console.log(this.question)
     if (this.editMode) {
       this.service.update(this.question)
     } else {

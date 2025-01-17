@@ -18,7 +18,7 @@
           <h5 class="card-header">Question {{ $index + 1 }}</h5>
           <div class="card-body">
             <app-question [question]="question" [gameState]="question.gameState"></app-question>
-            <app-answers [resultsScreen]="true" [question]="question"></app-answers>
+            <app-answers [resultsScreen]="true" [question]="question" [answers]="question.answers"></app-answers>
             <app-ruling [ruling]="question.i18nRuling"></app-ruling>
           </div>
         </div>
