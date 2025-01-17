@@ -45,8 +45,8 @@
               [ngClass]="{'list-group-item-primary': isSelected(answer.id)}">{{ answer.i18nValue.NL_NL }}
           </li>
         }
+        <button class="btn btn-outline-secondary mt-2" (click)="onNext()">Next</button>
       }
     </ul>
-    <button class="btn btn-outline-secondary mt-2" (click)="onNext()">Next</button>
   </div>
 </div>
