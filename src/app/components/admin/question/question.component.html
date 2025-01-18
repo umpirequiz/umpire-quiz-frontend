@@ -9,7 +9,7 @@
         <app-game-state [edit]="true" [gameState]="question.gameState"></app-game-state>
         <app-question [edit]="true" [question]="question"></app-question>
         <hr/>
-        <app-answers [question]="question" [edit]="true"></app-answers>
+        <app-answers [quiz]="this.quiz" [question]="question" [answers]="question.answers" [edit]="true"></app-answers>
       </div>
     </div>
 

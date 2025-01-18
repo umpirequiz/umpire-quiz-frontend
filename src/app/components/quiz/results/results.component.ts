@@ -8,6 +8,7 @@ import {GameStateComponent} from "../game-state/game-state.component";
 import {AnswersComponent} from "../answers/answers.component";
 import {RulingComponent} from "../ruling/ruling.component";
 import {RouterLink} from "@angular/router";
+import {Quiz} from "../../../domain/Quiz";
 
 @Component({
   selector: 'app-results',
@@ -27,12 +28,14 @@ import {RouterLink} from "@angular/router";
 export class ResultsComponent implements OnInit {
   results: Question[] = [];
   selected: number[] = [];
+  quiz!: Quiz;
 
   constructor(private quizService: QuizService) {
   }
 
   ngOnInit(): void {
     this.getSelected();
+    this.quiz = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "").quiz;
   }
 
   getSelected() {
