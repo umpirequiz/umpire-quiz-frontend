@@ -8,6 +8,8 @@ import {SelectedAnswers} from "../../../domain/SelectedAnswers";
 import {GameStateComponent} from "../game-state/game-state.component";
 import {QuestionComponent} from "../question/question.component";
 import {AnswersComponent} from "../answers/answers.component";
+import {QuizProgress} from "../../../domain/QuizProgress";
+
 
 @Component({
   selector: 'app-play',
@@ -20,37 +22,30 @@ import {AnswersComponent} from "../answers/answers.component";
     NgClass,
     GameStateComponent,
     QuestionComponent,
-    AnswersComponent
-  ],
+    AnswersComponent],
   templateUrl: './play-quiz.component.html',
   styleUrl: './play-quiz.component.scss'
 })
 export class PlayQuizComponent implements OnInit {
-  questionsAnswered: number = 0;
+  answeredQuestionsCount: number = 0;
   currentQuestionIndex: number = 0;
   quiz!: Quiz;
 
   ngOnInit(): void {
     if (this.quizService.quizInProgress()) {
-      this.quiz = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "").quiz;
-      this.currentQuestionIndex = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "").currentQuestionIndex;
-      this.questionsAnswered = this.checkQuestionsAnswered();
+      // this.quiz = QuizService.activeQuiz().quiz;
+      // this.currentQuestionIndex = QuizService.activeQuiz().currentQuestionIndex;
+      this.quiz = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "{}").quiz;
+      this.currentQuestionIndex = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "{}").currentQuestionIndex;
+      this.answeredQuestionsCount = this.quizService.countAnsweredQuestions();
     } else {
-      this.quizService.getQuizQuestions().subscribe((data) => this.quiz = data)
+      this.quizService.getQuiz().subscribe((data) =>
+        this.quiz = data
+      )
     }
   }
 
   constructor(private quizService: QuizService) {
-  }
-
-  checkQuestionsAnswered(): number {
-    let count: number = 0;
-    for (let question of this.quiz.questions) {
-      if (question.selectedAnswer !== undefined) {
-        count++;
-      }
-    }
-    return count;
   }
 
   submitAnswers() {
@@ -64,8 +59,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   selectAnswer(answer: number): void {
-    if (this.currentQuestion.selectedAnswer === answer
-    ) {
+    if (this.currentQuestion.selectedAnswer === answer) {
       this.currentQuestion.selectedAnswer = undefined;
     } else {
       this.currentQuestion.selectedAnswer = answer;
@@ -74,12 +68,12 @@ export class PlayQuizComponent implements OnInit {
   }
 
   saveQuizProgress(): void {
-    const quizProgress: {currentQuestionIndex: number, quiz: Quiz} = {
+    const quizProgress: QuizProgress = {
       currentQuestionIndex: this.currentQuestionIndex,
       quiz: this.quiz
     };
     sessionStorage.setItem('activeQuiz', JSON.stringify(quizProgress));
-    this.questionsAnswered = this.checkQuestionsAnswered()
+    this.answeredQuestionsCount = this.quizService.countAnsweredQuestions();
   }
 
   get currentQuestion(): Question {
@@ -114,6 +108,7 @@ export class PlayQuizComponent implements OnInit {
       this.currentQuestionIndex--;
       this.saveQuizProgress();
     }
+    this.scrollToTop()
   }
 
   nextQuestion(): void {
@@ -122,10 +117,7 @@ export class PlayQuizComponent implements OnInit {
       this.currentQuestionIndex++;
       this.saveQuizProgress();
     }
-  }
-
-  scrollTo(el: HTMLElement) {
-    el.scrollIntoView({ behavior: "smooth" });
+    this.scrollToTop()
   }
 
   goToQuestion(index: number): void {
@@ -138,6 +130,21 @@ export class PlayQuizComponent implements OnInit {
   }
 
   allAnswered() {
-    return (this.questionsAnswered == this.quiz.questions.length)
+    if (!this.quiz) return false
+    return (this.answeredQuestionsCount == this.quiz.questions.length)
+  }
+
+  lastQuestion() {
+    if (!this.quiz) return false
+    return this.currentQuestionIndex === (this.quiz.questions.length) - 1
+  }
+
+  quizLength(): number {
+    if (!this.quiz) return 0
+    return this.quiz.questions.length;
+  }
+
+  scrollToTop() {
+    window.scrollTo(0, 0);
   }
 }

@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    console.log(this.user)
     this.service.login(this.user);
     this.user = {} as User;
   }

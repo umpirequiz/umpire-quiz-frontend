@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Quiz} from "../domain/Quiz";
 import {EnvironmentService} from "./environment.service";
+import {QuizProgress} from "../domain/QuizProgress";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class QuizService {
     )
   }
 
-  getQuizQuestions(): Observable<Quiz> {
+  getQuiz(): Observable<Quiz> {
     return this.httpClient.get<Quiz>(this.baseUrl)
   }
 
@@ -27,8 +28,7 @@ export class QuizService {
   }
 
   quizInProgress(): boolean {
-    const storedQuiz = sessionStorage.getItem('activeQuiz');
-    return storedQuiz !== null;
+    return sessionStorage.getItem('activeQuiz') !== null;
   }
 
   getQuizResults(): Quiz {
@@ -37,5 +37,25 @@ export class QuizService {
 
   postQuizResults(quiz: Quiz) {
     this.httpClient.post<Quiz>(this.baseUrl, quiz).subscribe(data => sessionStorage.setItem('lastResult', JSON.stringify(data)))
+  }
+
+  countAnsweredQuestions(): number {
+    let activeQuiz = QuizService.activeQuiz().quiz;
+    let count: number = 0;
+    for (let question of activeQuiz.questions) {
+      if (question.selectedAnswer !== undefined) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  allAnswered() {
+    if (!this.quizInProgress()) return false;
+    return (this.countAnsweredQuestions() == QuizService.activeQuiz().quiz.questions.length)
+  }
+
+  static activeQuiz(): QuizProgress {
+    return JSON.parse(sessionStorage.getItem('activeQuiz') ?? '{}');
   }
 }

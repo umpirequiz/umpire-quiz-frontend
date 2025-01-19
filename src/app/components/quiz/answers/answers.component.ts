@@ -3,6 +3,8 @@ import {Answer, emptyAnswer, Question} from "../../../domain/Question";
 import {NgClass} from "@angular/common";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
 import {FormsModule} from "@angular/forms";
+import {Quiz} from "../../../domain/Quiz";
+import {QuizService} from "../../../services/quiz.service";
 
 @Component({
   selector: 'app-answers',
@@ -15,6 +17,7 @@ import {FormsModule} from "@angular/forms";
   styleUrl: './answers.component.scss'
 })
 export class AnswersComponent {
+  @Input() quiz?: Quiz;
   @Input() answers = [] as Answer[]
   @Input() resultsScreen?: boolean
   @Input() selectedAnswer?: number
@@ -22,6 +25,9 @@ export class AnswersComponent {
   @Input() edit?: boolean
   @Output() selectedAnswerEvent: EventEmitter<number> = new EventEmitter<number>()
   @Output() next: EventEmitter<void> = new EventEmitter<void>()
+
+  constructor(private quizService: QuizService) {
+  }
 
   selectAnswer(id: number): void {
     this.selectedAnswerEvent.emit(id);
@@ -70,5 +76,9 @@ export class AnswersComponent {
 
   onNext() {
     this.next.next();
+  }
+
+  allAnswered() {
+      return this.quizService.allAnswered();
   }
 }

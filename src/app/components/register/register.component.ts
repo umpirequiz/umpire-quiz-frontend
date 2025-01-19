@@ -38,10 +38,9 @@ export class RegisterComponent implements OnInit {
 
   register(): void {
     if (this.user.password === this.confirmPassword) {
-      console.log(this.user)
       this.service.register(this.user);
       this.user = {} as User;
     }
-    
+
   }
 }

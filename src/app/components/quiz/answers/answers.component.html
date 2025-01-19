@@ -45,7 +45,11 @@
               [ngClass]="{'list-group-item-primary': isSelected(answer.id)}">{{ answer.i18nValue.NL_NL }}
           </li>
         }
-        <button class="btn btn-outline-secondary mt-2" (click)="onNext()">Next</button>
+        @if (!allAnswered()) {
+          <button class="btn btn-secondary mt-2" (click)="onNext()">Next</button>
+        } @else {
+          <span class="mt-2" (click)="onNext()">All answered. Finish?</span>
+        }
       }
     </ul>
   </div>
