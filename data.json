@@ -37,7 +37,8 @@
           "EN_US": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner.",
           "NL_NL": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner."
         },
-        "id": 153
+        "id": 153,
+        "selectedAnswer": 86
       },
       {
         "answers": [
@@ -69,7 +70,8 @@
           "EN_US": "Batter hits a fair ball along the first base line.  The ball takes an awkward bounce and hits the BR as he passes the ball.  Is he out?",
           "NL_NL": "Batter hits a fair ball along the first base line.  The ball takes an awkward bounce and hits the BR as he passes the ball.  Is he out?"
         },
-        "id": 84
+        "id": 84,
+        "selectedAnswer": 214
       },
       {
         "answers": [
@@ -101,7 +103,8 @@
           "EN_US": "Pitch is in the dirt and gets behind the catcher. Runner on first takes off for second base. Catcher attempts to throw to 2nd, but runs into the plate umpire they are unable to throw the runner out.",
           "NL_NL": "Pitch is in the dirt and gets behind the catcher. Runner on first takes off for second base. Catcher attempts to throw to 2nd, but runs into the plate umpire they are unable to throw the runner out."
         },
-        "id": 116
+        "id": 116,
+        "selectedAnswer": 351
       },
       {
         "answers": [
@@ -147,7 +150,8 @@
           "EN_US": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball.",
           "NL_NL": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball."
         },
-        "id": 112
+        "id": 112,
+        "selectedAnswer": 424
       },
       {
         "answers": [
@@ -186,7 +190,8 @@
           "EN_US": "Batter hits a line drive to right field.  The right fielder throws to 2nd base before R1 crosses 2nd base, but it sails through the infield, bouncing around for a while.  The ball finally settles into the dugout as R1 passes third base.  Who goes where?",
           "NL_NL": "Batter hits a line drive to right field.  The right fielder throws to 2nd base before R1 crosses 2nd base, but it sails through the infield, bouncing around for a while.  The ball finally settles into the dugout as R1 passes third base.  Who goes where?"
         },
-        "id": 124
+        "id": 124,
+        "selectedAnswer": 109
       }
     ]
   },

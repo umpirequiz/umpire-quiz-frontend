@@ -26,15 +26,15 @@ import {AnswersComponent} from "../answers/answers.component";
   styleUrl: './play-quiz.component.scss'
 })
 export class PlayQuizComponent implements OnInit {
-  questionsAnswered: number = 0;
+  answeredQuestionsCount: number = 0;
   currentQuestionIndex: number = 0;
   quiz!: Quiz;
 
   ngOnInit(): void {
     if (this.quizService.quizInProgress()) {
-      this.quiz = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "").quiz;
-      this.currentQuestionIndex = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "").currentQuestionIndex;
-      this.questionsAnswered = this.checkQuestionsAnswered();
+      this.quiz = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "{}").quiz;
+      this.currentQuestionIndex = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "{}").currentQuestionIndex;
+      this.answeredQuestionsCount = this.countAnsweredQuestions();
     } else {
       this.quizService.getQuizQuestions().subscribe((data) => this.quiz = data)
     }
@@ -43,7 +43,7 @@ export class PlayQuizComponent implements OnInit {
   constructor(private quizService: QuizService) {
   }
 
-  checkQuestionsAnswered(): number {
+  countAnsweredQuestions(): number {
     let count: number = 0;
     for (let question of this.quiz.questions) {
       if (question.selectedAnswer !== undefined) {
@@ -79,7 +79,7 @@ export class PlayQuizComponent implements OnInit {
       quiz: this.quiz
     };
     sessionStorage.setItem('activeQuiz', JSON.stringify(quizProgress));
-    this.questionsAnswered = this.checkQuestionsAnswered()
+    this.answeredQuestionsCount = this.countAnsweredQuestions()
   }
 
   get currentQuestion(): Question {
@@ -114,6 +114,7 @@ export class PlayQuizComponent implements OnInit {
       this.currentQuestionIndex--;
       this.saveQuizProgress();
     }
+    this.scrollToTop();
   }
 
   nextQuestion(): void {
@@ -122,10 +123,11 @@ export class PlayQuizComponent implements OnInit {
       this.currentQuestionIndex++;
       this.saveQuizProgress();
     }
+    this.scrollToTop();
   }
 
-  scrollTo(el: HTMLElement) {
-    el.scrollIntoView({ behavior: "smooth" });
+  scrollToTop() {
+    window.scrollTo(0, 0);
   }
 
   goToQuestion(index: number): void {
@@ -138,6 +140,6 @@ export class PlayQuizComponent implements OnInit {
   }
 
   allAnswered() {
-    return (this.questionsAnswered == this.quiz.questions.length)
+    return (this.answeredQuestionsCount == this.quiz.questions.length)
   }
 }

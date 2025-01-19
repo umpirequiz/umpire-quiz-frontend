@@ -3,6 +3,7 @@ import {Answer, emptyAnswer, Question} from "../../../domain/Question";
 import {NgClass} from "@angular/common";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
 import {FormsModule} from "@angular/forms";
+import {Quiz} from "../../../domain/Quiz";
 
 @Component({
   selector: 'app-answers',
@@ -70,5 +71,19 @@ export class AnswersComponent {
 
   onNext() {
     this.next.next();
+  }
+
+  allAnswered() {
+    const quiz = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "{}").quiz as Quiz;
+    if (!quiz) return false;
+
+    let count: number = 0;
+    for (let question of quiz.questions) {
+      if (question.selectedAnswer !== undefined) {
+        count++;
+      }
+    }
+
+    return (count == quiz.questions.length)
   }
 }

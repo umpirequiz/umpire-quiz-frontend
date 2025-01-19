@@ -6,30 +6,20 @@
     Select one option
     <ul class="list-group mt-1">
       @if (edit) {
-        <div class="input-group">
-          <label for="checkHead" class="form-check-label m-2">
-            <input type="checkbox" class="form-check-input p-1" id="checkHead" disabled/>
-          </label>
-          <input type="text" class="form-control" value="EN" disabled>
-          <input type="text" class="form-control" value="NL" disabled>
-        </div>
         @for (answer of answers; track $index) {
-          <div class="input-group">
-            <label for="{{answer.id}}" class="form-check-label m-2">
-              <input type="radio" class="form-check-input p-1" name="ans" [checked]="isCorrectAnswer($index)"
-                     (change)="setCorrectAnswer($index)">
-            </label>
-            <input type="text" class="form-control" id="{{answer.id}}"
-                   [(ngModel)]="answer.i18nValue.EN_US" name="{{answer.id}}"/>
-            <input type="text" class="form-control" id="{{answer.id}}"
-                   [(ngModel)]="answer.i18nValue.NL_NL" name="{{answer.id}}"/>
-          </div>
+          <li class="list-group-item">
+            <div class="input-group">
+              <label for="{{answer.id}}" class="form-check-label m-2">
+                <input type="radio" class="form-check-input p-1" name="ans" [checked]="isCorrectAnswer($index)"
+                       (change)="setCorrectAnswer($index)">
+              </label>
+              <input type="text" class="form-control" id="{{answer.id}}"
+                     [(ngModel)]="answer.i18nValue.EN_US" name="{{answer.id}}"/>
+              <input type="text" class="form-control" id="{{answer.id}}"
+                     [(ngModel)]="answer.i18nValue.NL_NL" name="{{answer.id}}"/>
+            </div>
+          </li>
         }
-        <div class="input-group">
-          <label class="form-check-label m-2" (click)="newAnswer()">
-            <i class="fa-solid fa-square-plus" style='color: green;'></i>
-          </label>
-        </div>
       } @else if (resultsScreen) {
         @for (answer of answers; track $index) {
           <li class="list-group-item"
@@ -45,8 +35,13 @@
               [ngClass]="{'list-group-item-primary': isSelected(answer.id)}">{{ answer.i18nValue.NL_NL }}
           </li>
         }
-        <button class="btn btn-outline-secondary mt-2" (click)="onNext()">Next</button>
       }
     </ul>
+
+    <button [class.disabled]="allAnswered()" class="btn btn-primary my-2" (click)="onNext()">Next</button>
+    @if (allAnswered()) {
+      <span class="m-2">Finish?</span>
+    }
+
   </div>
 </div>
