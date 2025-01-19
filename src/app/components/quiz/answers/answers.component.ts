@@ -3,6 +3,7 @@ import {Answer, emptyAnswer, Question} from "../../../domain/Question";
 import {NgClass} from "@angular/common";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
 import {FormsModule} from "@angular/forms";
+import {Quiz} from "../../../domain/Quiz";
 
 @Component({
   selector: 'app-answers',
@@ -16,11 +17,12 @@ import {FormsModule} from "@angular/forms";
 })
 export class AnswersComponent {
   @Input() answers = [] as Answer[]
-  @Input() resultsScreen?: boolean
+  @Input() results = false
+  @Input() edit = false
   @Input() selectedAnswer?: number
   @Input() questionId: number = 0
-  @Input() edit?: boolean
   @Output() selectedAnswerEvent: EventEmitter<number> = new EventEmitter<number>()
+  @Output() next: EventEmitter<void> = new EventEmitter<void>()
 
   selectAnswer(id: number): void {
     this.selectedAnswerEvent.emit(id);
@@ -67,4 +69,21 @@ export class AnswersComponent {
     this.answers.push(emptyAnswer())
   }
 
+  onNext() {
+    this.next.next();
+  }
+
+  allAnswered() {
+    const quiz = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "{}").quiz as Quiz;
+    if (!quiz) return false;
+
+    let count: number = 0;
+    for (let question of quiz.questions) {
+      if (question.selectedAnswer !== undefined) {
+        count++;
+      }
+    }
+
+    return (count == quiz.questions.length)
+  }
 }

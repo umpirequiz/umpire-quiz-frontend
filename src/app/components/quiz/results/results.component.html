@@ -1,23 +1,26 @@
 <div class="col-md-12 col-lg-12 d-flex flex-column flex-md-row mb-4">
-  <div class="vstack">
+  <div class="vstack p-2">
+    <h5 class="">
+      Here are the results!
+    </h5>
+    <h6 class="mt-2">Correct vs. incorrect</h6>
     <div class="progress">
-      <div class="progress-bar bg-success" role="progressbar"
+      <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
            [style.width]="getPercentage(getQuestionsCorrect()) + '%'">{{ getQuestionsCorrect() }}
       </div>
-      <div class="progress-bar bg-danger" role="progressbar"
+      <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar"
            [style.width]="getPercentage(getQuestionsIncorrect()) + '%'">{{ getQuestionsIncorrect() }}
       </div>
     </div>
     @for (question of getQuestions(); track $index) {
-      <div class="p-2">
+      <div class="mt-2">
         <div class="card text-black border w-100">
-          <div class="card-header">Question {{ $index + 1 }}</div>
+          <h5 class="card-header">Question {{ $index + 1 }}</h5>
           <div class="card-body">
-            <app-game-state [gameState]="question.gameState"></app-game-state>
-            <app-question [question]="question"></app-question>
+            <app-question [question]="question" [gameState]="question.gameState"></app-question>
             <app-answers
               [answers]="question.answers"
-              [resultsScreen]="true"
+              [results]="true"
               [selectedAnswer]="question.selectedAnswer"
               [questionId]="question.id"></app-answers>
             <app-ruling [ruling]="question.i18nRuling"></app-ruling>
@@ -25,6 +28,9 @@
         </div>
       </div>
     }
+    <div class="p-2">
+      <button class="btn btn-primary" routerLink="/quiz">Play again</button>
+    </div>
   </div>
 
 </div>

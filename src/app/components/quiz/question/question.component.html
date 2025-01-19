@@ -1,5 +1,7 @@
-<div class="card mt-1">
-  <div class="card-header">Question:</div>
+<div class="card border-secondary my-1">
+  <div class="card-header d-flex align-items-center">
+    <h6 class="mb-0">Situation</h6>
+  </div>
   <div class="card-body">
     @if (this.edit) {
       <h5>{{ Lang.English.displayValue }}</h5>
@@ -24,6 +26,7 @@
                 required
                 [(ngModel)]="question.i18nRuling!.NL_NL"></textarea>
     } @else {
+      <app-game-state [gameState]="currentGameState"></app-game-state>
       {{ question.i18nValue.EN_US }}
     }
   </div>

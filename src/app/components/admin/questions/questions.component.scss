@@ -1,4 +1,14 @@
 #id {
   cursor: pointer;
-  text-decoration:  underline;
+  text-decoration: underline;
+}
+
+input {
+  display: inline-block;
+  margin-right: 25px;
+}
+
+label {
+  display: inline-block;
+  width: 235px;
 }
