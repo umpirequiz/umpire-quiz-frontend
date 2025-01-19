@@ -32,6 +32,8 @@ export class AnswersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("ngOnInit " + JSON.stringify(this.question))
+    // this.answers = this.question.answers
     this.selectedAnswer = this.question.selectedAnswer
     this.questionId = this.question.id
   }
