@@ -7,11 +7,12 @@
       <div class="card-body">
         <app-question [question]="currentQuestion" [gameState]="currentGameState"></app-question>
         <app-answers
-          [quiz] = "this.quiz"
-          [question]="currentQuestion"
           [answers]="currentQuestion.answers"
-          (select)="onSelect($event)"
-          (next)="nextQuestion()"></app-answers>
+          [resultsScreen]="false"
+          [selectedAnswer]="currentQuestion.selectedAnswer"
+          [questionId]="currentQuestion.id"
+          (selectedAnswerEvent)="selectAnswer($event)"
+          (next)="nextQuestion(); scrollTo(questionHeader)"></app-answers>
       </div>
     </div>
     <div class="row">
@@ -24,7 +25,7 @@
             <nav class="mt-2" aria-label="Page navigation">
               <ul class="pagination justify-content-start">
                 <li class="page-item" [class.disabled]="currentQuestionIndex === 0">
-                  <a class="page-link click" (click)="prevQuestion()"><i
+                  <a class="page-link click" (click)="prevQuestion(); scrollTo(questionHeader)"><i
                     class="fa-solid fa-angle-left"></i></a>
                 </li>
                 <li *ngFor="let question of quiz.questions; let i = index" class="page-item"
@@ -34,7 +35,7 @@
                      [ngClass]="{'bg-secondary text-white': isAnswered(i) && currentQuestionIndex !== i}">{{ i + 1 }}</a>
                 </li>
                 <li class="page-item" [class.disabled]="currentQuestionIndex === quiz.questions.length - 1">
-                  <a class="page-link click" (click)="nextQuestion()"><i
+                  <a class="page-link click" (click)="nextQuestion(); scrollTo(questionHeader)"><i
                     class="fa-solid fa-angle-right"></i></a>
                 </li>
               </ul>

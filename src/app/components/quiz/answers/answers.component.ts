@@ -1,10 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Answer, emptyAnswer, Question} from "../../../domain/Question";
 import {NgClass} from "@angular/common";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
 import {FormsModule} from "@angular/forms";
-import {QuizService} from "../../../services/quiz.service";
-import {Quiz} from "../../../domain/Quiz";
 
 @Component({
   selector: 'app-answers',
@@ -16,30 +14,17 @@ import {Quiz} from "../../../domain/Quiz";
   templateUrl: './answers.component.html',
   styleUrl: './answers.component.scss'
 })
-export class AnswersComponent implements OnInit {
-  @Input() quiz?: Quiz;
-  @Input() question!: Question;
-  @Input() resultsScreen = false
-  @Input() edit = false
+export class AnswersComponent {
   @Input() answers = [] as Answer[]
+  @Input() resultsScreen?: boolean
+  @Input() selectedAnswer?: number
+  @Input() questionId: number = 0
+  @Input() edit?: boolean
+  @Output() selectedAnswerEvent: EventEmitter<number> = new EventEmitter<number>()
   @Output() next: EventEmitter<void> = new EventEmitter<void>()
-  @Output() select: EventEmitter<number> = new EventEmitter<number>()
 
-  selectedAnswer?: number
-  questionId: number = 0
-
-  constructor(private quizService: QuizService) {
-  }
-
-  ngOnInit(): void {
-    console.log("ngOnInit " + JSON.stringify(this.question))
-    // this.answers = this.question.answers
-    this.selectedAnswer = this.question.selectedAnswer
-    this.questionId = this.question.id
-  }
-
-  onSelect(id: number): void {
-    this.select.emit(id);
+  selectAnswer(id: number): void {
+    this.selectedAnswerEvent.emit(id);
   }
 
   isSelected(id: number): boolean {
@@ -49,7 +34,7 @@ export class AnswersComponent implements OnInit {
   selectAnswerKeyboardWrapper(answer: number, e: KeyboardEvent) {
     if (e.key == " " ||
       e.code == "Space") {
-      this.onSelect(answer)
+      this.selectAnswer(answer)
     }
   }
 
@@ -85,12 +70,5 @@ export class AnswersComponent implements OnInit {
 
   onNext() {
     this.next.next();
-  }
-
-  allAnswered() {
-    if (this.quiz)
-      return this.quizService.allAnswered(this.quiz);
-    else
-      return false
   }
 }
