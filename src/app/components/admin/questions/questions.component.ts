@@ -32,9 +32,9 @@ export class QuestionsComponent implements OnInit {
 
   // for paging:
   totalItems = 100;
-  pageSize = 10;
+  pageSize = 25;
   currentPage = 0;
-  pageSizeOptions = [1, 5, 10, 25]
+  pageSizeOptions = [10, 25, 50, 100]
   private includeAll: boolean = false;
   private searchTerm: string = '';
 
