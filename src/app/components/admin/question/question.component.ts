@@ -6,7 +6,6 @@ import {QuestionService} from "../../../services/question.service";
 import {AnswersComponent} from "../../quiz/answers/answers.component";
 import {GameStateComponent} from "../../quiz/game-state/game-state.component";
 import {QuestionComponent as QuizQuestionComponent}  from "../../quiz/question/question.component";
-import {Quiz} from "../../../domain/Quiz";
 
 @Component({
   selector: 'app-admin-question',
@@ -20,7 +19,6 @@ export class QuestionComponent implements OnInit {
   editMode = true;
   question = emptyQuestion();
   modeLabel = "Edit";
-  quiz!: Quiz;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -28,7 +26,6 @@ export class QuestionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.quiz = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "").quiz;
     this.route.paramMap.subscribe(
       (params: ParamMap) => this.processUrlParams(params.get('subPath') ?? "")
     )
