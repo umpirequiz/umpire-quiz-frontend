@@ -14,8 +14,9 @@ json-server data.json --routes routes.json
 To build the app, create the docker image and push it, run:
 
 ```shell
-ng build
+ng build --aot --output-hashing=all 
 ```
+
 ```shell
 docker build -t bramjanssens/umpire-quiz-frontend . 
 ```

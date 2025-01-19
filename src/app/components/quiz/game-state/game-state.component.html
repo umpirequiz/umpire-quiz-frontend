@@ -1,26 +1,38 @@
-<div class="card mb-2" style="max-width: 300px;">
+<div class="card mb-2" style="max-width: 350px;">
   <div class="card-body">
     <table aria-hidden="true">
       <tr>
         <td>
           @if (this.edit) {
-            <div class="input-group w-50">
-              <span class="input-group-text" id="ballsLabel">Balls</span>
-              <input type="number" class="form-control"
-                     id="balls" name="balls"
-                     required
-                     [(ngModel)]="currentGameState.balls">
-              <span class="input-group-text" id="strikesLabel">Strikes</span>
-              <input type="number" class="form-control"
-                     id="strikes" name="strikes"
-                     required
-                     [(ngModel)]="currentGameState.strikes">
-              <span class="input-group-text" id="outsLabel">Outs</span>
-              <input type="number" class="form-control"
-                     id="outs" name="outs"
-                     required
-                     [(ngModel)]="currentGameState.outs">
+            <div class="d-flex align-items-center">
+              <!-- Balls -->
+              <div class="input-group me-2">
+                <span class="input-group-text" id="ballsLabel">B</span>
+                <input type="number" class="form-control slim"
+                       id="balls" name="balls"
+                       required
+                       [(ngModel)]="currentGameState.balls">
+              </div>
+
+              <!-- Strikes -->
+              <div class="input-group me-2">
+                <span class="input-group-text" id="strikesLabel">S</span>
+                <input type="number" class="form-control slim"
+                       id="strikes" name="strikes"
+                       required
+                       [(ngModel)]="currentGameState.strikes">
+              </div>
+
+              <!-- Outs -->
+              <div class="input-group">
+                <span class="input-group-text" id="outsLabel">O</span>
+                <input type="number" class="form-control"
+                       id="outs" name="outs"
+                       required
+                       [(ngModel)]="currentGameState.outs">
+              </div>
             </div>
+
             <div class="input-group mb-3 p-2">
               <label for="r1" class="form-check-label me-2">R1:</label>
               <input type="checkbox" class="form-check-input me-3"

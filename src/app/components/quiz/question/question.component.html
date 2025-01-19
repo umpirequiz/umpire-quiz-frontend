@@ -3,7 +3,6 @@
     <h6 class="mb-0">Situation</h6>
   </div>
   <div class="card-body">
-    <app-game-state [gameState]="currentGameState"></app-game-state>
     @if (this.edit) {
       <h5>{{ Lang.English.displayValue }}</h5>
       <textarea type="text" rows="3" class="form-control mb-2"
@@ -27,6 +26,7 @@
                 required
                 [(ngModel)]="question.i18nRuling!.NL_NL"></textarea>
     } @else {
+      <app-game-state [gameState]="currentGameState"></app-game-state>
       {{ question.i18nValue.EN_US }}
     }
   </div>
