@@ -20,7 +20,7 @@
             </div>
           </li>
         }
-      } @else if (resultsScreen) {
+      } @else if (results) {
         @for (answer of answers; track $index) {
           <li class="list-group-item"
               [class]="wasAnsweredCorrectly(questionId, answer.id)">{{ answer.i18nValue.EN_US }}
@@ -37,10 +37,11 @@
         }
       }
     </ul>
-
-    <button [class.disabled]="allAnswered()" class="btn btn-primary my-2" (click)="onNext()">Next</button>
-    @if (allAnswered()) {
-      <span class="m-2">Finish?</span>
+    @if (!results && !edit) {
+      <button class="btn btn-primary my-2" (click)="onNext()">Next</button>
+      @if (allAnswered()) {
+        <span class="m-2">Finish?</span>
+      }
     }
 
   </div>

@@ -17,10 +17,10 @@ import {Quiz} from "../../../domain/Quiz";
 })
 export class AnswersComponent {
   @Input() answers = [] as Answer[]
-  @Input() resultsScreen?: boolean
+  @Input() results = false
+  @Input() edit = false
   @Input() selectedAnswer?: number
   @Input() questionId: number = 0
-  @Input() edit?: boolean
   @Output() selectedAnswerEvent: EventEmitter<number> = new EventEmitter<number>()
   @Output() next: EventEmitter<void> = new EventEmitter<void>()
 

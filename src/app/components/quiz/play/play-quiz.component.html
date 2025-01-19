@@ -1,7 +1,7 @@
 <div class="row">
   <!-- Main Content -->
   <div class="col-12 col-lg-8">
-    <div class="card p-0 text-black border w-100 mb-4">
+    <div class="card p-0 text-black border w-100 mb-2">
       <h5 class="card-header" #questionHeader id="questionHeader">
         Question {{ currentQuestionIndex + 1 }}
       </h5>
@@ -9,7 +9,6 @@
         <app-question [question]="currentQuestion" [gameState]="currentGameState"></app-question>
         <app-answers
           [answers]="currentQuestion.answers"
-          [resultsScreen]="false"
           [selectedAnswer]="currentQuestion.selectedAnswer"
           [questionId]="currentQuestion.id"
           (selectedAnswerEvent)="selectAnswer($event)"
@@ -19,7 +18,7 @@
   </div>
 
   <!-- Progress Sidebar -->
-  <div class="col-12 col-lg-4 mt-4 mt-lg-0">
+  <div class="col-12 col-lg-4 mt-0 mt-lg-0">
     <div class="card p-0 text-black border w-100">
       <div class="card-header">
         <h5 class="card-title">Progress</h5>
@@ -28,9 +27,9 @@
         <button [ngClass]="allAnswered() ? 'btn btn-success':'btn btn-warning'"
                 (click)="submitAnswers()" routerLink="/quiz/results">Finish{{ allAnswered() ? '!' : '?' }}
         </button>
-        <p [ngClass]="allAnswered() ? 'text-success':'text-danger'">
+        <span [ngClass]="allAnswered() ? 'badge rounded-pill text-bg-success m-2':'badge rounded-pill text-bg-warning m-2'">
           {{ answeredQuestionsCount }}/{{ quiz.questions.length }} answered
-        </p>
+        </span>
         <nav aria-label="Page navigation">
           <ul class="pagination justify-content-start">
             <li class="page-item" [class.disabled]="currentQuestionIndex === 0">

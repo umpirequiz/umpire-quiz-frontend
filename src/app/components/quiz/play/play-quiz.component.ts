@@ -74,7 +74,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   saveQuizProgress(): void {
-    const quizProgress: {currentQuestionIndex: number, quiz: Quiz} = {
+    const quizProgress: { currentQuestionIndex: number, quiz: Quiz } = {
       currentQuestionIndex: this.currentQuestionIndex,
       quiz: this.quiz
     };
@@ -118,8 +118,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   nextQuestion(): void {
-    if (this.currentQuestionIndex < this.quiz.questions.length
-    ) {
+    if (this.currentQuestionIndex < this.quiz.questions.length - 1) {
       this.currentQuestionIndex++;
       this.saveQuizProgress();
     }
