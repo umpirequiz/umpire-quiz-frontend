@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand shadow p-3 navbar-fixed-top" data-bs-theme="dark" style="background-color: #0d6efd">
+<nav class="navbar navbar-expand-md shadow p-3 navbar-fixed-top" data-bs-theme="dark" style="background-color: #0d6efd">
   <div class="container-xxl">
     <a class="navbar-brand" routerLink="/home"><i class="fas fa-baseball fa-2x me-3" style="color: #FFFFFF;"></i></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -13,6 +13,17 @@
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="/quiz">Quiz</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/about">About</a>
+        </li>
+        @if (isLoggedIn$ | async) {
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/admin">Admin</a>
+          </li>
+        }
       </ul>
       <div class="ms-auto text-white">
         @if (isLoggedIn$ | async) {
