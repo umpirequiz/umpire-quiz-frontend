@@ -46,7 +46,7 @@
               id="{{answer.id}}"
               (click)="selectAnswer(answer.id)"
               (keyup)="selectAnswerKeyboardWrapper(answer.id, $event)" tabindex="{{$index+1}}"
-              [ngClass]="{'list-group-item-primary': isSelected(answer.id)}">{{ answer.i18nValue.NL_NL }}
+              [ngClass]="{'list-group-item-primary': isSelected(answer.id)}">{{ answer.i18nValue.EN_US }}
           </li>
         }
       }
