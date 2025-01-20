@@ -9,11 +9,13 @@ import {ResultsComponent} from "./components/quiz/results/results.component";
 import {QuestionComponent} from "./components/admin/question/question.component";
 import {authGuard} from "./guards/auth.guard";
 import {AdminComponent} from "./components/admin/admin.component";
+import {ContactComponent} from "./components/contact/contact.component";
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'contact', component: ContactComponent},
   {
     path: 'quiz', component: QuizComponent,
     children: [
