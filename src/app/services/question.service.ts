@@ -3,6 +3,8 @@ import {Question} from "../domain/Question";
 import {HttpClient} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
 import {EnvironmentService} from "./environment.service";
+import {MessageService} from "./message.service";
+import {QuestionError} from "../domain/QuestionError";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class QuestionService {
 
   private _questionsUpdated$ = new Subject<Question[]>()
 
-  constructor(private httpClient: HttpClient, private environmentService: EnvironmentService) {
+  constructor(private httpClient: HttpClient, private environmentService: EnvironmentService, private messageService: MessageService) {
     this.environmentService.env.subscribe(e =>
       this.baseUrl = e.questionServiceUrl + '/questions'
     )
@@ -49,5 +51,11 @@ export class QuestionService {
 
   get questionsUpdated$(): Subject<Question[]> {
     return this._questionsUpdated$;
+  }
+
+  reportError(e: QuestionError) {
+    this.httpClient.post<QuestionError>(`${this.baseUrl}/${e.questionId}/errors`, e, {observe: 'response'}).subscribe(
+      () => this.messageService.success("Thank you for improving this app!")
+    );
   }
 }

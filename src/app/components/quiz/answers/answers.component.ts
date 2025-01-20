@@ -4,13 +4,16 @@ import {NgClass} from "@angular/common";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
 import {FormsModule} from "@angular/forms";
 import {Quiz} from "../../../domain/Quiz";
+import {MatTooltip} from "@angular/material/tooltip";
+import {QuestionService} from "../../../services/question.service";
 
 @Component({
   selector: 'app-answers',
   standalone: true,
   imports: [
     NgClass,
-    FormsModule
+    FormsModule,
+    MatTooltip
   ],
   templateUrl: './answers.component.html',
   styleUrl: './answers.component.scss'
@@ -23,6 +26,10 @@ export class AnswersComponent {
   @Input() questionId: number = 0
   @Output() selectedAnswerEvent: EventEmitter<number> = new EventEmitter<number>()
   @Output() next: EventEmitter<void> = new EventEmitter<void>()
+  message = '';
+
+  constructor(private questionService: QuestionService) {
+  }
 
   selectAnswer(id: number): void {
     this.selectedAnswerEvent.emit(id);
@@ -85,5 +92,12 @@ export class AnswersComponent {
     }
 
     return (count == quiz.questions.length)
+  }
+
+  reportError() {
+    this.questionService.reportError({
+      questionId: this.questionId,
+      message: this.message
+    })
   }
 }
