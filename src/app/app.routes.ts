@@ -6,15 +6,16 @@ import {QuizComponent} from "./components/quiz/quiz.component";
 import {QuizHomeComponent} from "./components/quiz/home/quiz-home.component";
 import {PlayQuizComponent} from "./components/quiz/play/play-quiz.component";
 import {ResultsComponent} from "./components/quiz/results/results.component";
-import {QuestionsComponent} from "./components/admin/questions/questions.component";
 import {QuestionComponent} from "./components/admin/question/question.component";
 import {authGuard} from "./guards/auth.guard";
 import {AdminComponent} from "./components/admin/admin.component";
+import {ContactComponent} from "./components/contact/contact.component";
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'contact', component: ContactComponent},
   {
     path: 'quiz', component: QuizComponent,
     children: [
