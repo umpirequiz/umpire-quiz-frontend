@@ -63,7 +63,7 @@
       } @else if (results) {
         @for (answer of answers; track $index) {
           <li class="list-group-item"
-              [class]="wasAnsweredCorrectly(questionId, answer.id)">{{ answer.i18nValue.EN_US }}
+              [class]="wasAnsweredCorrectly(this.question.id, answer.id)">{{ answer.i18nValue.EN_US }}
           </li>
         }
       } @else {

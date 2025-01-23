@@ -53,9 +53,10 @@ export class QuestionService {
     return this._questionsUpdated$;
   }
 
-  reportError(e: QuestionError) {
-    this.httpClient.post<QuestionError>(`${this.baseUrl}/${e.questionId}/errors`, e, {observe: 'response'}).subscribe(
-      () => this.messageService.success("Thank you for improving this app!")
-    );
+  reportError(questionId: number, e: QuestionError) {
+    this.httpClient.post<QuestionError>(`${this.baseUrl}/${questionId}/errors`, e, {observe: 'response'})
+      .subscribe(
+        () => this.messageService.success("Thank you for improving this app!")
+      );
   }
 }

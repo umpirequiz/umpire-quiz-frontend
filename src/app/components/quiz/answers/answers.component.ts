@@ -23,7 +23,7 @@ export class AnswersComponent {
   @Input() results = false
   @Input() edit = false
   @Input() selectedAnswer?: number
-  @Input() questionId: number = 0
+  @Input() question: Question = {} as Question
   @Output() selectedAnswerEvent: EventEmitter<number> = new EventEmitter<number>()
   @Output() next: EventEmitter<void> = new EventEmitter<void>()
   message = '';
@@ -95,9 +95,6 @@ export class AnswersComponent {
   }
 
   reportError() {
-    this.questionService.reportError({
-      questionId: this.questionId,
-      message: this.message
-    })
+    this.questionService.reportError(this.question.id, {message: this.message})
   }
 }
