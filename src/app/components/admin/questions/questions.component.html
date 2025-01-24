@@ -1,25 +1,25 @@
-<div class="row g-3">
-  <div class="col-3 my-auto">
-    <div class="d-flex align-items-center gap-3">
-      <label class="form-check-label d-flex align-items-center" routerLink="/questions/add">
-        <i class="fa-solid fa-square-plus text-success"></i>
+<div class="row g-1">
+  <div class="col-2 my-auto">
+    <div class="d-flex align-items-center g-1">
+      <label class="form-check-label d-flex align-items-center me-2" routerLink="/questions/add">
+        <i class="fa-solid fa-square-plus text-success mx-1"></i>
         <span class="mx-1">New</span>
       </label>
-      <label for="all" class="form-check-label d-flex align-items-center">
-        <span class="mx-1">All</span>
-        <input type="checkbox" class="form-check-input" id="all" name="all" (click)="toggleAll()">
+      <label for="all" class="form-check-label d-flex align-items-center" matTooltip="Include inactive questions">
+        <span class="mw-1">All</span>
+        <input type="checkbox" class="form-check-input mx-1 mb-1" id="all" name="all" (click)="toggleAll()">
       </label>
-      <label class="form-check-label d-flex align-items-center">
-        <i class="fa-solid fa-bug mx-1"></i>
-        <input type="checkbox" class="form-check-input" id="bug" name="bug" (click)="toggleBug()">
+      <label class="form-check-label d-flex align-items-center" matTooltip="Find questions with errors">
+        <i class="fa-solid fa-bug mw-1"></i>
+        <input type="checkbox" class="form-check-input mx-1 mb-1" id="bug" name="bug" (click)="toggleBug()">
       </label>
     </div>
   </div>
-  <div class="col-4 my-auto">
+  <div class="col-5 my-auto">
     <app-search placeholder="Search question..." (inputChanged)="handleSearchInputChanged($event)"
                 (search)="handleSearch($event)"></app-search>
   </div>
-  <div class="col-5">
+  <div class="col-5 my-auto radius">
     <mat-paginator [length]="totalItems" [pageIndex]="currentPage"
                    [showFirstLastButtons]="true" [hidePageSize]="false"
                    [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
@@ -28,15 +28,14 @@
   </div>
 </div>
 
-<div class="container mt-3 striped-list">
+<div class="container striped-list">
   <!-- Table Header -->
   <div class="row fw-bold border-bottom py-2">
-    <div class="col-11 d-flex text-decoration-none clickable-group">
+    <div class="col d-flex text-decoration-none clickable-group">
       <div class="col-fixed-small border-end pe-2 text-center">#</div>
       <div class="col-fixed border-end pe-2 text-center">Active</div>
       <div class="col-grow ps-2">Question</div>
     </div>
-    <div class="col-1 text-center"><i class="fa-solid fa-gears"></i></div>
   </div>
 
   <!-- Table Body -->

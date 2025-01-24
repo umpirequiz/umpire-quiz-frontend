@@ -8,6 +8,7 @@ import {MyPaginatorConfig} from "../../../my.paginator.config";
 import {SearchComponent} from "../../search/search.component";
 import {QuestionService} from "../../../services/question.service";
 import {FormsModule} from "@angular/forms";
+import {MatTooltip} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-questions',
@@ -21,6 +22,7 @@ import {FormsModule} from "@angular/forms";
     MatPaginator,
     SearchComponent,
     FormsModule,
+    MatTooltip,
   ],
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.scss',

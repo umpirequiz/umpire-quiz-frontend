@@ -39,3 +39,9 @@ label {
 .border-end {
   border-right: 1px solid #a5a5a5 !important; /* Subtle vertical line */
 }
+
+.radius {
+  border-top-left-radius: 10px;  /* Adjust the radius as needed */
+  border-top-right-radius: 10px;
+  overflow: hidden;  /* Ensures child elements respect the rounded corners */
+}
