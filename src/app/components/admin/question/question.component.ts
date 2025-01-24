@@ -1,16 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router, RouterLink} from "@angular/router";
 import {emptyQuestion} from "../../../domain/Question";
 import {FormsModule, NgForm, NgModel} from "@angular/forms";
 import {QuestionService} from "../../../services/question.service";
 import {AnswersComponent} from "../../quiz/answers/answers.component";
 import {GameStateComponent} from "../../quiz/game-state/game-state.component";
 import {QuestionComponent as QuizQuestionComponent}  from "../../quiz/question/question.component";
+import {QuestionErrorsComponent} from "../question-errors/question-errors.component";
 
 @Component({
   selector: 'app-admin-question',
   standalone: true,
-  imports: [FormsModule, AnswersComponent, GameStateComponent, QuizQuestionComponent],
+  imports: [FormsModule, AnswersComponent, GameStateComponent, QuizQuestionComponent, RouterLink, QuestionErrorsComponent],
   templateUrl: './question.component.html',
   styleUrl: './question.component.scss'
 })

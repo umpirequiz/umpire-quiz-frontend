@@ -19,9 +19,9 @@ export class MyPaginatorConfig implements MatPaginatorIntl {
 
   getRangeLabel(page: number, pageSize: number, length: number): string {
     if (length === 0) {
-      return /*$localize*/`1 van 1`;
+      return /*$localize*/``;
     }
     const amountPages = Math.ceil(length / pageSize);
-    return /*$localize*/`${page + 1} van ${amountPages}`;
+    return /*$localize*/`${page + 1}/${amountPages}`;
   }
 }

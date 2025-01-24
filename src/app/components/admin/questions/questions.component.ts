@@ -20,7 +20,7 @@ import {FormsModule} from "@angular/forms";
     DatePipe,
     MatPaginator,
     SearchComponent,
-    FormsModule
+    FormsModule,
   ],
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.scss',
@@ -35,7 +35,8 @@ export class QuestionsComponent implements OnInit {
   pageSize = 25;
   currentPage = 0;
   pageSizeOptions = [10, 25, 50, 100]
-  private includeAll: boolean = false;
+  private includeAll = false;
+  private includeBugs = false;
   private searchTerm: string = '';
 
   constructor(private questionService: QuestionService) {
@@ -47,7 +48,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   getQuestions() {
-    this.questionService.search(this.searchTerm, this.includeAll);
+    this.questionService.search(this.searchTerm, this.includeAll, this.includeBugs);
     this.questions$?.subscribe(r => {
         this.totalItems = r.length
 
@@ -75,6 +76,11 @@ export class QuestionsComponent implements OnInit {
 
   toggleAll() {
     this.includeAll = !this.includeAll;
+    this.getQuestions()
+  }
+
+  toggleBug() {
+    this.includeBugs = !this.includeBugs;
     this.getQuestions()
   }
 

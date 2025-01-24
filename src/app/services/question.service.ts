@@ -21,7 +21,7 @@ export class QuestionService {
   }
 
   findAll(): void {
-    this.search();
+    this.search('');
   }
 
   find(id: number): Observable<Question> {
@@ -43,8 +43,8 @@ export class QuestionService {
       .subscribe(() => this.findAll());
   }
 
-  search(term = '', includeAll = false): void {
-    this.httpClient.get<Question[]>(`${this.baseUrl}?q=${term}&all=${includeAll}`).subscribe(
+  search(term = '', includeAll = false, includeBugs = false): void {
+    this.httpClient.get<Question[]>(`${this.baseUrl}?q=${term}&all=${includeAll}&bugs=${includeBugs}`).subscribe(
       (result) => this._questionsUpdated$.next(result)
     )
   }
@@ -58,5 +58,9 @@ export class QuestionService {
       .subscribe(
         () => this.messageService.success("Thank you for improving this app!")
       );
+  }
+
+  removeError(questionId: number, questionErrorId: number) {
+    return this.httpClient.delete<QuestionError>(`${this.baseUrl}/${questionId}/errors/${questionErrorId}`);
   }
 }

@@ -1,17 +1,21 @@
-<div class="row">
-  <div class="col-1 my-auto" routerLink="/questions/add">
-    <label for="all" class="form-check-label m-2">
-      <i class="fa-solid fa-square-plus" style='color: #177b00;'></i>
-      <span> New</span>
-    </label>
+<div class="row g-3">
+  <div class="col-3 my-auto">
+    <div class="d-flex align-items-center gap-3">
+      <label class="form-check-label d-flex align-items-center" routerLink="/questions/add">
+        <i class="fa-solid fa-square-plus text-success"></i>
+        <span class="mx-1">New</span>
+      </label>
+      <label for="all" class="form-check-label d-flex align-items-center">
+        <span class="mx-1">All</span>
+        <input type="checkbox" class="form-check-input" id="all" name="all" (click)="toggleAll()">
+      </label>
+      <label class="form-check-label d-flex align-items-center">
+        <i class="fa-solid fa-bug mx-1"></i>
+        <input type="checkbox" class="form-check-input" id="bug" name="bug" (click)="toggleBug()">
+      </label>
+    </div>
   </div>
-  <div class="col-1 my-auto">
-    <label for="all" class="form-check-label m-2">
-      <span>All </span>
-      <input type="checkbox" class="form-check-input " id="all" name="all" (click)="toggleAll()">
-    </label>
-  </div>
-  <div class="col-5 my-auto">
+  <div class="col-4 my-auto">
     <app-search placeholder="Search question..." (inputChanged)="handleSearchInputChanged($event)"
                 (search)="handleSearch($event)"></app-search>
   </div>
@@ -23,33 +27,35 @@
     </mat-paginator>
   </div>
 </div>
-<table class="table table-striped">
-  <thead class="thead-dark">
-    <tr>
-      <th>#</th>
-      <th>Active</th>
-      <th>Question</th>
-      <th class="text-center"><i class="fa-solid fa-gears"></i></th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (q of questions; track $index) {
-      <tr>
-        <td routerLink="{{q.id}}">{{ q.id }}</td>
-        <td>{{ q.enabled }}</td>
-        <td>{{ q.i18nValue.EN_US }}</td>
-        <td class="text-center">
-          <div class="btn-group">
-            <i routerLink="{{q.id}}" class="m-1 fa-solid fa-circle-info" style='color: #176000;'></i>
-            <i routerLink="/questions/{{q.id}}" class="m-1 fa-solid fa-pen-to-square pointer-hand"
-               style='color: #0044aa;'></i>
-            <i (click)="remove(q.id)" class="m-1 fa-solid fa-trash pointer-hand" style='color: #cc0303;'></i>
-          </div>
-        </td>
-      </tr>
-    }
-  </tbody>
-</table>
 
-<!-- for devving/testing -->
-<!--<i routerLink="/questions/1">CLICK</i>-->
+<div class="container mt-3 striped-list">
+  <!-- Table Header -->
+  <div class="row fw-bold border-bottom py-2">
+    <div class="col-11 d-flex text-decoration-none clickable-group">
+      <div class="col-fixed-small border-end pe-2 text-center">#</div>
+      <div class="col-fixed border-end pe-2 text-center">Active</div>
+      <div class="col-grow ps-2">Question</div>
+    </div>
+    <div class="col-1 text-center"><i class="fa-solid fa-gears"></i></div>
+  </div>
+
+  <!-- Table Body -->
+  @for (q of questions; track $index) {
+    <div class="row align-items-center py-2 border-bottom">
+      <!-- Clickable Area for First Three Columns -->
+      <a [routerLink]="'/questions/' + q.id"
+         class="col-11 d-flex text-decoration-none clickable-group text-dark">
+        <div class="col-fixed-small border-end pe-2 text-center">{{ q.id }}</div>
+        <div class="col-fixed border-end pe-2 text-center">{{ q.enabled }}</div>
+        <div class="col-grow ps-2">{{ q.i18nValue.EN_US }}</div>
+      </a>
+
+      <!-- Action Buttons -->
+      <div class="col-1 text-center">
+        <div class="btn-group">
+          <i (click)="remove(q.id)" class="m-1 fa-solid fa-trash pointer-hand" style="color: #cc0303;"></i>
+        </div>
+      </div>
+    </div>
+  }
+</div>

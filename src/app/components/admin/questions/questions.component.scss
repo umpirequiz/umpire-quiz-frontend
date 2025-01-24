@@ -12,3 +12,30 @@ label {
   display: inline-block;
   width: 235px;
 }
+
+.striped-list .row:nth-child(even) {
+  background-color: #f4f4f4; /* Light gray */
+}
+
+.striped-list .row:nth-child(odd) {
+  background-color: #ffffff; /* White */
+}
+
+.col-fixed-small {
+  width: 30px; /* Adjust as needed */
+  flex: 0 0 auto; /* Prevent resizing */
+}
+
+
+.col-fixed {
+  width: 70px; /* Adjust as needed */
+  flex: 0 0 auto; /* Prevent resizing */
+}
+
+.col-grow {
+  flex-grow: 1; /* Takes remaining space */
+}
+
+.border-end {
+  border-right: 1px solid #a5a5a5 !important; /* Subtle vertical line */
+}

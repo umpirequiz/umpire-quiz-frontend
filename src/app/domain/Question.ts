@@ -1,9 +1,12 @@
+import {QuestionError} from "./QuestionError";
+
 export interface Question {
   id: number;
   i18nValue: InternationalizedString;
   gameState: GameState;
   enabled: boolean;
   answers: Answer[];
+  errors?: QuestionError[];
   selectedAnswer?: number;
   questionIndex?: number;
   i18nRuling?: InternationalizedString;
