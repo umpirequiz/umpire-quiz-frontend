@@ -2,7 +2,7 @@ import {HttpEvent, HttpHandlerFn, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from "../domain/User";
 
-export function jwtInterceptorFn(req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> {
+export function jwtInterceptor(req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> {
   // const userService = inject(UserService) // leads to circular dependency; fix me
   // @ts-ignore
   const user = JSON.parse(localStorage.getItem('loggedInUser')) as User

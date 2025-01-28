@@ -1,0 +1,27 @@
+@if (question.errors?.length ?? -1 > 0) {
+  <div class="card mb-2 p-lg-0 text-black border w-100">
+    <div class="card-header d-flex align-items-center">
+      <div matTooltip="Reported errors">
+        <i class="fa-solid fa-bug"></i>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Message</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (e of question.errors; track $index) {
+            <tr>
+              <td><i (click)="remove(e.id)" class="m-2 fa-solid fa-trash pointer-hand"
+                     style="color: #cc0303;"></i>{{ e.message }}
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+}

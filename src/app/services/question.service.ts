@@ -3,6 +3,8 @@ import {Question} from "../domain/Question";
 import {HttpClient} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
 import {EnvironmentService} from "./environment.service";
+import {MessageService} from "./message.service";
+import {QuestionError} from "../domain/QuestionError";
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +14,14 @@ export class QuestionService {
 
   private _questionsUpdated$ = new Subject<Question[]>()
 
-  constructor(private httpClient: HttpClient, private environmentService: EnvironmentService) {
+  constructor(private httpClient: HttpClient, private environmentService: EnvironmentService, private messageService: MessageService) {
     this.environmentService.env.subscribe(e =>
       this.baseUrl = e.questionServiceUrl + '/questions'
     )
   }
 
   findAll(): void {
-    this.search();
+    this.search('');
   }
 
   find(id: number): Observable<Question> {
@@ -41,13 +43,24 @@ export class QuestionService {
       .subscribe(() => this.findAll());
   }
 
-  search(term = '', includeAll = false): void {
-    this.httpClient.get<Question[]>(`${this.baseUrl}?q=${term}&all=${includeAll}`).subscribe(
+  search(term = '', includeAll = false, includeBugs = false): void {
+    this.httpClient.get<Question[]>(`${this.baseUrl}?q=${term}&all=${includeAll}&bugs=${includeBugs}`).subscribe(
       (result) => this._questionsUpdated$.next(result)
     )
   }
 
   get questionsUpdated$(): Subject<Question[]> {
     return this._questionsUpdated$;
+  }
+
+  reportError(questionId: number, e: QuestionError) {
+    this.httpClient.post<QuestionError>(`${this.baseUrl}/${questionId}/errors`, e, {observe: 'response'})
+      .subscribe(
+        () => this.messageService.success("Thank you for improving this app!")
+      );
+  }
+
+  removeError(questionId: number, questionErrorId: number) {
+    return this.httpClient.delete<QuestionError>(`${this.baseUrl}/${questionId}/errors/${questionErrorId}`);
   }
 }

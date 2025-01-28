@@ -9,7 +9,7 @@ export class MyPaginatorConfig implements MatPaginatorIntl {
   // For internationalization, the `$localize` function from
   // the `@angular/localize` package can be used.
   firstPageLabel = /*$localize*/`Eerste`;
-  itemsPerPageLabel = /*$localize*/`Items`;
+  itemsPerPageLabel = /*$localize*/`#`;
   lastPageLabel = /*$localize*/`Laatste`;
 
   // You can set labels to an arbitrary string too, or dynamically compute
@@ -19,9 +19,9 @@ export class MyPaginatorConfig implements MatPaginatorIntl {
 
   getRangeLabel(page: number, pageSize: number, length: number): string {
     if (length === 0) {
-      return /*$localize*/`1 van 1`;
+      return /*$localize*/``;
     }
     const amountPages = Math.ceil(length / pageSize);
-    return /*$localize*/`${page + 1} van ${amountPages}`;
+    return /*$localize*/`${page + 1}/${amountPages}`;
   }
 }

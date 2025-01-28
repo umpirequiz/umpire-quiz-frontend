@@ -10,7 +10,7 @@
         <app-answers
           [answers]="currentQuestion.answers"
           [selectedAnswer]="currentQuestion.selectedAnswer"
-          [questionId]="currentQuestion.id"
+          [question]="currentQuestion"
           (selectedAnswerEvent)="selectAnswer($event)"
           (next)="nextQuestion()"></app-answers>
       </div>

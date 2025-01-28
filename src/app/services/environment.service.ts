@@ -15,10 +15,11 @@ export class EnvironmentService {
   }
 
   constructor(private httpClient: HttpClient) {
+    this.init()
   }
 
-  private refresh() {
-    this.httpClient.get<Environment>(window.location.origin + '/' + environment.env_file).subscribe(data => {
+  private init() {
+    this.env.subscribe(data => {
       this._env = data
       sessionStorage.setItem('env', JSON.stringify(data))
     })
