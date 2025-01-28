@@ -1,5 +1,7 @@
-<div *ngFor="let alert of alerts" class="alert-container">
-  <ngb-alert [type]="alert.type" (close)="close(alert)">
-    {{ alert.text }}
-  </ngb-alert>
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1200">
+  @for (message of messages; track message) {
+    <ngb-toast [autohide]="true" [delay]="2500" (close)="close(message)" [class]="class(message)">
+      {{ message.text }}
+    </ngb-toast>
+  }
 </div>
