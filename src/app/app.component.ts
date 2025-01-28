@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';
-import {Router, RouterOutlet} from '@angular/router';
+import {RouterOutlet} from '@angular/router';
 import {MessageComponent} from "./components/message/message.component";
 
 @Component({
@@ -10,12 +10,6 @@ import {MessageComponent} from "./components/message/message.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  constructor(private router: Router) {
-  }
-
-  ngOnInit(): void {
-    this.router.navigate(['home'])
-  }
 }

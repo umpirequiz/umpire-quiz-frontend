@@ -13,6 +13,7 @@ import {ContactComponent} from "./components/contact/contact.component";
 import {AboutComponent} from "./components/about/about.component";
 
 export const routes: Routes = [
+  {path: '', redirectTo: 'home', pathMatch: 'full'}, // Ensure pathMatch is 'full'
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -33,4 +34,5 @@ export const routes: Routes = [
     ]
   },
   {path: 'questions/:subPath', component: QuestionComponent},
+  {path: '**', redirectTo: 'home'} // Make sure this is correct
 ];
