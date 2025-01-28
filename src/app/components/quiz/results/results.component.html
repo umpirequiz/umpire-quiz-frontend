@@ -19,10 +19,11 @@
           <div class="card-body">
             <app-question [question]="question" [gameState]="question.gameState"></app-question>
             <app-answers
+              [questionId]="question.id"
               [answers]="question.answers"
-              [results]="true"
               [selectedAnswer]="question.selectedAnswer"
-              [question]="question"></app-answers>
+              [results]="true">
+            </app-answers>
             <app-ruling [ruling]="question.i18nRuling"></app-ruling>
           </div>
         </div>

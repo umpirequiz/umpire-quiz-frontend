@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Answer, emptyAnswer, Question} from "../../../domain/Question";
 import {NgClass} from "@angular/common";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
@@ -23,7 +23,7 @@ export class AnswersComponent {
   @Input() results = false
   @Input() edit = false
   @Input() selectedAnswer?: number
-  @Input() question: Question = {} as Question
+  @Input() questionId = 0
   @Output() selectedAnswerEvent: EventEmitter<number> = new EventEmitter<number>()
   @Output() next: EventEmitter<void> = new EventEmitter<void>()
   message = '';
@@ -95,6 +95,10 @@ export class AnswersComponent {
   }
 
   reportError() {
-    this.questionService.reportError(this.question.id, {message: this.message})
+    this.questionService.reportError(this.questionId, {message: this.message})
+  }
+
+  modalId() {
+    return `reportErrorModal${this.questionId}`;
   }
 }

@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {AlertMessage, MessageService} from '../../services/message.service';
-import {NgbAlert, NgbToast} from "@ng-bootstrap/ng-bootstrap";
+import {NgbToast} from "@ng-bootstrap/ng-bootstrap";
 import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'message',
   standalone: true,
   imports: [
-    NgbAlert,
     NgForOf,
     NgbToast
   ],
