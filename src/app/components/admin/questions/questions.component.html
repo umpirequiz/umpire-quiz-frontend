@@ -1,21 +1,20 @@
 <div class="row g-1">
-  <div class="col-2 my-auto">
-    <div class="d-flex align-items-center g-1">
-      <label class="form-check-label d-flex align-items-center me-2" routerLink="/questions/add">
+  <div class="col-lg-2 col-md-3 my-auto">
+    <div class="d-flex justify-content-start align-items-center">
+      <label class="form-check-label" routerLink="/questions/add" matTooltip="New question">
         <i class="fa-solid fa-square-plus text-success mx-1"></i>
-        <span class="mx-1">New</span>
       </label>
-      <label for="all" class="form-check-label d-flex align-items-center" matTooltip="Include inactive questions">
-        <span class="mw-1">All</span>
-        <input type="checkbox" class="form-check-input mx-1 mb-1" id="all" name="all" (click)="toggleAll()">
+      <label for="all" class="form-check-label" matTooltip="Include inactive questions">
+        <i class="fa-solid fa-check-double"></i>
+        <input type="checkbox" class="form-check-input mx-1" id="all" name="all" (click)="toggleAll()">
       </label>
-      <label class="form-check-label d-flex align-items-center" matTooltip="Find questions with errors">
+      <label class="form-check-label" matTooltip="Find questions with errors">
         <i class="fa-solid fa-bug mw-1"></i>
-        <input type="checkbox" class="form-check-input mx-1 mb-1" id="bug" name="bug" (click)="toggleBug()">
+        <input type="checkbox" class="form-check-input mx-1" id="bug" name="bug" (click)="toggleBug()">
       </label>
     </div>
   </div>
-  <div class="col-5 my-auto">
+  <div class="col-lg-5 col-md-4 my-auto">
     <app-search placeholder="Search question..." (inputChanged)="handleSearchInputChanged($event)"
                 (search)="handleSearch($event)"></app-search>
   </div>
