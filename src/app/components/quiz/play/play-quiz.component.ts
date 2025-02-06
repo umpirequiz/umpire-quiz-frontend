@@ -8,6 +8,7 @@ import {SelectedAnswers} from "../../../domain/SelectedAnswers";
 import {GameStateComponent} from "../game-state/game-state.component";
 import {QuestionComponent} from "../question/question.component";
 import {AnswersComponent} from "../answers/answers.component";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-play',
@@ -32,15 +33,17 @@ export class PlayQuizComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.quizService.quizInProgress()) {
-      this.quiz = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "{}").quiz;
-      this.currentQuestionIndex = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "{}").currentQuestionIndex;
+      let activeQuiz = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "{}");
+      this.quiz = activeQuiz.quiz;
+      this.currentQuestionIndex = activeQuiz.currentQuestionIndex;
       this.answeredQuestionsCount = this.countAnsweredQuestions();
     } else {
-      this.quizService.getQuizQuestions().subscribe((data) => this.quiz = data)
+      let levels = JSON.parse(this.cookieService.get("levels"));
+      this.quizService.getQuizQuestions(levels).subscribe((data) => this.quiz = data)
     }
   }
 
-  constructor(private quizService: QuizService) {
+  constructor(private quizService: QuizService, private cookieService: CookieService) {
   }
 
   countAnsweredQuestions(): number {
@@ -60,7 +63,7 @@ export class PlayQuizComponent implements OnInit {
       selectedAnswers.push({questionId: question.id, answerId: question.selectedAnswer})
     }
     sessionStorage.setItem('selectedAnswers', JSON.stringify(selectedAnswers))
-    this.quizService.clearExistingQuiz();
+    // this.quizService.startNewQuiz();
   }
 
   selectAnswer(answer: number): void {

@@ -14,9 +14,9 @@
 <div class="row">
   <div class="col-12">
     <div class="card p-0 text-black border w-100 mb-2">
-      <h5 class="card-header">
+      <h6 class="card-header">
         Options
-      </h5>
+      </h6>
       <div class="card-body">
         <div class="d-flex align-items-center">
           <div class="input-group mb-3 p-2">
@@ -24,36 +24,36 @@
             <label for="u1" class="form-check-label me-2">1</label>
             <input type="checkbox" class="form-check-input me-3"
                    id="u1" name="u1"
-                   [(ngModel)]="level.u1">
+                   [(ngModel)]="levels.u1">
             <label for="u2" class="form-check-label me-2">2</label>
             <input type="checkbox" class="form-check-input me-3"
                    id="u2" name="u2"
-                   [(ngModel)]="level.u2">
+                   [(ngModel)]="levels.u2">
             <label for="u3" class="form-check-label me-2">3</label>
             <input type="checkbox" class="form-check-input me-3"
                    id="u3" name="u3"
-                   [(ngModel)]="level.u3">
+                   [(ngModel)]="levels.u3">
             <label for="u4" class="form-check-label me-2">4</label>
             <input type="checkbox" class="form-check-input me-3"
                    id="u4" name="u4"
-                   [(ngModel)]="level.u4">
+                   [(ngModel)]="levels.u4">
           </div>
-          <div>
-            <a routerLink="play">
-              <button class="btn btn-primary" (click)="clearQuiz()">Start!</button>
-            </a>
-          </div>
-          @if (quizInProgress()) {
-            <hr/>
-            <p>
-              To continue your quiz in progress:
-            </p>
-            <a routerLink="play">
-              <button class="btn btn-outline-primary">Continue quiz</button>
-            </a>
-          }
         </div>
       </div>
     </div>
+    <div>
+      <a routerLink="play">
+        <button class="btn btn-primary" (click)="newQuiz()">Start!</button>
+      </a>
+    </div>
+    @if (quizInProgress()) {
+      <hr/>
+      <p>
+        To continue your quiz in progress:
+      </p>
+      <a routerLink="play">
+        <button class="btn btn-outline-primary">Continue quiz</button>
+      </a>
+    }
   </div>
 </div>
