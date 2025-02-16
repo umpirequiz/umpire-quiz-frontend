@@ -22,7 +22,7 @@ export class QuizService {
 
   getQuizQuestions(levels?: Levels): Observable<Quiz> {
     let levelsToCode = levels ? toCode(levels) : ''
-    return this.httpClient.get<Quiz>(`this.baseUrl/${this.baseUrl}?levels=${levelsToCode}`)
+    return this.httpClient.get<Quiz>(`${this.baseUrl}?levels=${levelsToCode}`)
   }
 
   startNewQuiz(levels: Levels) {
