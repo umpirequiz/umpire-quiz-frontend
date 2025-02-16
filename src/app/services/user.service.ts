@@ -57,11 +57,9 @@ export class UserService {
   }
 
   logout(): void {
-    console.log('Logging out...');
     localStorage.removeItem('loggedInUser');
     this.loggedInMessage$.next('Not logged in');
     this.messageService.success('Logged out');
-    console.log('should be loggged out now');
     this.loggedIn.next(false);
     this.router.navigate(['/']);
   }
