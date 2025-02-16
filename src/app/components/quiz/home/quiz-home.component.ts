@@ -3,20 +3,9 @@ import {RouterLink} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CookieService} from "ngx-cookie-service";
+import {SelectDifficultiesComponent} from "../select-difficulties/select-difficulties.component";
+import {Levels} from "../../../domain/Levels";
 
-export interface Levels {
-  u1: boolean
-  u2: boolean
-  u3: boolean
-  u4: boolean
-}
-
-export function toCode(levels: Levels): string {
-  return levels?.u1 ? '1' : ''
-    .concat(levels?.u2 ? '2' : '')
-    .concat(levels?.u3 ? '3' : '')
-    .concat(levels?.u4 ? '4' : '')
-}
 
 @Component({
   selector: 'app-home',
@@ -24,16 +13,16 @@ export function toCode(levels: Levels): string {
   imports: [
     RouterLink,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SelectDifficultiesComponent
   ],
   templateUrl: './quiz-home.component.html',
   styleUrl: './quiz-home.component.scss'
 })
 export class QuizHomeComponent {
-  levels: Levels;
+  levels: Levels = {u1: false, u2: false, u3: false, u4: false}
 
   constructor(private quizService: QuizService, private cookieService: CookieService) {
-    this.levels = {u1: false, u2: false, u3: false, u4: false}
     let cookieLevels = this.cookieService.get("levels");
     if (cookieLevels) {
       this.levels = JSON.parse(cookieLevels)

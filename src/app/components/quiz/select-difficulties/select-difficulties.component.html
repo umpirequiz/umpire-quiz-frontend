@@ -1,0 +1,23 @@
+<div class="d-flex align-items-center">
+  <div class="input-group mb-3 p-2">
+    <label class="pe-2"><span>Difficulty level</span></label>
+    <label for="u1" class="form-check-label me-2">1</label>
+    <input type="checkbox" class="form-check-input me-3"
+           id="u1" name="u1">
+    <label for="u2" class="form-check-label me-2">2</label>
+    <input type="checkbox" class="form-check-input me-3"
+           id="u2" name="u2"
+           [ngModel]="ngModel_1"
+           (ngModelChange)="ngModel_1Change.emit($event)">
+    <label for="u3" class="form-check-label me-2">3</label>
+    <input type="checkbox" class="form-check-input me-3"
+           id="u3" name="u3"
+           [ngModel]="ngModel_2"
+           (ngModelChange)="ngModel_2Change.emit($event)">
+    <label for="u4" class="form-check-label me-2">4</label>
+    <input type="checkbox" class="form-check-input me-3"
+           id="u4" name="u4"
+           [ngModel]="ngModel_3"
+           (ngModelChange)="ngModel_3Change.emit($event)">
+  </div>
+</div>

@@ -3,8 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Quiz} from "../domain/Quiz";
 import {EnvironmentService} from "./environment.service";
-import {Levels, toCode} from "../components/quiz/home/quiz-home.component";
 import {CookieService} from "ngx-cookie-service";
+import {Levels, toCode} from "../domain/Levels";
 
 @Injectable({
   providedIn: 'root'
