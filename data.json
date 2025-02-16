@@ -498,8 +498,8 @@
         },
         "id": 153,
         "i18nRuling": {
-          "EN_US": "5.09(1)(a) Some ruling....",
-          "NL_NL": "5.09(1)(a) Een regel...."
+          "EN_US": "5.09(1)(a) Some ruling.... <a href=\"https://youtube.com/123/>link</a>\" ",
+          "NL_NL": "5.09(1)(a) Een regel.... https://youtube.com/123/"
         }
       },
       {
@@ -685,6 +685,16 @@
       "username": "admin",
       "password": "admin",
       "id": 2
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 3
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 4
     }
   ],
   "errors": [

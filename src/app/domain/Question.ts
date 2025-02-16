@@ -1,7 +1,9 @@
 import {QuestionError} from "./QuestionError";
+import {Difficulty, u1} from "./Difficulty";
 
 export interface Question {
   id: number;
+  difficulty: Difficulty;
   i18nValue: InternationalizedString;
   gameState: GameState;
   enabled: boolean;
@@ -36,6 +38,7 @@ export interface GameState {
 export function emptyQuestion(): Question {
   return {
     id: 0,
+    difficulty: u1,
     i18nValue: emptyI18dString(),
     gameState: emptyGameState(),
     enabled: true,

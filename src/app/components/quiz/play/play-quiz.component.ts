@@ -9,6 +9,7 @@ import {GameStateComponent} from "../game-state/game-state.component";
 import {QuestionComponent} from "../question/question.component";
 import {AnswersComponent} from "../answers/answers.component";
 import {CookieService} from "ngx-cookie-service";
+import {u1} from "../../../domain/Difficulty";
 
 @Component({
   selector: 'app-play',
@@ -99,6 +100,7 @@ export class PlayQuizComponent implements OnInit {
           batterRunner: false
         },
         id: 0,
+        difficulty: u1,
         enabled: true,
         i18nValue: {NL_NL: "", EN_US: ""}
       }
