@@ -150,6 +150,7 @@ export class PlayQuizComponent implements OnInit {
 
   finish() {
     this.submitAnswers()
+    sessionStorage.removeItem('activeQuiz');
     this.router.navigate(['/quiz/results'])
   }
 

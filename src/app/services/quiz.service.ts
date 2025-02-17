@@ -26,16 +26,12 @@ export class QuizService {
   }
 
   startNewQuiz(levels: Levels) {
-    if (this.quizInProgress()) {
-      sessionStorage.removeItem('activeQuiz');
-    }
     let oneHundredYears = 36500;
     this.cookieService.set("levels", JSON.stringify(levels), {expires: oneHundredYears, path: '/'});
   }
 
   quizInProgress(): boolean {
-    const storedQuiz = sessionStorage.getItem('activeQuiz');
-    return storedQuiz !== null;
+    return sessionStorage.getItem('activeQuiz') !== null;
   }
 
   getQuizResults(): Quiz {
