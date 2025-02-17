@@ -1,314 +1,4 @@
 {
-  "quizzes": {
-    "difficulties": [
-      "UMPIRE_1",
-      "UMPIRE_2",
-      "UMPIRE_3",
-      "UMPIRE_4"
-    ],
-    "questions": [
-      {
-        "answers": [
-          {
-            "i18nValue": {
-              "EN_US": "Dead ball, R2 is placed on 3rd.",
-              "NL_NL": "Dead ball, R2 naar 3."
-            },
-            "id": 86
-          },
-          {
-            "i18nValue": {
-              "EN_US": "R2 is out.",
-              "NL_NL": "R2 is out."
-            },
-            "id": 169
-          }
-        ],
-        "gameState": {
-          "balls": 0,
-          "batterRunner": false,
-          "outs": 0,
-          "runnerBase1": false,
-          "runnerBase2": true,
-          "runnerBase3": false,
-          "strikes": 0
-        },
-        "i18nValue": {
-          "EN_US": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner.",
-          "NL_NL": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner."
-        },
-        "id": 153,
-        "selectedAnswer": 86
-      },
-      {
-        "answers": [
-          {
-            "i18nValue": {
-              "EN_US": "Yes",
-              "NL_NL": "Yes"
-            },
-            "id": 206
-          },
-          {
-            "i18nValue": {
-              "EN_US": "No",
-              "NL_NL": "No"
-            },
-            "id": 214
-          }
-        ],
-        "gameState": {
-          "balls": 0,
-          "batterRunner": false,
-          "outs": 0,
-          "runnerBase1": false,
-          "runnerBase2": false,
-          "runnerBase3": false,
-          "strikes": 0
-        },
-        "i18nValue": {
-          "EN_US": "Batter hits a fair ball along the first base line.  The ball takes an awkward bounce and hits the BR as he passes the ball.  Is he out?",
-          "NL_NL": "Batter hits a fair ball along the first base line.  The ball takes an awkward bounce and hits the BR as he passes the ball.  Is he out?"
-        },
-        "id": 84,
-        "selectedAnswer": 214
-      },
-      {
-        "answers": [
-          {
-            "i18nValue": {
-              "EN_US": "Umpire interference, ball is dead, R1 is placed back on 1st base.",
-              "NL_NL": "Umpire interference, ball is dead, R1 is placed back on 1st base."
-            },
-            "id": 176
-          },
-          {
-            "i18nValue": {
-              "EN_US": "No interference, play stands",
-              "NL_NL": "No interference, play stands"
-            },
-            "id": 351
-          }
-        ],
-        "gameState": {
-          "balls": 0,
-          "batterRunner": true,
-          "outs": 0,
-          "runnerBase1": true,
-          "runnerBase2": false,
-          "runnerBase3": false,
-          "strikes": 0
-        },
-        "i18nValue": {
-          "EN_US": "Pitch is in the dirt and gets behind the catcher. Runner on first takes off for second base. Catcher attempts to throw to 2nd, but runs into the plate umpire they are unable to throw the runner out.",
-          "NL_NL": "Pitch is in the dirt and gets behind the catcher. Runner on first takes off for second base. Catcher attempts to throw to 2nd, but runs into the plate umpire they are unable to throw the runner out."
-        },
-        "id": 116,
-        "selectedAnswer": 351
-      },
-      {
-        "answers": [
-          {
-            "i18nValue": {
-              "EN_US": "Interference, R2 is out.",
-              "NL_NL": "Interference, R2 is out."
-            },
-            "id": 235
-          },
-          {
-            "i18nValue": {
-              "EN_US": "No obstruction.  No penalty.",
-              "NL_NL": "No obstruction.  No penalty."
-            },
-            "id": 364
-          },
-          {
-            "i18nValue": {
-              "EN_US": "Obstruction, R2 is awarded 3rd base.",
-              "NL_NL": "Obstruction, R2 is awarded 3rd base."
-            },
-            "id": 399
-          },
-          {
-            "i18nValue": {
-              "EN_US": "R2 is out for running out of the base line",
-              "NL_NL": "R2 is out for running out of the base line"
-            },
-            "id": 424
-          }
-        ],
-        "gameState": {
-          "balls": 0,
-          "batterRunner": true,
-          "outs": 0,
-          "runnerBase1": false,
-          "runnerBase2": true,
-          "runnerBase3": false,
-          "strikes": 0
-        },
-        "i18nValue": {
-          "EN_US": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball.",
-          "NL_NL": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball."
-        },
-        "id": 112,
-        "selectedAnswer": 424
-      },
-      {
-        "answers": [
-          {
-            "i18nValue": {
-              "EN_US": "R1 to 2nd, BR to 1st.",
-              "NL_NL": "R1 to 2nd, BR to 1st."
-            },
-            "id": 109
-          },
-          {
-            "i18nValue": {
-              "EN_US": "R1 to 3rd, BR to 2nd.",
-              "NL_NL": "R1 to 3rd, BR to 2nd."
-            },
-            "id": 212
-          },
-          {
-            "i18nValue": {
-              "EN_US": "R1 scores, BR to 3rd.",
-              "NL_NL": "R1 scores, BR to 3rd."
-            },
-            "id": 250
-          }
-        ],
-        "gameState": {
-          "balls": 0,
-          "batterRunner": true,
-          "outs": 0,
-          "runnerBase1": true,
-          "runnerBase2": false,
-          "runnerBase3": false,
-          "strikes": 0
-        },
-        "i18nValue": {
-          "EN_US": "Batter hits a line drive to right field.  The right fielder throws to 2nd base before R1 crosses 2nd base, but it sails through the infield, bouncing around for a while.  The ball finally settles into the dugout as R1 passes third base.  Who goes where?",
-          "NL_NL": "Batter hits a line drive to right field.  The right fielder throws to 2nd base before R1 crosses 2nd base, but it sails through the infield, bouncing around for a while.  The ball finally settles into the dugout as R1 passes third base.  Who goes where?"
-        },
-        "id": 124,
-        "selectedAnswer": 109
-      }
-    ]
-  },
-  "auth": [
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 2
-    }
-  ],
-  "login": [
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 2
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 3
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 4
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 5
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 6
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 7
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 8
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 9
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 10
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 11
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 12
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 13
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 14
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 15
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 16
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 17
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 18
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 19
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 20
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 21
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 22
-    }
-  ],
   "questions": [
     {
       "answers": [
@@ -765,6 +455,246 @@
         "NL_NL": "Ball hits home plate"
       },
       "id": 182
+    }
+  ],
+  "quizzes": {
+    "difficulties": [
+      "UMPIRE_1",
+      "UMPIRE_2",
+      "UMPIRE_3",
+      "UMPIRE_4"
+    ],
+    "questions": [
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "Dead ball, R2 is placed on 3rd.",
+              "NL_NL": "Dead ball, R2 naar 3."
+            },
+            "id": 86
+          },
+          {
+            "i18nValue": {
+              "EN_US": "R2 is out.",
+              "NL_NL": "R2 is out."
+            },
+            "id": 169
+          }
+        ],
+        "difficulty": "UMPIRE_1",
+        "gameState": {
+          "balls": 0,
+          "batterRunner": false,
+          "outs": 0,
+          "runnerBase1": false,
+          "runnerBase2": true,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner.",
+          "NL_NL": "Runner going from 2nd to 3rd collides with the shortstop who is standing in the baseline.  The 3rd baseman, who was holding the ball, tags the runner."
+        },
+        "id": 153,
+        "i18nRuling": {
+          "EN_US": "5.09(1)(a) Some ruling.... <a href=\"https://youtube.com/123/>link</a>\" ",
+          "NL_NL": "5.09(1)(a) Een regel.... https://youtube.com/123/"
+        }
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "Yes",
+              "NL_NL": "Yes"
+            },
+            "id": 206
+          },
+          {
+            "i18nValue": {
+              "EN_US": "No",
+              "NL_NL": "No"
+            },
+            "id": 214
+          }
+        ],
+        "difficulty": "UMPIRE_2",
+        "gameState": {
+          "balls": 0,
+          "batterRunner": false,
+          "outs": 0,
+          "runnerBase1": false,
+          "runnerBase2": false,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "Batter hits a fair ball along the first base line.  The ball takes an awkward bounce and hits the BR as he passes the ball.  Is he out?",
+          "NL_NL": "Batter hits a fair ball along the first base line.  The ball takes an awkward bounce and hits the BR as he passes the ball.  Is he out?"
+        },
+        "id": 84,
+        "i18nRuling": {
+          "EN_US": "5.09(1)(a) Some ruling....",
+          "NL_NL": "5.09(1)(a) Een regel...."
+        }
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "Umpire interference, ball is dead, R1 is placed back on 1st base.",
+              "NL_NL": "Umpire interference, ball is dead, R1 is placed back on 1st base."
+            },
+            "id": 176
+          },
+          {
+            "i18nValue": {
+              "EN_US": "No interference, play stands",
+              "NL_NL": "No interference, play stands"
+            },
+            "id": 351
+          }
+        ],
+        "difficulty": "UMPIRE_3",
+        "gameState": {
+          "balls": 0,
+          "batterRunner": true,
+          "outs": 0,
+          "runnerBase1": true,
+          "runnerBase2": false,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "Pitch is in the dirt and gets behind the catcher. Runner on first takes off for second base. Catcher attempts to throw to 2nd, but runs into the plate umpire they are unable to throw the runner out.",
+          "NL_NL": "Pitch is in the dirt and gets behind the catcher. Runner on first takes off for second base. Catcher attempts to throw to 2nd, but runs into the plate umpire they are unable to throw the runner out."
+        },
+        "id": 116,
+        "i18nRuling": {
+          "EN_US": "5.09(1)(a) Some ruling....",
+          "NL_NL": "5.09(1)(a) Een regel...."
+        }
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "Interference, R2 is out.",
+              "NL_NL": "Interference, R2 is out."
+            },
+            "id": 235
+          },
+          {
+            "i18nValue": {
+              "EN_US": "No obstruction.  No penalty.",
+              "NL_NL": "No obstruction.  No penalty."
+            },
+            "id": 364
+          },
+          {
+            "i18nValue": {
+              "EN_US": "Obstruction, R2 is awarded 3rd base.",
+              "NL_NL": "Obstruction, R2 is awarded 3rd base."
+            },
+            "id": 399
+          },
+          {
+            "i18nValue": {
+              "EN_US": "R2 is out for running out of the base line",
+              "NL_NL": "R2 is out for running out of the base line"
+            },
+            "id": 424
+          }
+        ],
+        "difficulty": "UMPIRE_4",
+        "gameState": {
+          "balls": 0,
+          "batterRunner": true,
+          "outs": 0,
+          "runnerBase1": false,
+          "runnerBase2": true,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball.",
+          "NL_NL": "Batter hits ball to shortstop.  R2 has to hold up and run behind the shortstop, running outside the base line to get to 3rd while the shortstop is fielding the ball."
+        },
+        "id": 112,
+        "i18nRuling": {
+          "EN_US": "5.09(1)(a) Some ruling....",
+          "NL_NL": "5.09(1)(a) Een regel...."
+        }
+      },
+      {
+        "answers": [
+          {
+            "i18nValue": {
+              "EN_US": "R1 to 2nd, BR to 1st.",
+              "NL_NL": "R1 to 2nd, BR to 1st."
+            },
+            "id": 109
+          },
+          {
+            "i18nValue": {
+              "EN_US": "R1 to 3rd, BR to 2nd.",
+              "NL_NL": "R1 to 3rd, BR to 2nd."
+            },
+            "id": 212
+          },
+          {
+            "i18nValue": {
+              "EN_US": "R1 scores, BR to 3rd.",
+              "NL_NL": "R1 scores, BR to 3rd."
+            },
+            "id": 250
+          }
+        ],
+        "difficulty": "UMPIRE_4",
+        "gameState": {
+          "balls": 0,
+          "batterRunner": true,
+          "outs": 0,
+          "runnerBase1": true,
+          "runnerBase2": false,
+          "runnerBase3": false,
+          "strikes": 0
+        },
+        "i18nValue": {
+          "EN_US": "Batter hits a line drive to right field.  The right fielder throws to 2nd base before R1 crosses 2nd base, but it sails through the infield, bouncing around for a while.  The ball finally settles into the dugout as R1 passes third base.  Who goes where?",
+          "NL_NL": "Batter hits a line drive to right field.  The right fielder throws to 2nd base before R1 crosses 2nd base, but it sails through the infield, bouncing around for a while.  The ball finally settles into the dugout as R1 passes third base.  Who goes where?"
+        },
+        "id": 124,
+        "i18nRuling": {
+          "EN_US": "5.09(1)(a) Some ruling....",
+          "NL_NL": "5.09(1)(a) Een regel...."
+        }
+      }
+    ]
+  },
+  "auth": [
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 2
+    }
+  ],
+  "login": [
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 2
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 3
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 4
     }
   ],
   "errors": [

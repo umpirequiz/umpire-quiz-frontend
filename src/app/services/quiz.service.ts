@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Quiz} from "../domain/Quiz";
 import {EnvironmentService} from "./environment.service";
+import {CookieService} from "ngx-cookie-service";
+import {Levels, toCode} from "../domain/Levels";
 
 @Injectable({
   providedIn: 'root'
@@ -10,20 +12,25 @@ import {EnvironmentService} from "./environment.service";
 export class QuizService {
   private baseUrl!: string
 
-  constructor(private httpClient: HttpClient, private environmentService: EnvironmentService) {
+  constructor(private httpClient: HttpClient,
+              private environmentService: EnvironmentService,
+              private cookieService: CookieService) {
     this.environmentService.env.subscribe(e =>
       this.baseUrl = e.questionServiceUrl + '/quizzes'
     )
   }
 
-  getQuizQuestions(): Observable<Quiz> {
-    return this.httpClient.get<Quiz>(this.baseUrl)
+  getQuizQuestions(levels?: Levels): Observable<Quiz> {
+    let levelsToCode = levels ? toCode(levels) : ''
+    return this.httpClient.get<Quiz>(`${this.baseUrl}?levels=${levelsToCode}`)
   }
 
-  clearExistingQuiz() {
+  startNewQuiz(levels: Levels) {
     if (this.quizInProgress()) {
       sessionStorage.removeItem('activeQuiz');
     }
+    let oneHundredYears = 36500;
+    this.cookieService.set("levels", JSON.stringify(levels), {expires: oneHundredYears, path: '/'});
   }
 
   quizInProgress(): boolean {

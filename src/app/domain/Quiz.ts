@@ -1,7 +1,9 @@
 import {Question} from "./Question";
+import {Difficulty} from "./Difficulty";
+
 
 export interface Quiz {
-  difficulties: "UMPIRE_1" | "UMPIRE_2" | "UMPIRE_3" | "UMPIRE_4"[]
+  difficulties: Difficulty[]
   questions: Question[]
   quizSize: number
 }

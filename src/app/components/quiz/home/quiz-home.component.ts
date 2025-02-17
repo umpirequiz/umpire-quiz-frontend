@@ -1,22 +1,36 @@
 import {Component} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CookieService} from "ngx-cookie-service";
+import {SelectDifficultiesComponent} from "../select-difficulties/select-difficulties.component";
+import {Levels} from "../../../domain/Levels";
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    ReactiveFormsModule,
+    FormsModule,
+    SelectDifficultiesComponent
   ],
   templateUrl: './quiz-home.component.html',
   styleUrl: './quiz-home.component.scss'
 })
 export class QuizHomeComponent {
-  constructor(private quizService: QuizService) {
+  levels: Levels = {u1: true, u2: true, u3: true, u4: true}
+
+  constructor(private quizService: QuizService, private cookieService: CookieService) {
+    let cookieLevels = this.cookieService.get("levels");
+    if (cookieLevels) {
+      this.levels = JSON.parse(cookieLevels)
+    }
   }
 
-  clearQuiz() {
-    this.quizService.clearExistingQuiz();
+  newQuiz() {
+    this.quizService.startNewQuiz(this.levels);
   }
 
   quizInProgress(): boolean {

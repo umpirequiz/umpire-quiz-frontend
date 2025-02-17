@@ -1,0 +1,30 @@
+<div class="d-flex align-items-center">
+  <div class="input-group mb-3 p-2">
+    <label class="pe-2"><span>Difficulty level</span></label>
+
+    <label for="u1" class="form-check-label me-2">1</label>
+    <input type="checkbox" class="form-check-input me-3"
+           id="u1" name="u1"
+           [(ngModel)]="levels.u1"
+           (change)="select(u1)">
+
+    <label for="u2" class="form-check-label me-2">2</label>
+    <input type="checkbox" class="form-check-input me-3"
+           id="u2" name="u2"
+           [(ngModel)]="levels.u2"
+           (change)="select(u2)">
+
+    <label for="u3" class="form-check-label me-2">3</label>
+    <input type="checkbox" class="form-check-input me-3"
+           id="u3" name="u3"
+           [(ngModel)]="levels.u3"
+           (change)="select(u3)">
+
+    <label for="u4" class="form-check-label me-2">4</label>
+    <input type="checkbox" class="form-check-input me-3"
+           id="u4" name="u4"
+           [(ngModel)]="levels.u4"
+           (change)="select(u4)">
+  </div>
+
+</div>

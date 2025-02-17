@@ -8,6 +8,7 @@
       </div>
       <div class="card-body">
         <app-game-state [edit]="true" [gameState]="question.gameState"/>
+        <app-select-difficulties [levels]="levels" [admin]="true" (choose)="select($event)"/>
         <app-question [edit]="true" [question]="question"/>
         <hr/>
         <app-answers
