@@ -89,8 +89,8 @@
         <button [ngClass]="allAnswered() ? 'btn btn-success my-2':'btn btn-warning my-2'" (click)="onFinish()">
           Finish{{ allAnswered() ? '!' : '?' }}
         </button>
-        <span *ngIf="!allAnswered()" class="text-danger my-2">
-           (not all questions are answered!)
+        <span *ngIf="!allAnswered()" class="badge text-bg-danger m-2">
+           not all questions are answered!
         </span>
       }
     }
