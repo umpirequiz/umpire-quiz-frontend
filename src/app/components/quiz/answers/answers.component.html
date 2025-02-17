@@ -81,11 +81,18 @@
       }
     </ul>
     @if (!results && !edit) {
-      <button class="btn btn-primary my-2" (click)="onNext()">Next</button>
-      @if (allAnswered()) {
-        <span class="m-2">Finish?</span>
+      @if (!isLastQuestion) {
+        <button class="btn btn-primary my-2" (click)="onNext()">
+          Next
+        </button>
+      } @else {
+        <button [ngClass]="allAnswered() ? 'btn btn-success my-2':'btn btn-warning my-2'" (click)="onFinish()">
+          Finish{{ allAnswered() ? '!' : '?' }}
+        </button>
+        <span *ngIf="!allAnswered()" class="text-danger my-2">
+           (not all questions are answered!)
+        </span>
       }
     }
-
   </div>
 </div>

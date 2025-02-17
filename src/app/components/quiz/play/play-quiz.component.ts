@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GameState, Question} from '../../../domain/Question'
-import {RouterLink, RouterOutlet} from "@angular/router";
+import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {QuizService} from "../../../services/quiz.service";
 import {Quiz} from "../../../domain/Quiz";
@@ -44,7 +44,9 @@ export class PlayQuizComponent implements OnInit {
     }
   }
 
-  constructor(private quizService: QuizService, private cookieService: CookieService) {
+  constructor(private quizService: QuizService,
+              private cookieService: CookieService,
+              private router: Router) {
   }
 
   countAnsweredQuestions(): number {
@@ -64,7 +66,6 @@ export class PlayQuizComponent implements OnInit {
       selectedAnswers.push({questionId: question.id, answerId: question.selectedAnswer})
     }
     sessionStorage.setItem('selectedAnswers', JSON.stringify(selectedAnswers))
-    // this.quizService.startNewQuiz();
   }
 
   selectAnswer(answer: number): void {
@@ -145,5 +146,14 @@ export class PlayQuizComponent implements OnInit {
 
   allAnswered() {
     return (this.answeredQuestionsCount == this.quiz.questions.length)
+  }
+
+  finish() {
+    this.submitAnswers()
+    this.router.navigate(['/quiz/results'])
+  }
+
+  lastQuestion() {
+    return this.currentQuestionIndex == this.quiz.questions.length - 1;
   }
 }

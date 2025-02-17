@@ -1,11 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Answer, emptyAnswer, Question} from "../../../domain/Question";
-import {NgClass} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
 import {FormsModule} from "@angular/forms";
 import {Quiz} from "../../../domain/Quiz";
 import {MatTooltip} from "@angular/material/tooltip";
 import {QuestionService} from "../../../services/question.service";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-answers',
@@ -13,26 +14,30 @@ import {QuestionService} from "../../../services/question.service";
   imports: [
     NgClass,
     FormsModule,
-    MatTooltip
+    MatTooltip,
+    RouterLink,
+    NgIf
   ],
   templateUrl: './answers.component.html',
   styleUrl: './answers.component.scss'
 })
 export class AnswersComponent {
+  @Input() questionId = 0
   @Input() answers = [] as Answer[]
+  @Input() selectedAnswer?: number
   @Input() results = false
   @Input() edit = false
-  @Input() selectedAnswer?: number
-  @Input() questionId = 0
-  @Output() selectedAnswerEvent: EventEmitter<number> = new EventEmitter<number>()
+  @Input() isLastQuestion = false;
+  @Output() select: EventEmitter<number> = new EventEmitter<number>()
   @Output() next: EventEmitter<void> = new EventEmitter<void>()
+  @Output() finish: EventEmitter<void> = new EventEmitter<void>()
   message = '';
 
   constructor(private questionService: QuestionService) {
   }
 
   selectAnswer(id: number): void {
-    this.selectedAnswerEvent.emit(id);
+    this.select.emit(id);
   }
 
   isSelected(id: number): boolean {
@@ -101,4 +106,9 @@ export class AnswersComponent {
   modalId() {
     return `reportErrorModal${this.questionId}`;
   }
+
+  onFinish() {
+    this.finish.emit()
+  }
+
 }
