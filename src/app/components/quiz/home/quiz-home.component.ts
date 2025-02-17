@@ -20,7 +20,7 @@ import {Levels} from "../../../domain/Levels";
   styleUrl: './quiz-home.component.scss'
 })
 export class QuizHomeComponent {
-  levels: Levels = {u1: false, u2: false, u3: false, u4: false}
+  levels: Levels = {u1: true, u2: true, u3: true, u4: true}
 
   constructor(private quizService: QuizService, private cookieService: CookieService) {
     let cookieLevels = this.cookieService.get("levels");
