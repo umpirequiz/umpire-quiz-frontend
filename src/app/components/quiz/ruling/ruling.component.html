@@ -2,5 +2,12 @@
   <div class="card-header d-flex align-items-center">
     <h6 class="mb-0">Ruling</h6>
   </div>
-  <div class="card-body">{{ ruling?.EN_US }}</div>
+  <div class="card-body">
+    @if (ruling) {
+      <div>{{ ruling.EN_US }}</div>
+    }
+    @if (link) {
+      <div class="mt-3">See also: <a href="{{link}}" id="link" target="_blank">{{ link }}</a></div>
+    }
+  </div>
 </div>

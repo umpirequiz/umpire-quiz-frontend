@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GameState, Question} from '../../../domain/Question'
+import {emptyQuestion, GameState, Question} from '../../../domain/Question'
 import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {QuizService} from "../../../services/quiz.service";
@@ -89,22 +89,7 @@ export class PlayQuizComponent implements OnInit {
 
   get currentQuestion(): Question {
     if (this.quiz == null) {
-      return {
-        answers: [],
-        gameState: {
-          balls: 0,
-          outs: 0,
-          strikes: 0,
-          runnerBase1: false,
-          runnerBase2: false,
-          runnerBase3: false,
-          batterRunner: false
-        },
-        id: 0,
-        difficulty: u1,
-        enabled: true,
-        i18nValue: {NL_NL: "", EN_US: ""}
-      }
+      return emptyQuestion()
     } else {
       return this.quiz.questions[this.currentQuestionIndex];
     }

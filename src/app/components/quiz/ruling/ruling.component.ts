@@ -10,4 +10,5 @@ import {InternationalizedString} from "../../../domain/Question";
 })
 export class RulingComponent {
   @Input() ruling?: InternationalizedString
+  @Input() link?: string
 }

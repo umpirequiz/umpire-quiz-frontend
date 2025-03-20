@@ -17,6 +17,9 @@
           [answers]="question.answers"
           [selectedAnswer]="question.selectedAnswer"
           [questionId]="question.id"/>
+        <label for="link" class="form-label">See also</label>
+        <input type="text" class="form-control" id="link" name="link"
+          [(ngModel)]="question.link" value="{{question.link}}"/>
         <app-question-errors [question]="question"/>
       </div>
     </div>

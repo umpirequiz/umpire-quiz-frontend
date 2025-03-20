@@ -54,7 +54,8 @@
         "EN_US": "Batting order B1, B2, B3, B4.  B2 is the proper batter, but B3 comes up to bat.  1st pitch gets by the catcher, all runners advance (R3 scores).  B3 then hits a clean double, scoring the remaining 2 runners.  Defense appeals that B3 is out of order, before any more plays are made.  Sort this mess out.",
         "NL_NL": "Batting order B1, B2, B3, B4.  B2 is the proper batter, but B3 comes up to bat.  1st pitch gets by the catcher, all runners advance (R3 scores).  B3 then hits a clean double, scoring the remaining 2 runners.  Defense appeals that B3 is out of order, before any more plays are made.  Sort this mess out."
       },
-      "id": 181
+      "id": 181,
+      "link": "bhhh"
     },
     {
       "answers": [
@@ -483,6 +484,7 @@
           }
         ],
         "difficulty": "UMPIRE_1",
+        "link": "https://youtube.com",
         "gameState": {
           "balls": 0,
           "batterRunner": false,
@@ -498,8 +500,8 @@
         },
         "id": 153,
         "i18nRuling": {
-          "EN_US": "5.09(1)(a) Some ruling.... <a href=\"https://youtube.com/123/>link</a>\" ",
-          "NL_NL": "5.09(1)(a) Een regel.... https://youtube.com/123/"
+          "EN_US": "5.09(1)(a) Some ruling....",
+          "NL_NL": "5.09(1)(a) Een regel...."
         }
       },
       {
@@ -652,6 +654,7 @@
           }
         ],
         "difficulty": "UMPIRE_4",
+        "link": "https://jemoeder.com",
         "gameState": {
           "balls": 0,
           "batterRunner": true,
@@ -695,6 +698,11 @@
       "username": "admin",
       "password": "admin",
       "id": 4
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "id": 5
     }
   ],
   "errors": [

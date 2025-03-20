@@ -8,6 +8,7 @@ import {GameStateComponent} from "../game-state/game-state.component";
 import {AnswersComponent} from "../answers/answers.component";
 import {RulingComponent} from "../ruling/ruling.component";
 import {RouterLink} from "@angular/router";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-results',
@@ -19,7 +20,8 @@ import {RouterLink} from "@angular/router";
     GameStateComponent,
     AnswersComponent,
     RulingComponent,
-    RouterLink
+    RouterLink,
+    ReactiveFormsModule
   ],
   templateUrl: './results.component.html',
   styleUrl: './results.component.scss'
