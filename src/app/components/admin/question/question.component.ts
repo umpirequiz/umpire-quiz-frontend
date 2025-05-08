@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap, Router, RouterLink} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {emptyQuestion} from "../../../domain/Question";
 import {FormsModule, NgForm} from "@angular/forms";
 import {QuestionService} from "../../../services/question.service";
@@ -15,7 +15,7 @@ import {Difficulty} from "../../../domain/Difficulty";
 @Component({
   selector: 'app-admin-question',
   standalone: true,
-  imports: [FormsModule, AnswersComponent, GameStateComponent, QuizQuestionComponent, RouterLink, QuestionErrorsComponent, SelectDifficultiesComponent],
+  imports: [FormsModule, AnswersComponent, GameStateComponent, QuizQuestionComponent, QuestionErrorsComponent, SelectDifficultiesComponent],
   templateUrl: './question.component.html',
   styleUrl: './question.component.scss'
 })
@@ -58,7 +58,6 @@ export class QuestionComponent implements OnInit {
   save(questionForm: NgForm) {
     if (!questionForm.valid) return;
 
-    console.log(this.question)
     if (this.editMode) {
       this.service.update(this.question)
     } else {
