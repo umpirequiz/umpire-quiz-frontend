@@ -2,8 +2,8 @@
   <!-- Main Content -->
   <div class="col-12 col-lg-8">
     <div class="card p-0 text-black border w-100 mb-2">
-      <h5 class="card-header" id="questionHeader" i18n="@@quiz.play.question.number">
-        Question {{ currentQuestionIndex + 1 }}
+      <h5 class="card-header" id="questionHeader">
+        <span i18n="@@quiz.play.question.number">Question</span> {{ currentQuestionIndex + 1 }}
       </h5>
       <div class="card-body">
         <app-question [question]="currentQuestion" [gameState]="currentGameState"></app-question>
@@ -28,8 +28,9 @@
       </div>
       <div class="card-body d-flex flex-column justify-content-center align-items-center">
         <span
-          [ngClass]="allAnswered() ? 'badge rounded-pill text-bg-success m-2':'badge rounded-pill text-bg-warning m-2'" i18n="@@quiz.play.progress.answered">
-          {{ answeredQuestionsCount }}/{{ quiz.questions.length }} answered
+          [ngClass]="allAnswered() ? 'badge rounded-pill text-bg-success m-2':'badge rounded-pill text-bg-warning m-2'">
+          {{ answeredQuestionsCount }}/{{ quiz.questions.length }}
+          <span i18n="@@quiz.play.progress.answered">answered</span>
         </span>
         <nav aria-label="Page navigation">
           <ul class="pagination justify-content-start">
@@ -42,10 +43,12 @@
                 [ngClass]="{'active': currentQuestionIndex === i}"
                 [class.bg-primary]="isAnswered(i)">
               <a class="page-link click" (click)="goToQuestion(i)"
-                 [ngClass]="{'bg-secondary text-white': isAnswered(i) && currentQuestionIndex !== i}" i18n-aria-label="@@quiz.play.goto.question.aria" aria-label="Go to question {{i+1}}">{{ i + 1 }}</a>
+                 [ngClass]="{'bg-secondary text-white': isAnswered(i) && currentQuestionIndex !== i}"
+                 i18n-aria-label="@@quiz.play.goto.question.aria" aria-label="Go to question {{i+1}}">{{ i + 1 }}</a>
             </li>
             <li class="page-item" [class.disabled]="currentQuestionIndex === quiz.questions.length - 1">
-              <a class="page-link click" (click)="nextQuestion()" i18n-aria-label="@@quiz.play.next.aria" aria-label="Next question">
+              <a class="page-link click" (click)="nextQuestion()" i18n-aria-label="@@quiz.play.next.aria"
+                 aria-label="Next question">
                 <i class="fa-solid fa-angle-right"></i>
               </a>
             </li>

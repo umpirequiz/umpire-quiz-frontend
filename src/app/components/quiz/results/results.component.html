@@ -15,7 +15,7 @@
     @for (question of getQuestions(); track $index) {
       <div class="mt-2">
         <div class="card text-black border w-100">
-          <h5 class="card-header" i18n="@@quiz.results.question.number">Question {{ $index + 1 }}</h5>
+          <h5 class="card-header"><span i18n="@@quiz.results.question.number">Question</span> {{ $index + 1 }}</h5>
           <div class="card-body">
             <app-question [question]="question" [gameState]="question.gameState"></app-question>
             <app-answers

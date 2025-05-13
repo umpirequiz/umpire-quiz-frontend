@@ -4,7 +4,7 @@
   <div class="card-body">
     <div class="card p-0 p-lg-0 text-black border w-100">
       <div class="card-header">
-        <h5 class="mb-0" i18n="@@admin.question.edit.title">Question {{ question.id }}</h5>
+        <h5 class="mb-0"><span i18n="@@admin.question.edit.title">Question</span> {{ question.id }}</h5>
       </div>
       <div class="card-body">
         <app-game-state [edit]="true" [gameState]="question.gameState"/>

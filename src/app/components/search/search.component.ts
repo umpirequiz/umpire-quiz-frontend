@@ -12,7 +12,7 @@ import {FormsModule} from "@angular/forms";
 })
 export class SearchComponent {
 
-  @Input() placeholder = "search terms..."
+  @Input() placeholder = $localize `:SearchComponent placeholder:search terms...`;
   @Output() search = new EventEmitter<string>()
   @Output() inputChanged = new EventEmitter<string>()
 

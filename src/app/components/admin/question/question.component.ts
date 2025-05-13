@@ -23,7 +23,7 @@ export class QuestionComponent implements OnInit {
 
   editMode = true;
   question = emptyQuestion();
-  modeLabel = "Edit";
+  modeLabel = $localize `:QuestionComponent Edit Label:Edit`;
   levels: Levels;
 
   constructor(private route: ActivatedRoute,
@@ -41,7 +41,7 @@ export class QuestionComponent implements OnInit {
   private processUrlParams(subPath: string) {
     if (subPath === 'add') {
       this.editMode = false;
-      this.modeLabel = "Add"
+      this.modeLabel = $localize `:QuestionComponent Add Label:Add`;
     } else {
       this.loadQuestion(subPath);
     }
