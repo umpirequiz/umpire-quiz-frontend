@@ -1,7 +1,7 @@
 <div class="card border-secondary my-2">
   <div class="card-header d-flex align-items-center">
     <div class="col-11">
-      <h6 class="mb-0">Answer</h6>
+      <h6 class="mb-0" i18n="@@answers.header">Answer</h6>
     </div>
     @if (!edit) {
       <div class="col-1 text-end" matTooltip="Report error">
@@ -13,19 +13,19 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="modal-title fs-5" id="exampleModalLabel">Report error</h3>
+            <h3 class="modal-title fs-5" id="exampleModalLabel" i18n="@@answers.reporterror">Report error</h3>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="mb-3">
-              <p>Thank you for helping us improve this question 💪🏼!</p>
-              <label for="message-text" class="col-form-label">Please tell us what's wrong (optional):</label>
+              <p i18n="@@answers.reporterror.thankyou">Thank you for helping us improve this question 💪🏼!</p>
+              <label for="message-text" class="col-form-label" i18n="@@answers.reporterror.message">Please tell us what's wrong (optional):</label>
               <textarea class="form-control" id="message-text" [(ngModel)]="message"></textarea>
             </div>
           </div>
           <div class="modal-footer">
-            <div type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</div>
-            <div type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="reportError()">Submit</div>
+            <div type="button" class="btn btn-secondary" data-bs-dismiss="modal" i18n="@@buttons.cancel">Cancel</div>
+            <div type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="reportError()" i18n="@@buttons.submit">Submit</div>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@
           </li>
         }
       } @else {
-        Select one option
+        <span i18n="@@answers.select.one.option">Select one option</span>
         @for (answer of answers; track $index) {
           <li class="list-group-item click"
               id="{{answer.id}}"
@@ -82,14 +82,14 @@
     </ul>
     @if (!results && !edit) {
       @if (!isLastQuestion) {
-        <button class="btn btn-primary my-2" (click)="onNext()">
-          Next
+        <button class="btn btn-primary my-2" (click)="onNext()" i18n="@@buttons.next">
+        Next
         </button>
       } @else {
-        <button [ngClass]="allAnswered() ? 'btn btn-success my-2':'btn btn-warning my-2'" (click)="onFinish()">
+        <button [ngClass]="allAnswered() ? 'btn btn-success my-2':'btn btn-warning my-2'" (click)="onFinish()" i18n="@@buttons.finish">
           Finish{{ allAnswered() ? '!' : '?' }}
         </button>
-        <span *ngIf="!allAnswered()" class="badge text-bg-danger m-2">
+        <span *ngIf="!allAnswered()" class="badge text-bg-danger m-2" i18n="@@answers.not.complete">
            not all questions are answered!
         </span>
       }

@@ -1,21 +1,21 @@
 <div class="row g-1">
   <div class="col-lg-2 col-md-3 my-auto">
     <div class="d-flex justify-content-start align-items-center">
-      <label class="form-check-label" routerLink="/questions/add" matTooltip="New question">
+      <label class="form-check-label" routerLink="/questions/add" matTooltip="New question" i18n-matTooltip="@@questions.tooltip.new">
         <i class="fa-solid fa-square-plus text-success mx-1"></i>
       </label>
-      <label for="all" class="form-check-label" matTooltip="Include inactive questions">
+      <label for="all" class="form-check-label" matTooltip="Include inactive questions" i18n-matTooltip="@@questions.tooltip.inactive">
         <i class="fa-solid fa-check-double"></i>
         <input type="checkbox" class="form-check-input mx-1" id="all" name="all" (click)="toggleAll()">
       </label>
-      <label class="form-check-label" matTooltip="Find questions with errors">
+      <label class="form-check-label" matTooltip="Find questions with errors" i18n-matTooltip="@@questions.tooltip.errors">
         <i class="fa-solid fa-bug mw-1"></i>
         <input type="checkbox" class="form-check-input mx-1" id="bug" name="bug" (click)="toggleBug()">
       </label>
     </div>
   </div>
   <div class="col-lg-5 col-md-4 my-auto">
-    <app-search placeholder="Search question..." (inputChanged)="handleSearchInputChanged($event)"
+    <app-search placeholder="Search question..." i18n-placeholder="@@questions.search.placeholder" (inputChanged)="handleSearchInputChanged($event)"
                 (search)="handleSearch($event)"></app-search>
   </div>
   <div class="col-5 my-auto radius">
@@ -31,9 +31,9 @@
   <!-- Table Header -->
   <div class="row fw-bold border-bottom py-2">
     <div class="col d-flex text-decoration-none clickable-group">
-      <div class="col-fixed-small border-end pe-2 text-center">#</div>
-      <div class="col-fixed border-end pe-2 text-center">Active</div>
-      <div class="col-grow ps-2">Question</div>
+      <div class="col-fixed-small border-end pe-2 text-center" i18n="@@questions.header.id">#</div>
+      <div class="col-fixed border-end pe-2 text-center" i18n="@@questions.header.active">Active</div>
+      <div class="col-grow ps-2" i18n="@@questions.header.question">Question</div>
     </div>
   </div>
 
@@ -51,7 +51,7 @@
       <!-- Action Buttons -->
       <div class="col-1 text-center">
         <div class="btn-group">
-          <i (click)="remove(q.id)" class="m-1 fa-solid fa-trash pointer-hand" style="color: #cc0303;"></i>
+          <i (click)="remove(q.id)" class="m-1 fa-solid fa-trash pointer-hand" style="color: #cc0303;" i18n-title="@@questions.action.delete" title="Delete question"></i>
         </div>
       </div>
     </div>

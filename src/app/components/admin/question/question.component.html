@@ -4,7 +4,7 @@
   <div class="card-body">
     <div class="card p-0 p-lg-0 text-black border w-100">
       <div class="card-header">
-        <h5 class="mb-0">Question {{ question.id }}</h5>
+        <h5 class="mb-0" i18n="@@admin.question.edit.title">Question {{ question.id }}</h5>
       </div>
       <div class="card-body">
         <app-game-state [edit]="true" [gameState]="question.gameState"/>
@@ -17,15 +17,15 @@
           [answers]="question.answers"
           [selectedAnswer]="question.selectedAnswer"
           [questionId]="question.id"/>
-        <label for="link" class="form-label">See also</label>
+        <label for="link" class="form-label" i18n="@@admin.question.link.label">See also</label>
         <input type="text" class="form-control" id="link" name="link"
           [(ngModel)]="question.link" value="{{question.link}}"/>
         <app-question-errors [question]="question"/>
       </div>
     </div>
-    <div class="btn-group py-3" role="group" aria-label="Buttons">
-      <button class="btn btn-success" [disabled]="questionForm.invalid">Ok</button>
-      <div class="btn btn-warning" (click)="cancel()">Cancel</div>
+    <div class="btn-group py-3" role="group" i18n-aria-label="@@admin.question.buttons.aria" aria-label="Buttons">
+      <button class="btn btn-success" [disabled]="questionForm.invalid" i18n="@@button.ok">Ok</button>
+      <div class="btn btn-warning" (click)="cancel()" i18n="@@button.cancel">Cancel</div>
     </div>
   </div>
 </form>

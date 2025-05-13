@@ -1,9 +1,9 @@
 <div class="col-md-12 col-lg-12 d-flex flex-column flex-md-row mb-4">
   <div class="vstack p-2">
-    <h5 class="">
+    <h5 class="" i18n="@@quiz.results.header">
       Here are the results!
     </h5>
-    <h6 class="mt-2">Correct vs. incorrect</h6>
+    <h6 class="mt-2" i18n="@@quiz.results.correct.vs.incorrect">Correct vs. incorrect</h6>
     <div class="progress">
       <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
            [style.width]="getPercentage(getQuestionsCorrect()) + '%'">{{ getQuestionsCorrect() }}
@@ -15,7 +15,7 @@
     @for (question of getQuestions(); track $index) {
       <div class="mt-2">
         <div class="card text-black border w-100">
-          <h5 class="card-header">Question {{ $index + 1 }}</h5>
+          <h5 class="card-header" i18n="@@quiz.results.question.number">Question {{ $index + 1 }}</h5>
           <div class="card-body">
             <app-question [question]="question" [gameState]="question.gameState"></app-question>
             <app-answers
@@ -30,7 +30,7 @@
       </div>
     }
     <div class="p-2">
-      <button class="btn btn-primary" routerLink="/quiz">Play again</button>
+      <button class="btn btn-primary" routerLink="/quiz" i18n="@@quiz.results.play.again">Play again</button>
     </div>
   </div>
 

@@ -6,7 +6,7 @@
           <div class="card" style="border-radius: 1rem;">
             <div class="row g-0">
               <div class="col-md-6 col-lg-5 d-none d-md-block">
-                <img src="/img/sharlon-schoop.avif" alt="register form" class="img-fluid h-100"
+                <img src="/img/sharlon-schoop.avif" alt="register form" i18n-alt="@@register.image.alt" class="img-fluid h-100"
                   style="border-radius: 1rem 0 0 1rem;" />
               </div>
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
@@ -14,35 +14,35 @@
                   <form (ngSubmit)="register()" #registerForm="ngForm" novalidate>
                     <div class="d-flex align-items-center mb-3 pb-1">
                       <i class="fas fa-baseball fa-2x me-3" style="color: #0d6efd;"></i>
-                      <span class="h1 fw-bold mb-0">Umpire Quiz</span>
+                      <span class="h1 fw-bold mb-0" i18n="@@register.title">Umpire Quiz</span>
                     </div>
 
-                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Register</h5>
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;" i18n="@@register.subtitle">Register</h5>
 
                     <div data-mdb-input-init class="form-outline mb-4">
                       <input type="text" id="username" class="form-control form-control-lg" required #username="ngModel"
                         [(ngModel)]="user.username" name="username" />
-                      <label class="form-label" for="username">Username</label>
+                      <label class="form-label" for="username" i18n="@@register.username">Username</label>
                     </div>
 
                     <div data-mdb-input-init class="form-outline mb-4">
                       <input type="password" id="password" class="form-control form-control-lg" required
                         #password="ngModel" [(ngModel)]="user.password" name="password" />
-                      <label class="form-label" for="password">Password</label>
+                      <label class="form-label" for="password" i18n="@@register.password">Password</label>
                     </div>
 
                     <div data-mdb-input-init class="form-outline mb-4">
                       <input type="password" id="confirmPassword" class="form-control form-control-lg" required
                         [(ngModel)]="confirmPassword" name="confirmPassword" />
-                      <label class="form-label" for="confirmPassword">Confirm Password</label>
+                      <label class="form-label" for="confirmPassword" i18n="@@register.confirm.password">Confirm Password</label>
                     </div>
 
                     <div class="pt-1 mb-4">
                       <button [disabled]="!registerForm.valid || user.password !== confirmPassword" data-mdb-button-init
-                        data-mdb-ripple-init class="btn btn-dark btn-lg btn-block" type="submit">Register</button>
+                        data-mdb-ripple-init class="btn btn-dark btn-lg btn-block" type="submit" i18n="@@register.button">Register</button>
                     </div>
 
-                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Already have an account? <a routerLink="/login"
+                    <p class="mb-5 pb-lg-2" style="color: #393f81;" i18n="@@register.login.prompt">Already have an account? <a routerLink="/login"
                         style="color: #393f81;">Login here</a></p>
                   </form>
                   <!-- <p>{{ message$ | async }}</p> -->

@@ -4,48 +4,47 @@
       <div class="card border-primary" style="border-radius: 1rem;">
         <div class="row g-0">
           <div class="col-md-6 col-lg-7 d-flex align-items-start">
-            <div class="card-body p-4 p-lg-5 text-black">
-              <h1 i18n>Welcome, baseball fan!</h1>
-              <p>
-                {{ header }}
-                This interactive baseball quiz has hundreds of questions (and growing) on the rules of baseball.
+          <div class="card-body p-4 p-lg-5 text-black">
+              <h1 i18n="@@home.welcome">Welcome, baseball fan!</h1>
+              <p i18n="@@home.description">
+              This interactive baseball quiz has hundreds of questions (and growing) on the rules of baseball.
                 It's meant for everybody who wants to practice their knowledge of the rules, like umpires,
                 players and coaches.
               </p>
               <p>
-                <button class="btn btn-primary" routerLink="/quiz">Start a quiz!</button>
+                <button class="btn btn-primary" routerLink="/quiz" i18n="@@home.startButton">Start a quiz!</button>
               </p>
-              <p>
-                This is only the first basic version of the app. We have many ideas for new features. Probably it
+              <p i18n="@@home.version">
+              This is only the first basic version of the app. We have many ideas for new features. Probably it
                 contains errors and bugs, too.
               </p>
-              <p>
-                Explore the menu to <b>learn more</b>.</p>
+              <p i18n="@@home.explore">
+              Explore the menu to <b>learn more</b>.</p>
               <ul>
-                <li>To get in touch, please <a routerLink="/contact">contact us</a>.</li>
-                <li>See the story <a routerLink="/about">about us</a>.</li>
+                <li i18n="@@home.contact">To get in touch, please <a routerLink="/contact">contact us</a>.</li>
+                <li i18n="@@home.about">See the story <a routerLink="/about">about us</a>.</li>
               </ul>
-              <p>Have fun learning!</p>
-              <h4>News</h4>
+              <p i18n="@@home.closing">Have fun learning!</p>
+              <h4 i18n="@@home.news.title">News</h4>
               <ul>
                 <li>
-                  <h6>2025-05-08</h6>
-                  Links 🔗 (for example to YouTube) to can appear in the answers.
+                  <h6 i18n="@@home.news.date3">2025-05-08</h6>
+                  <span i18n="@@home.news.item3">Links 🔗 (for example to YouTube) can appear in the answers.</span>
                 </li>
                 <li>
-                  <h6>2025-02-17</h6>
-                  You can select the difficulty level 🤔❓ when starting a quiz.
+                  <h6 i18n="@@home.news.date2">2025-02-17</h6>
+                  <span i18n="@@home.news.item2">You can select the difficulty level 🤔❓ when starting a quiz.</span>
                 </li>
                 <li>
-                  <h6>2025-01-20</h6>
-                  You can now report an error (in a question or answers). <BR>Just click the <i
-                  class="fa-solid fa-bug"></i> icon whenever you see it!
+                  <h6 i18n="@@home.news.date1">2025-01-20</h6>
+                  <span i18n="@@home.news.item1">You can now report an error (in a question or answers). <BR>Just click the <i
+                    class="fa-solid fa-bug"></i> icon whenever you see it!</span>
                 </li>
               </ul>
             </div>
           </div>
           <div class="col-md-6 col-lg-5 d-none d-md-block">
-            <img src="/img/batter-action.webp" alt="homepage" class="img-fluid h-100"
+            <img src="/img/batter-action.webp" alt="homepage" i18n-alt="@@home.image.alt" class="img-fluid h-100"
                  style="border-radius: 0 1rem 1rem 0;"/>
           </div>
         </div>
