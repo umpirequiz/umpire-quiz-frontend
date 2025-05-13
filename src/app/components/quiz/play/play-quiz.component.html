@@ -43,8 +43,7 @@
                 [ngClass]="{'active': currentQuestionIndex === i}"
                 [class.bg-primary]="isAnswered(i)">
               <a class="page-link click" (click)="goToQuestion(i)"
-                 [ngClass]="{'bg-secondary text-white': isAnswered(i) && currentQuestionIndex !== i}"
-                 i18n-aria-label="@@quiz.play.goto.question.aria" aria-label="Go to question {{i+1}}">{{ i + 1 }}</a>
+                 [ngClass]="{'bg-secondary text-white': isAnswered(i) && currentQuestionIndex !== i}">{{ i + 1 }}</a>
             </li>
             <li class="page-item" [class.disabled]="currentQuestionIndex === quiz.questions.length - 1">
               <a class="page-link click" (click)="nextQuestion()" i18n-aria-label="@@quiz.play.next.aria"

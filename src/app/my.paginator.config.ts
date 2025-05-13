@@ -6,22 +6,17 @@ import {Subject} from "rxjs";
 export class MyPaginatorConfig implements MatPaginatorIntl {
   changes = new Subject<void>();
 
-  // For internationalization, the `$localize` function from
-  // the `@angular/localize` package can be used.
-  firstPageLabel = /*$localize*/`Eerste`;
-  itemsPerPageLabel = /*$localize*/`#`;
-  lastPageLabel = /*$localize*/`Laatste`;
-
-  // You can set labels to an arbitrary string too, or dynamically compute
-  // it through other third-party internationalization libraries.
-  nextPageLabel = 'Volgende';
-  previousPageLabel = 'Vorige';
+  firstPageLabel = $localize `:@@MyPaginatorConfig.firstPageLabel:First`;
+  lastPageLabel = $localize`:@@MyPaginatorConfig.lastPageLabel":Last`;
+  previousPageLabel = $localize `:@@MyPaginatorConfig.previousPageLabel:Previous`;
+  nextPageLabel = $localize `:@@MyPaginatorConfig.nextPageLabel:Next`;
+  itemsPerPageLabel = `#`;
 
   getRangeLabel(page: number, pageSize: number, length: number): string {
     if (length === 0) {
-      return /*$localize*/``;
+      return ``;
     }
     const amountPages = Math.ceil(length / pageSize);
-    return /*$localize*/`${page + 1}/${amountPages}`;
+    return `${page + 1}/${amountPages}`;
   }
 }
