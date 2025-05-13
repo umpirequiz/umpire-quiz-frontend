@@ -13,10 +13,19 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "nl": {
+            "translation": "messages.nl.json"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize": true,
             "outputPath": "dist/umpire-quiz",
             "index": "src/index.html",
             "browser": "src/main.ts",
