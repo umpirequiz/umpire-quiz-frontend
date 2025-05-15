@@ -31,7 +31,7 @@ npx http-server -p 4200
 To build the app, create the docker image and push it, run:
 
 ```shell
-ng build --aot --output-hashing=all 
+ng build --localize --aot --output-hashing=all 
 ```
 
 ```shell
