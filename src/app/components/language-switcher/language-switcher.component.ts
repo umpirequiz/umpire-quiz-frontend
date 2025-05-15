@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import {CookieService} from "ngx-cookie-service";
-import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-language-switcher',
@@ -17,16 +16,17 @@ export class LanguageSwitcherComponent {
 
   constructor(private cookieService: CookieService) {
     let selectedLang = this.cookieService.get("selectedLang");
-    if (selectedLang) this.selectedLang = selectedLang;
+    if (selectedLang) {
+      this.selectedLang = selectedLang;
+      // this.select(selectedLang);
+    }
   }
 
   select(lang: string) {
     this.selectedLang = lang;
-    this.cookieService.set("selectedLang", this.selectedLang, { expires: 36500, path: '/' });
+    this.cookieService.set("selectedLang", this.selectedLang, {expires: 36500, path: '/'});
 
-    // Construct the new URL with selected language and redirect
-    const currentUrl = window.location.href;
-    const url = new URL(currentUrl);
+    const url = new URL(window.location.href);
 
     // Replace the first path segment with the selected language
     const pathSegments = url.pathname.split('/').filter(seg => !!seg);
