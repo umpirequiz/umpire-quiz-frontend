@@ -79,7 +79,7 @@ function emptyGameState(): GameState {
   }
 }
 
-function emptyI18dString(): InternationalizedString {
+export function emptyI18dString(): InternationalizedString {
   return {
     NL_NL: "",
     EN_US: ""
