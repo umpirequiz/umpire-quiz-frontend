@@ -27,7 +27,7 @@
                 [(ngModel)]="question.i18nRuling!.NL_NL"></textarea>
     } @else {
       <app-game-state [gameState]="currentGameState"></app-game-state>
-      {{ question.i18nValue.EN_US }}
+      {{ questionTranslatedValue }}
     }
   </div>
 </div>

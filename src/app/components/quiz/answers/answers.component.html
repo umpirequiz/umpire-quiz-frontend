@@ -19,13 +19,16 @@
           <div class="modal-body">
             <div class="mb-3">
               <p i18n="@@answers.reporterror.thankyou">Thank you for helping us improve this question 💪🏼!</p>
-              <label for="message-text" class="col-form-label" i18n="@@answers.reporterror.message">Please tell us what's wrong (optional):</label>
+              <label for="message-text" class="col-form-label" i18n="@@answers.reporterror.message">Please tell us
+                what's wrong (optional):</label>
               <textarea class="form-control" id="message-text" [(ngModel)]="message"></textarea>
             </div>
           </div>
           <div class="modal-footer">
             <div type="button" class="btn btn-secondary" data-bs-dismiss="modal" i18n="@@buttons.cancel">Cancel</div>
-            <div type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="reportError()" i18n="@@buttons.submit">Submit</div>
+            <div type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="reportError()"
+                 i18n="@@buttons.submit">Submit
+            </div>
           </div>
         </div>
       </div>
@@ -63,19 +66,19 @@
           </label>
         </div>
       } @else if (results) {
-        @for (answer of answers; track $index) {
+        @for (answer of translatedAnswers; track $index) {
           <li class="list-group-item"
-              [class]="wasAnsweredCorrectly(this.questionId, answer.id)">{{ answer.i18nValue.EN_US }}
+              [class]="wasAnsweredCorrectly(this.questionId, answer.id)">{{ answer.value }}
           </li>
         }
       } @else {
         <span i18n="@@answers.select.one.option">Select one option</span>
-        @for (answer of answers; track $index) {
+        @for (answer of translatedAnswers; track $index) {
           <li class="list-group-item click"
               id="{{answer.id}}"
               (click)="selectAnswer(answer.id)"
               (keyup)="selectAnswerKeyboardWrapper(answer.id, $event)" tabindex="{{$index+1}}"
-              [ngClass]="{'list-group-item-primary': isSelected(answer.id)}">{{ answer.i18nValue.EN_US }}
+              [ngClass]="{'list-group-item-primary': isSelected(answer.id)}">{{ answer.value }}
           </li>
         }
       }
@@ -83,10 +86,11 @@
     @if (!results && !edit) {
       @if (!isLastQuestion) {
         <button class="btn btn-primary my-2" (click)="onNext()" i18n="@@buttons.next">
-        Next
+          Next
         </button>
       } @else {
-        <button [ngClass]="allAnswered() ? 'btn btn-success my-2':'btn btn-warning my-2'" (click)="onFinish()" i18n="@@buttons.finish">
+        <button [ngClass]="allAnswered() ? 'btn btn-success my-2':'btn btn-warning my-2'" (click)="onFinish()"
+                i18n="@@buttons.finish">
           Finish{{ allAnswered() ? '!' : '?' }}
         </button>
         <span *ngIf="!allAnswered()" class="badge text-bg-danger m-2" i18n="@@answers.not.complete">

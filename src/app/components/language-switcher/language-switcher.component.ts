@@ -15,9 +15,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class LanguageSwitcherComponent {
   selectedLang = 'en';
 
-  constructor(private cookieService: CookieService,
-              private router: Router,
-              private activatedRoute: ActivatedRoute) {
+  constructor(private cookieService: CookieService) {
     let selectedLang = this.cookieService.get("selectedLang");
     if (selectedLang) this.selectedLang = selectedLang;
   }

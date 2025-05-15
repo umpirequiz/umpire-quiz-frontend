@@ -1,10 +1,13 @@
 import {QuestionError} from "./QuestionError";
 import {Difficulty, u1} from "./Difficulty";
 
-export interface Question {
+export interface InternationalizedValued {
+  i18nValue: InternationalizedString
+}
+
+export interface Question extends InternationalizedValued {
   id: number;
   difficulty: Difficulty;
-  i18nValue: InternationalizedString;
   gameState: GameState;
   enabled: boolean;
   link: string;
@@ -15,9 +18,14 @@ export interface Question {
   i18nRuling?: InternationalizedString;
 }
 
-export interface Answer {
+export interface Answer extends InternationalizedValued {
   id: number;
-  i18nValue: InternationalizedString;
+  correct?: boolean;
+}
+
+export interface TranslatedAnswer {
+  id: number;
+  value: string;
   correct?: boolean;
 }
 
