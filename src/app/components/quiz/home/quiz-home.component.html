@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-12">
     <div class="card p-0 text-black border w-100 mb-2">
-      <h5 class="card-header">
+      <h5 class="card-header" i18n="@@quiz.home.ready">
         Ready?
       </h5>
       <div class="card-body">
-        <p>The next quiz has five <b>random</b> questions. Answer them all, then click "Finish" to see the results.</p>
-        <p>You can play as often as you want. Each time, you get different questions.</p>
+        <p i18n="@@quiz.home.description">The next quiz has five <b>random</b> questions. Answer them all, then click "Finish" to see the results.</p>
+        <p i18n="@@quiz.home.play.often">You can play as often as you want. Each time, you get different questions.</p>
       </div>
     </div>
   </div>
@@ -14,7 +14,7 @@
 <div class="row">
   <div class="col-12">
     <div class="card p-0 text-black border w-100 mb-2">
-      <h6 class="card-header">
+      <h6 class="card-header" i18n="@@quiz.home.options">
         Options
       </h6>
       <div class="card-body">
@@ -23,16 +23,16 @@
     </div>
     <div>
       <a routerLink="play">
-        <button class="btn btn-primary" (click)="newQuiz()">Start!</button>
+        <button class="btn btn-primary" (click)="newQuiz()" i18n="@@quiz.home.start">Start!</button>
       </a>
     </div>
     @if (quizInProgress()) {
       <hr/>
-      <p>
+      <p i18n="@@quiz.home.continue.text">
         To continue your quiz in progress:
       </p>
       <a routerLink="play">
-        <button class="btn btn-outline-primary">Continue quiz</button>
+        <button class="btn btn-outline-primary" i18n="@@quiz.home.continue.button">Continue quiz</button>
       </a>
     }
   </div>

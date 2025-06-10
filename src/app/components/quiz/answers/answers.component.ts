@@ -1,12 +1,12 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Answer, emptyAnswer, Question} from "../../../domain/Question";
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Answer, emptyAnswer, Question, TranslatedAnswer} from "../../../domain/Question";
 import {NgClass, NgIf} from "@angular/common";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
 import {FormsModule} from "@angular/forms";
 import {Quiz} from "../../../domain/Quiz";
 import {MatTooltip} from "@angular/material/tooltip";
 import {QuestionService} from "../../../services/question.service";
-import {RouterLink} from "@angular/router";
+import {I18nService} from "../../../services/i18n.service";
 
 @Component({
   selector: 'app-answers',
@@ -15,13 +15,12 @@ import {RouterLink} from "@angular/router";
     NgClass,
     FormsModule,
     MatTooltip,
-    RouterLink,
     NgIf
   ],
   templateUrl: './answers.component.html',
   styleUrl: './answers.component.scss'
 })
-export class AnswersComponent {
+export class AnswersComponent implements OnInit, OnChanges {
   @Input() questionId = 0
   @Input() answers = [] as Answer[]
   @Input() selectedAnswer?: number
@@ -31,9 +30,33 @@ export class AnswersComponent {
   @Output() select: EventEmitter<number> = new EventEmitter<number>()
   @Output() next: EventEmitter<void> = new EventEmitter<void>()
   @Output() finish: EventEmitter<void> = new EventEmitter<void>()
-  message = '';
 
-  constructor(private questionService: QuestionService) {
+  message = '';
+  translatedAnswers = [] as TranslatedAnswer[]
+
+  constructor(private questionService: QuestionService,
+              private i18nService: I18nService) {
+  }
+
+  ngOnInit(): void {
+    this.updateI18nValues();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['answers'] && !changes['answers'].isFirstChange()) {
+      this.updateI18nValues();
+    }
+  }
+
+  private updateI18nValues(): void {
+    this.translatedAnswers = [] as TranslatedAnswer[]
+    for (let answer of this.answers) {
+      this.translatedAnswers.push({
+        id: answer.id,
+        value: this.i18nService.translate(answer),
+        correct: answer.correct
+      })
+    }
   }
 
   selectAnswer(id: number): void {

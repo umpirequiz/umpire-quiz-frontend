@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {RouterLink, RouterLinkActive} from "@angular/router";
 import {AppComponent} from "../../app.component";
-import { UserService } from '../../services/user.service';
-import { User } from '../../domain/User';
-import { Observable } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import {UserService} from '../../services/user.service';
+import {User} from '../../domain/User';
+import {Observable} from 'rxjs';
+import {CommonModule} from '@angular/common';
+import {LanguageSwitcherComponent} from "../language-switcher/language-switcher.component";
 
 
 @Component({
@@ -13,7 +14,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     RouterLink,
     RouterLinkActive,
-    CommonModule
+    CommonModule,
+    LanguageSwitcherComponent
   ],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.scss'
@@ -23,7 +25,9 @@ export class NavBarComponent implements OnInit {
   user: string = '';
 
   protected readonly AppComponent = AppComponent;
-  constructor(private userService: UserService) {}
+
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit(): void {
     this.isLoggedIn$ = this.userService.loggedIn;
@@ -37,7 +41,7 @@ export class NavBarComponent implements OnInit {
   }
 
 
-  loggedInUser() : string {
+  loggedInUser(): string {
     let user: User | null = this.userService.loggedInUser();
     return user !== null ? user.username.charAt(0).toUpperCase() + user.username.slice(1) : 'none';
   }

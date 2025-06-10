@@ -17,11 +17,21 @@ Run the question-service locally (e.g. using liberty:dev).
 
 Set `env_file` in `environment.development.ts` to `"env_local.json"`.
 
+## Locally test multi-language
+First build: `ng build --localize`
+
+The cd into `umpire-quiz-frontend\dist\umpire-quiz\browser` and run:
+
+```console
+npx http-server -p 4200
+```
+
+
 ## Local build and deploy
 To build the app, create the docker image and push it, run:
 
 ```shell
-ng build --aot --output-hashing=all 
+ng build --localize --aot --output-hashing=all 
 ```
 
 ```shell

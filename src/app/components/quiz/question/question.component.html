@@ -1,6 +1,6 @@
 <div class="card border-secondary my-1">
   <div class="card-header d-flex align-items-center">
-    <h6 class="mb-0">Situation</h6>
+    <h6 class="mb-0" i18n="@@quiz.question.situation">Situation</h6>
   </div>
   <div class="card-body">
     @if (this.edit) {
@@ -9,7 +9,7 @@
                 id="i18nValue.EN_US" name="i18nValue.EN_US"
                 required
                 [(ngModel)]="question.i18nValue.EN_US"></textarea>
-      <label for="i18nRuling.EN_US" class="form-label">Ruling</label>
+      <label for="i18nRuling.EN_US" class="form-label" i18n="@@quiz.question.ruling">Ruling</label>
       <textarea type="text" rows="3" class="form-control mb-2"
                 id="i18nRuling.EN_US" name="i18nRuling.EN_US"
                 required
@@ -20,14 +20,14 @@
                 id="i18nValue.NL_NL" name="i18nValue.NL_NL"
                 required
                 [(ngModel)]="question.i18nValue.NL_NL"></textarea>
-      <label for="i18nRuling.NL_NL" class="form-label">Ruling</label>
+      <label for="i18nRuling.NL_NL" class="form-label" i18n="@@quiz.question.ruling.dutch">Ruling</label>
       <textarea type="text" rows="3" class="form-control mb-2"
                 id="i18nRuling.NL_NL" name="i18nRuling.NL_NL"
                 required
                 [(ngModel)]="question.i18nRuling!.NL_NL"></textarea>
     } @else {
       <app-game-state [gameState]="currentGameState"></app-game-state>
-      {{ question.i18nValue.EN_US }}
+      {{ questionTranslatedValue }}
     }
   </div>
 </div>

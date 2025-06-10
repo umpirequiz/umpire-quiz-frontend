@@ -22,7 +22,6 @@ export class SelectDifficultiesComponent {
   @Input() admin = false;
   @Output() choose = new EventEmitter<Difficulty>();
 
-  tooltipText = "Corresponds to U1-U4 levels (1=beginner, 4=veteran)";
   tooltipVisible = false;
 
   select(selectedLevel: Difficulty) {

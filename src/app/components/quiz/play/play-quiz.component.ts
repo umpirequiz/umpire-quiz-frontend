@@ -1,26 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import {emptyQuestion, GameState, Question} from '../../../domain/Question'
-import {Router, RouterLink, RouterOutlet} from "@angular/router";
-import {NgClass, NgForOf, NgIf} from "@angular/common";
+import {Router} from "@angular/router";
+import {NgClass, NgForOf} from "@angular/common";
 import {QuizService} from "../../../services/quiz.service";
 import {Quiz} from "../../../domain/Quiz";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
-import {GameStateComponent} from "../game-state/game-state.component";
 import {QuestionComponent} from "../question/question.component";
 import {AnswersComponent} from "../answers/answers.component";
 import {CookieService} from "ngx-cookie-service";
-import {u1} from "../../../domain/Difficulty";
 
 @Component({
   selector: 'app-play',
   standalone: true,
   imports: [
-    RouterOutlet,
-    RouterLink,
     NgForOf,
-    NgIf,
     NgClass,
-    GameStateComponent,
     QuestionComponent,
     AnswersComponent
   ],
