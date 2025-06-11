@@ -10,14 +10,12 @@ import {QuestionError} from "../domain/QuestionError";
   providedIn: 'root'
 })
 export class QuestionService {
-  private baseUrl!: string;
+  private readonly baseUrl: string;
 
   private _questionsUpdated$ = new Subject<Question[]>()
 
   constructor(private httpClient: HttpClient, private environmentService: EnvironmentService, private messageService: MessageService) {
-    this.environmentService.env.subscribe(e =>
-      this.baseUrl = e.questionServiceUrl + '/questions'
-    )
+    this.baseUrl = this.environmentService.env.questionServiceUrl + '/questions'
   }
 
   findAll(): void {

@@ -29,7 +29,7 @@
       <div class="card-body d-flex flex-column justify-content-center align-items-center">
         <span
           [ngClass]="allAnswered() ? 'badge rounded-pill text-bg-success m-2':'badge rounded-pill text-bg-warning m-2'">
-          {{ answeredQuestionsCount }}/{{ quiz.questions.length }}
+          {{ answeredQuestionsCount }}/{{ getQuizSize() }}
           <span i18n="@@quiz.play.progress.answered">answered</span>
         </span>
         <nav aria-label="Page navigation">

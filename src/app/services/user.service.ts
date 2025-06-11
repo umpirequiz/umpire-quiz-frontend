@@ -8,7 +8,7 @@ import {MessageService} from "./message.service";
 
 @Injectable({providedIn: 'root'}) // ApplicationScoped
 export class UserService {
-  private baseUrl!: string
+  private readonly baseUrl: string
 
   public static readonly emptyUser = {} as User;
 
@@ -17,9 +17,7 @@ export class UserService {
   public loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
 
   constructor(private http: HttpClient, private router: Router, private environmentService: EnvironmentService, private messageService: MessageService) {
-    this.environmentService.env.subscribe(e =>
-        this.baseUrl = e.userServiceUrl + '/users'
-    )
+    this.baseUrl = this.environmentService.env.questionServiceUrl + '/users'
   }
 
   login(u: User): void {

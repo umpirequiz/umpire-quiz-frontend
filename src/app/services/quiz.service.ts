@@ -10,14 +10,12 @@ import {Levels, toCode} from "../domain/Levels";
   providedIn: 'root'
 })
 export class QuizService {
-  private baseUrl!: string
+  private readonly baseUrl: string
 
   constructor(private httpClient: HttpClient,
               private environmentService: EnvironmentService,
               private cookieService: CookieService) {
-    this.environmentService.env.subscribe(e =>
-      this.baseUrl = e.questionServiceUrl + '/quizzes'
-    )
+    this.baseUrl = this.environmentService.env.questionServiceUrl + '/quizzes'
   }
 
   getQuizQuestions(levels?: Levels): Observable<Quiz> {
@@ -28,6 +26,7 @@ export class QuizService {
   startNewQuiz(levels: Levels) {
     let oneHundredYears = 36500;
     this.cookieService.set("levels", JSON.stringify(levels), {expires: oneHundredYears, path: '/'});
+    sessionStorage.clear()
   }
 
   quizInProgress(): boolean {

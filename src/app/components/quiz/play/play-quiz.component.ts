@@ -3,7 +3,7 @@ import {emptyQuestion, GameState, Question} from '../../../domain/Question'
 import {Router} from "@angular/router";
 import {NgClass, NgForOf} from "@angular/common";
 import {QuizService} from "../../../services/quiz.service";
-import {Quiz} from "../../../domain/Quiz";
+import {emptyQuiz, Quiz, QuizProgress} from "../../../domain/Quiz";
 import {SelectedAnswers} from "../../../domain/SelectedAnswers";
 import {QuestionComponent} from "../question/question.component";
 import {AnswersComponent} from "../answers/answers.component";
@@ -24,23 +24,27 @@ import {CookieService} from "ngx-cookie-service";
 export class PlayQuizComponent implements OnInit {
   answeredQuestionsCount: number = 0;
   currentQuestionIndex: number = 0;
-  quiz!: Quiz;
+  quiz: Quiz = emptyQuiz();
+
+  constructor(private quizService: QuizService,
+              private cookieService: CookieService,
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     if (this.quizService.quizInProgress()) {
-      let activeQuiz = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "{}");
+      let activeQuiz: QuizProgress = JSON.parse(sessionStorage.getItem('activeQuiz') ?? "{}");
       this.quiz = activeQuiz.quiz;
       this.currentQuestionIndex = activeQuiz.currentQuestionIndex;
       this.answeredQuestionsCount = this.countAnsweredQuestions();
     } else {
       let levels = JSON.parse(this.cookieService.get("levels"));
-      this.quizService.getQuizQuestions(levels).subscribe((data) => this.quiz = data)
+      this.quizService.getQuizQuestions(levels)
+        .subscribe((data) => {
+          this.quiz = data
+          this.saveQuizProgress();
+        })
     }
-  }
-
-  constructor(private quizService: QuizService,
-              private cookieService: CookieService,
-              private router: Router) {
   }
 
   countAnsweredQuestions(): number {
@@ -63,8 +67,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   selectAnswer(answer: number): void {
-    if (this.currentQuestion.selectedAnswer === answer
-    ) {
+    if (this.currentQuestion.selectedAnswer === answer) {
       this.currentQuestion.selectedAnswer = undefined;
     } else {
       this.currentQuestion.selectedAnswer = answer;
@@ -73,7 +76,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   saveQuizProgress(): void {
-    const quizProgress: { currentQuestionIndex: number, quiz: Quiz } = {
+    const quizProgress: QuizProgress = {
       currentQuestionIndex: this.currentQuestionIndex,
       quiz: this.quiz
     };
@@ -94,8 +97,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   prevQuestion(): void {
-    if (this.currentQuestionIndex > 0
-    ) {
+    if (this.currentQuestionIndex > 0) {
       this.currentQuestionIndex--;
       this.saveQuizProgress();
     }
@@ -103,7 +105,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   nextQuestion(): void {
-    if (this.currentQuestionIndex < this.quiz.questions.length - 1) {
+    if (this.currentQuestionIndex < this.getQuizSize() - 1) {
       this.currentQuestionIndex++;
       this.saveQuizProgress();
     }
@@ -124,7 +126,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   allAnswered() {
-    return (this.answeredQuestionsCount == this.quiz.questions.length)
+    return (this.answeredQuestionsCount == this.getQuizSize())
   }
 
   finish() {
@@ -134,6 +136,10 @@ export class PlayQuizComponent implements OnInit {
   }
 
   lastQuestion() {
-    return this.currentQuestionIndex == this.quiz.questions.length - 1;
+    return this.currentQuestionIndex == this.getQuizSize() - 1;
+  }
+
+  getQuizSize() {
+    return this.quiz?.questions.length ?? 0;
   }
 }

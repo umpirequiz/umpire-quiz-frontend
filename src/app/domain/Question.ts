@@ -52,7 +52,7 @@ export function emptyQuestion(): Question {
     gameState: emptyGameState(),
     enabled: true,
     link: '',
-    answers: [emptyAnswer()] as Answer[],
+    answers: [emptyAnswer(), {...emptyAnswer()}] as Answer[],
     selectedAnswer: 0,
     questionIndex: 0,
     i18nRuling: emptyI18dString()
@@ -81,7 +81,7 @@ function emptyGameState(): GameState {
 
 export function emptyI18dString(): InternationalizedString {
   return {
-    NL_NL: "",
-    EN_US: ""
+    NL_NL: "Niet beschikbaar...",
+    EN_US: "Not available..."
   }
 }
