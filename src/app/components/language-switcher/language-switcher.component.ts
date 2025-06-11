@@ -15,14 +15,15 @@ export class LanguageSwitcherComponent {
   selectedLang = 'en';
 
   constructor(private cookieService: CookieService) {
-    let selectedLang = this.cookieService.get("selectedLang");
-    if (selectedLang) {
-      this.selectedLang = selectedLang;
-      // this.select(selectedLang);
+    // Initially, switch to previously selected language:
+    let cookieLang = this.cookieService.get("selectedLang");
+    if (cookieLang && this.selectedLang !== cookieLang) {
+      this.selectedLang = cookieLang;
+      this.switchLang(cookieLang);
     }
   }
 
-  select(lang: string) {
+  switchLang(lang: string) {
     this.selectedLang = lang;
     this.cookieService.set("selectedLang", this.selectedLang, {expires: 36500, path: '/'});
 
