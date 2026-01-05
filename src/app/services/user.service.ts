@@ -17,7 +17,7 @@ export class UserService {
   public loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
 
   constructor(private http: HttpClient, private router: Router, private environmentService: EnvironmentService, private messageService: MessageService) {
-    this.baseUrl = this.environmentService.env.questionServiceUrl + '/users'
+    this.baseUrl = this.environmentService.env.userServiceUrl + '/users'
   }
 
   login(u: User): void {
