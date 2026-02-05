@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isLoggedIn$ = this.service.loggedIn;
+    this.isLoggedIn$ = this.service.isLoggedIn$;
     this.isLoggedIn$.subscribe(isLoggedIn => {
       if (isLoggedIn) {
         this.router.navigate(['/']);
@@ -42,6 +42,6 @@ export class RegisterComponent implements OnInit {
       this.service.register(this.user);
       this.user = {} as User;
     }
-    
+
   }
 }

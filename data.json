@@ -54,7 +54,7 @@
         "EN_US": "Batting order B1, B2, B3, B4.  B2 is the proper batter, but B3 comes up to bat.  1st pitch gets by the catcher, all runners advance (R3 scores).  B3 then hits a clean double, scoring the remaining 2 runners.  Defense appeals that B3 is out of order, before any more plays are made.  Sort this mess out.",
         "NL_NL": "NL NL_NL Batting order B1, B2, B3, B4.  B2 is the proper batter, but B3 comes up to bat.  1st pitch gets by the catcher, all runners advance (R3 scores).  B3 then hits a clean double, scoring the remaining 2 runners.  Defense appeals that B3 is out of order, before any more plays are made.  Sort this mess out."
       },
-      "id": 181,
+      "id": "181",
       "link": "bhhh"
     },
     {
@@ -95,7 +95,7 @@
         "EN_US": "Batter hits a ball deep to left field.  The left fielder holds his cap up to deflect the ball.  The umpire awards 3 bases.  The left fielder is slow to return the ball, and the batter (now on 3rd) runs home.",
         "NL_NL": "NL Batter hits a ball deep to left field.  The left fielder holds his cap up to deflect the ball.  The umpire awards 3 bases.  The left fielder is slow to return the ball, and the batter (now on 3rd) runs home."
       },
-      "id": 108,
+      "id": "108",
       "link": "https://bramjanssens.nl"
     },
     {
@@ -136,7 +136,7 @@
         "EN_US": "The shortstop has the ball very far from the runner advancing from second base to tag him.  The runner zig-zags 6 feet to each side of the base line.  As he retreats to second.  He is out for running out of the baseline.",
         "NL_NL": "NL The shortstop has the ball very far from the runner advancing from second base to tag him.  The runner zig-zags 6 feet to each side of the base line.  As he retreats to second.  He is out for running out of the baseline."
       },
-      "id": 147
+      "id": "147"
     },
     {
       "answers": [
@@ -184,7 +184,7 @@
         "EN_US": "Bottom of the 6th.  Down by 2 runs.  Batter knocks one out of the park.  R1 is so excited, he misses 3rd base.  Everyone leaves the field before the defensive manager starts shouting at everyone to appeal.  The players run back on the field.  The pitcher, with the ball, steps back from the rubber with his pivot foot and announces he wants to appeal that R1 missed 3rd base.  When the crowd finally quiets down, what do you do?",
         "NL_NL": "NL Bottom of the 6th.  Down by 2 runs.  Batter knocks one out of the park.  R1 is so excited, he misses 3rd base.  Everyone leaves the field before the defensive manager starts shouting at everyone to appeal.  The players run back on the field.  The pitcher, with the ball, steps back from the rubber with his pivot foot and announces he wants to appeal that R1 missed 3rd base.  When the crowd finally quiets down, what do you do?"
       },
-      "id": 157
+      "id": "157"
     },
     {
       "answers": [
@@ -232,7 +232,7 @@
         "EN_US": "Fly ball is touched in fair territory by a fielder standing in foul territory",
         "NL_NL": "NL Fly ball is touched in fair territory by a fielder standing in foul territory"
       },
-      "id": 35
+      "id": "35"
     },
     {
       "answers": [
@@ -272,7 +272,7 @@
         "EN_US": "When a fielder throws the ball out-of-play, the runners are awarded the base they were going to plus one.",
         "NL_NL": "NL When a fielder throws the ball out-of-play, the runners are awarded the base they were going to plus one."
       },
-      "id": 155
+      "id": "155"
     },
     {
       "answers": [
@@ -312,7 +312,7 @@
         "EN_US": "Pitcher is ready to deliver the pitch.  Batter decides to switch from the left hand side of the plate to the right hand side.",
         "NL_NL": "NL Pitcher is ready to deliver the pitch.  Batter decides to switch from the left hand side of the plate to the right hand side."
       },
-      "id": 60
+      "id": "60"
     },
     {
       "answers": [
@@ -368,7 +368,7 @@
         "EN_US": "Pitcher delivers a strike right down the middle.  The batter's elbow is hit over the plate while he turns away from the ball.  The ball bounces away from the catcher while R1 advances to 2nd base.  Sort it out.",
         "NL_NL": "NL Pitcher delivers a strike right down the middle.  The batter's elbow is hit over the plate while he turns away from the ball.  The ball bounces away from the catcher while R1 advances to 2nd base.  Sort it out."
       },
-      "id": 23
+      "id": "23"
     },
     {
       "answers": [
@@ -408,7 +408,7 @@
         "EN_US": "The count on the batter is two balls and two strikes. The pitcher delivers ball three to the batter and the catcher throws the ball back to the pitcher. While the batter is adjusting his/her batting glove the pitcher toes the pitcher’s plate and fires strike three. The manager of the offensive team argues that this is a quick return pitch and should not be allowed. The umpire rules in favor of the defense – strike three.",
         "NL_NL": "NL The count on the batter is two balls and two strikes. The pitcher delivers ball three to the batter and the catcher throws the ball back to the pitcher. While the batter is adjusting his/her batting glove the pitcher toes the pitcher’s plate and fires strike three. The manager of the offensive team argues that this is a quick return pitch and should not be allowed. The umpire rules in favor of the defense – strike three."
       },
-      "id": 99
+      "id": "99"
     },
     {
       "answers": [
@@ -456,7 +456,7 @@
         "EN_US": "Ball hits home plate",
         "NL_NL": "NL Ball hits home plate"
       },
-      "id": 182
+      "id": "182"
     }
   ],
   "quizzes": {
@@ -681,91 +681,111 @@
     {
       "username": "admin",
       "password": "admin",
-      "id": 2
+      "id": "2"
     }
   ],
   "login": [
     {
       "username": "admin",
       "password": "admin",
-      "id": 2
+      "id": "2"
     },
     {
       "username": "admin",
       "password": "admin",
-      "id": 3
+      "id": "3"
     },
     {
       "username": "admin",
       "password": "admin",
-      "id": 4
+      "id": "4"
     },
     {
       "username": "admin",
       "password": "admin",
-      "id": 5
+      "id": "5"
+    },
+    {
+      "id": "3323",
+      "username": "bram",
+      "password": "bram"
+    },
+    {
+      "id": "cd13",
+      "username": "bram",
+      "password": "bram"
+    },
+    {
+      "id": "062a",
+      "username": "bram",
+      "password": "bram"
+    },
+    {
+      "id": "9b97",
+      "username": "bram",
+      "password": "bram"
     }
   ],
   "errors": [
     {
       "questionId": 153,
       "message": "dommmmm....",
-      "id": 1
+      "id": "1"
     },
     {
       "questionId": 153,
       "message": "",
-      "id": 2
+      "id": "2"
     },
     {
       "questionId": 153,
       "message": "",
-      "id": 3
+      "id": "3"
     },
     {
       "questionId": 153,
       "message": "",
-      "id": 4
+      "id": "4"
     },
     {
       "questionId": 153,
       "message": "",
-      "id": 5
+      "id": "5"
     },
     {
       "questionId": 153,
       "message": "",
-      "id": 6
+      "id": "6"
     },
     {
       "questionId": 153,
       "message": "",
-      "id": 7
+      "id": "7"
     },
     {
       "questionId": 153,
       "message": "",
-      "id": 8
+      "id": "8"
     },
     {
       "questionId": 153,
       "message": "",
-      "id": 9
+      "id": "9"
     },
     {
       "questionId": 153,
       "message": "",
-      "id": 10
+      "id": "10"
     },
     {
       "questionId": 153,
       "message": "",
-      "id": 11
+      "id": "11"
     },
     {
       "questionId": 153,
       "message": "",
-      "id": 12
+      "id": "12"
     }
   ]
 }

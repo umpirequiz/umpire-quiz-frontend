@@ -1,6 +1,6 @@
 {
-  "userServiceUrl": "http://localhost:3000",
-  "questionServiceUrl": "http://localhost:3000",
-  "importerServiceUrl": "http://localhost:3000/",
+  "userServiceUrl": "http://localhost:4200",
+  "questionServiceUrl": "http://localhost:4200",
+  "importerServiceUrl": "http://localhost:4200",
   "health": "READY"
 }

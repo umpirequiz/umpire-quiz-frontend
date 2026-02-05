@@ -1,4 +1,12 @@
 {
+  "/users/login": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/users/login$": "/login"
+    }
+  },
   "/users": {
     "target": "http://localhost:3000",
     "secure": false,
@@ -13,6 +21,14 @@
     "changeOrigin": true,
     "pathRewrite": {
       "^/questions/[^/]+/errors$": "/errors"
+    }
+  },
+  "/quizzes": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/quizzes/(.*)$": "/$1"
     }
   }
 }

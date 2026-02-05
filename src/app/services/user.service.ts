@@ -1,6 +1,6 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {Router} from "@angular/router";
 import {User} from "../domain/User";
 import {EnvironmentService} from "./environment.service";
@@ -12,37 +12,15 @@ export class UserService {
 
   public static readonly emptyUser = {} as User;
 
-  public loggedInMessage$ = new Subject<string>();
   public message$ = new Subject<string>();
-  public loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
+  public isLoggedIn$ = new BehaviorSubject<boolean>(this.isLoggedIn());
 
   constructor(private http: HttpClient, private router: Router, private environmentService: EnvironmentService, private messageService: MessageService) {
     this.baseUrl = this.environmentService.env.userServiceUrl + '/users'
   }
 
-  login(u: User): void {
-    this.http.post<User>(`${this.baseUrl}/login`, u, {observe: 'response'} /* = to receive the full httpresponse instead of only the body */)
-      .subscribe({
-        next: (response) => {
-          // get the body from the response:
-          const loggedInUser = response.body ?? UserService.emptyUser;
-
-          this.loggedInMessage$.next(`Logged in as ${loggedInUser.username}`);
-          this.messageService.success(`User ${loggedInUser.username} is logged in.`)
-          // this.message$.next(`User ${loggedInUser.username} is logged in.`);
-          localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
-          this.loggedIn.next(true);
-          this.router.navigate(['/']);
-
-          // ... or get the Authorization header from the response:
-          // const token = response.headers.get('Authorization')?.substr(7);
-          // localStorage.setItem('token', JSON.stringify(token));
-        },
-        error: (errorResponse) => {
-          this.messageService.error(`Login failed.  Reason: ${errorResponse.statusText}.`)
-          // this.message$.next(`Login failed.  Reason: ${errorResponse.statusText}.`);
-        }
-      });
+  login(u: User): Observable<HttpResponse<User>> {
+    return this.http.post<User>(`${this.baseUrl}/login`, u, {observe: 'response'} /* = to receive the full httpresponse instead of only the body */);
   }
 
   isLoggedIn() {
@@ -56,9 +34,8 @@ export class UserService {
 
   logout(): void {
     localStorage.removeItem('loggedInUser');
-    this.loggedInMessage$.next('Not logged in');
     this.messageService.success('Logged out');
-    this.loggedIn.next(false);
+    this.isLoggedIn$.next(false);
     this.router.navigate(['/']);
   }
 
@@ -76,6 +53,11 @@ export class UserService {
           this.message$.next(`Registration failed. Reason: ${errorResponse.statusText}.`);
         }
       });
+  }
+
+  loggedIn(loggedInUser: User) {
+    localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+    this.isLoggedIn$.next(true);
   }
 }
 

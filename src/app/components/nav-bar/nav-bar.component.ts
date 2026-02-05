@@ -30,7 +30,7 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isLoggedIn$ = this.userService.loggedIn;
+    this.isLoggedIn$ = this.userService.isLoggedIn$;
     this.isLoggedIn$.subscribe(status => {
       if (status) {
         this.user = this.loggedInUser();
