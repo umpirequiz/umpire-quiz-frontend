@@ -1,0 +1,18 @@
+{
+  "/users": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/users/(.*)$": "/$1"
+    }
+  },
+  "/questions": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/questions/[^/]+/errors$": "/errors"
+    }
+  }
+}

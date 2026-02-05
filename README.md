@@ -3,31 +3,22 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
 
 ## Mock back end
-Use json-server for this. We have a data file `data.json` and routes in `routes.json`.
+Use json-server for this. 
 
-Run:
-```console
-json-server data.json --routes routes.json
-```
-
-Set `env_file` in `environment.development.ts` to `"env_local_mock.json"`.
+1. Run `json-server data.json`. We have rewrite rules configured in `proxy.conf.json`. 
+2. Set `env_file` in `environment.development.ts` to `"env_local_mock.json"`.  
+3. Run the app with `npm run dev`.
 
 ## Local back end
-Run the question-service locally (e.g. using liberty:dev). 
-
-Set `env_file` in `environment.development.ts` to `"env_local.json"`.
+1. Run the question-service locally (e.g. using liberty:dev). 
+2. Set `env_file` in `environment.development.ts` to `"env_local.json"`.
+3. Run the app with `npm run start`.
 
 ## Locally test multi-language
-First build: `ng build --localize`
+1. Build: `ng build --localize`
+2. cd into `umpire-quiz-frontend\dist\umpire-quiz\browser` and run `npx http-server -p 4200`.
 
-The cd into `umpire-quiz-frontend\dist\umpire-quiz\browser` and run:
-
-```console
-npx http-server -p 4200
-```
-
-
-## Local build and deploy
+## Build and push
 To build the app, create the docker image and push it, run:
 
 ```shell
@@ -41,6 +32,7 @@ docker build -t bramjanssens/umpire-quiz-frontend .
 docker push bramjanssens/umpire-quiz-frontend
 ```
 
+## Run container
 To run the image, run:
 ```shell
 docker run -p 8080:80 bramjanssens/umpire-quiz-frontend
