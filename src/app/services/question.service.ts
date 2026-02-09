@@ -5,6 +5,7 @@ import {Observable, Subject} from "rxjs";
 import {EnvironmentService} from "./environment.service";
 import {MessageService} from "./message.service";
 import {QuestionError} from "../domain/QuestionError";
+import {QuestionCount} from "../domain/QuestionCount";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class QuestionService {
   private readonly baseUrl: string;
 
   private _questionsUpdated$ = new Subject<Question[]>()
+  private _questionCount$ = new Subject<QuestionCount[]>()
 
   constructor(private httpClient: HttpClient, private environmentService: EnvironmentService, private messageService: MessageService) {
     this.baseUrl = this.environmentService.env.questionServiceUrl + '/questions'
@@ -51,6 +53,7 @@ export class QuestionService {
     return this._questionsUpdated$;
   }
 
+
   reportError(questionId: number, e: QuestionError) {
     this.httpClient.post<QuestionError>(`${this.baseUrl}/${questionId}/errors`, e, {observe: 'response'})
       .subscribe(
@@ -60,5 +63,15 @@ export class QuestionService {
 
   removeError(questionId: number, questionErrorId: number) {
     return this.httpClient.delete<QuestionError>(`${this.baseUrl}/${questionId}/errors/${questionErrorId}`);
+  }
+
+  count() {
+    this.httpClient.get<QuestionCount[]>(`${this.baseUrl}/count`).subscribe((c) => {
+      this._questionCount$.next(c);
+    })
+  }
+
+  get questionCount$(): Subject<QuestionCount[]> {
+    return this._questionCount$;
   }
 }

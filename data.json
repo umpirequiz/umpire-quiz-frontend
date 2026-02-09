@@ -724,6 +724,16 @@
       "id": "9b97",
       "username": "bram",
       "password": "bram"
+    },
+    {
+      "id": "b1e6",
+      "username": "bram",
+      "password": "bram"
+    },
+    {
+      "id": "1798",
+      "username": "bram",
+      "password": "bram"
     }
   ],
   "errors": [
@@ -786,6 +796,26 @@
       "questionId": 153,
       "message": "",
       "id": "12"
+    }
+  ],
+  "count": [
+    {
+      "difficulty": "U1",
+      "count": "11",
+      "id": "63bc"
+    },
+    {
+      "difficulty": "U2",
+      "count": "22",
+      "id": "0756"
+    },
+    {
+      "difficulty": "U3",
+      "count": "33"
+    },
+    {
+      "difficulty": "U4",
+      "count": "44"
     }
   ]
 }

@@ -4,29 +4,35 @@
       <div class="card border-primary" style="border-radius: 1rem;">
         <div class="row g-0">
           <div class="col-md-6 col-lg-7 d-flex align-items-start">
-          <div class="card-body p-4 p-lg-5 text-black">
+            <div class="card-body p-4 p-lg-5 text-black">
               <h1 i18n="@@home.welcome">Welcome, baseball fan!</h1>
               <p i18n="@@home.description">
-              This interactive baseball quiz has hundreds of questions (and growing) on the rules of baseball.
+                This interactive baseball quiz has many questions on the rules of baseball (OBR).
                 It's meant for everybody who wants to practice their knowledge of the rules, like umpires,
                 players and coaches.
               </p>
               <p>
                 <button class="btn btn-primary" routerLink="/quiz" i18n="@@home.startButton">Start a quiz!</button>
               </p>
-              <p i18n="@@home.version">
-              This is only the first basic version of the app. We have many ideas for new features. Probably it
-                contains errors and bugs, too.
+              <p i18n="@@home.count">
+                  The questions vary in difficulty, corresponding to U1-U4 levels (1 = beginner, 4 = veteran). The current
+                  question count is:
               </p>
-              <p i18n="@@home.explore">
-              Explore the menu to <b>learn more</b>.</p>
               <ul>
-                <li i18n="@@home.contact">To get in touch, please <a routerLink="/contact">contact us</a>.</li>
-                <li i18n="@@home.about">See the story <a routerLink="/about">about us</a>.</li>
+                @for (c of questionCount$ | async; track $index) {
+                  <li>{{ c.difficulty }}: {{ c.count }}</li>
+                }
               </ul>
-              <p i18n="@@home.closing">Have fun learning!</p>
+              <p i18n="@@home.explore">
+                Explore the menu to <b>learn more</b>. Have fun learning!
+              </p>
+
               <h4 i18n="@@home.news.title">News</h4>
               <ul>
+                <li>
+                  <h6 i18n="@@home.news.date5">2026-02-09</h6>
+                  <span i18n="@@home.news.item5">Added the question counter.</span>
+                </li>
                 <li>
                   <h6 i18n="@@home.news.date4">2025-05-15</h6>
                   <span i18n="@@home.news.item4">App is now in Dutch 🔴🤍🔵 too.</span>

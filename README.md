@@ -28,6 +28,7 @@ ng build --localize --aot --output-hashing=all
 ```shell
 docker build -t bramjanssens/umpire-quiz-frontend . 
 ```
+
 ```shell
 docker push bramjanssens/umpire-quiz-frontend
 ```

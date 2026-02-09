@@ -21,8 +21,6 @@ export class LoginComponent implements OnInit {
   user = {} as User;
   message$ = this.service.message$;
   isLoggedIn$
-  // public loggedInMessage$ = new Subject<string>();
-
 
   constructor(private service: UserService, private router: Router, private messageService: MessageService) {
     this.isLoggedIn$ = this.service.isLoggedIn$;
