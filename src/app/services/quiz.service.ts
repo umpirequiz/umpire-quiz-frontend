@@ -10,12 +10,11 @@ import {Levels, toCode} from "../domain/Levels";
   providedIn: 'root'
 })
 export class QuizService {
-  private readonly baseUrl: string
+
 
   constructor(private httpClient: HttpClient,
               private environmentService: EnvironmentService,
               private cookieService: CookieService) {
-    this.baseUrl = this.environmentService.env.questionServiceUrl + '/quizzes'
   }
 
   getQuizQuestions(levels?: Levels): Observable<Quiz> {
@@ -39,5 +38,9 @@ export class QuizService {
 
   postQuizResults(quiz: Quiz) {
     this.httpClient.post<Quiz>(this.baseUrl, quiz).subscribe(data => sessionStorage.setItem('lastResult', JSON.stringify(data)))
+  }
+
+  private get baseUrl(): string {
+    return this.environmentService.env.questionServiceUrl + '/quizzes'
   }
 }

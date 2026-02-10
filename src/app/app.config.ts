@@ -27,6 +27,6 @@ export const appConfig: ApplicationConfig = {
   ]
 };
 
-export function init(env: EnvironmentService) {
-  return () => env.noop();
+function init(env: EnvironmentService) {
+  return () => env.load();
 }

@@ -8,15 +8,15 @@ import {MessageService} from "./message.service";
 
 @Injectable({providedIn: 'root'}) // ApplicationScoped
 export class UserService {
-  private readonly baseUrl: string
 
   public static readonly emptyUser = {} as User;
-
   public message$ = new Subject<string>();
   public isLoggedIn$ = new BehaviorSubject<boolean>(this.isLoggedIn());
 
-  constructor(private http: HttpClient, private router: Router, private environmentService: EnvironmentService, private messageService: MessageService) {
-    this.baseUrl = this.environmentService.env.userServiceUrl + '/users'
+  constructor(private http: HttpClient,
+              private router: Router,
+              private environmentService: EnvironmentService,
+              private messageService: MessageService) {
   }
 
   login(u: User): Observable<HttpResponse<User>> {
@@ -39,7 +39,6 @@ export class UserService {
     this.router.navigate(['/']);
   }
 
-
   register(u: User): void {
     this.http.post<User>(`${this.baseUrl}`, u, {observe: 'response'})
       .subscribe({
@@ -58,6 +57,10 @@ export class UserService {
   loggedIn(loggedInUser: User) {
     localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
     this.isLoggedIn$.next(true);
+  }
+
+  private get baseUrl(): string {
+    return this.environmentService.env.userServiceUrl + '/users'
   }
 }
 

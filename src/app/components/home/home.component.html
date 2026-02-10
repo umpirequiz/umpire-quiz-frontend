@@ -15,11 +15,11 @@
                 <button class="btn btn-primary" routerLink="/quiz" i18n="@@home.startButton">Start a quiz!</button>
               </p>
               <p i18n="@@home.count">
-                  The questions vary in difficulty, corresponding to U1-U4 levels (1 = beginner, 4 = veteran). The current
-                  question count is:
+                The questions vary in difficulty, corresponding to U1-U4 levels (1 = beginner, 4 = veteran). The current
+                question count is:
               </p>
               <ul>
-                @for (c of questionCount$ | async; track $index) {
+                @for (c of count; track $index) {
                   <li>{{ c.difficulty }}: {{ c.count }}</li>
                 }
               </ul>

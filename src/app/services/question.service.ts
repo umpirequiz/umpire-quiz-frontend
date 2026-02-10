@@ -11,13 +11,12 @@ import {QuestionCount} from "../domain/QuestionCount";
   providedIn: 'root'
 })
 export class QuestionService {
-  private readonly baseUrl: string;
 
   private _questionsUpdated$ = new Subject<Question[]>()
-  private _questionCount$ = new Subject<QuestionCount[]>()
 
-  constructor(private httpClient: HttpClient, private environmentService: EnvironmentService, private messageService: MessageService) {
-    this.baseUrl = this.environmentService.env.questionServiceUrl + '/questions'
+  constructor(private httpClient: HttpClient,
+              private environmentService: EnvironmentService,
+              private messageService: MessageService) {
   }
 
   findAll(): void {
@@ -53,7 +52,6 @@ export class QuestionService {
     return this._questionsUpdated$;
   }
 
-
   reportError(questionId: number, e: QuestionError) {
     this.httpClient.post<QuestionError>(`${this.baseUrl}/${questionId}/errors`, e, {observe: 'response'})
       .subscribe(
@@ -66,12 +64,12 @@ export class QuestionService {
   }
 
   count() {
-    this.httpClient.get<QuestionCount[]>(`${this.baseUrl}/count`).subscribe((c) => {
-      this._questionCount$.next(c);
-    })
+    return this.httpClient.get<QuestionCount[]>(`${this.baseUrl}/count`)
+
   }
 
-  get questionCount$(): Subject<QuestionCount[]> {
-    return this._questionCount$;
+  private get baseUrl(): string {
+    return this.environmentService.env.questionServiceUrl + '/questions'
   }
+
 }

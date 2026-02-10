@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable, of} from "rxjs";
+import {take, tap} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -15,25 +16,27 @@ export class EnvironmentService {
   });
 
   constructor(private httpClient: HttpClient) {
-    const sessionEnv = sessionStorage.getItem('env');
+  }
 
-    if (sessionEnv) {
-      this._env$.next(JSON.parse(sessionEnv));
-    } else {
-      this.httpClient.get<Environment>(window.location.origin + '/' + environment.env_file)
-        .subscribe(data => {
-          this._env$.next(data);
-          sessionStorage.setItem('env', JSON.stringify(data));
-        });
-    }
+  public load(): Observable<any> {
+    const sessionEnv = sessionStorage.getItem('env');
+    const source$ = sessionEnv
+      ? of(JSON.parse(sessionEnv))
+      : this.httpClient.get<Environment>(`${window.location.origin}/${environment.env_file}`);
+
+    return source$.pipe(
+      tap(env => {
+        this._env$.next(env);
+        sessionStorage.setItem('env', JSON.stringify(env));
+      }),
+      take(1)
+    );
   }
 
   public get env(): Environment {
     return this._env$.value;
   }
 
-  noop() {
-  }
 }
 
 interface Environment {
