@@ -16,9 +16,9 @@ export function toCode(levels: Levels): string {
 
 export function fromDiff(difficulty: Difficulty) {
   return {
-    u1: difficulty == "UMPIRE_1",
-    u2: difficulty == "UMPIRE_2",
-    u3: difficulty == "UMPIRE_3",
-    u4: difficulty == "UMPIRE_4"
+    u1: difficulty == "U1",
+    u2: difficulty == "U2",
+    u3: difficulty == "U3",
+    u4: difficulty == "U4"
   }
 }

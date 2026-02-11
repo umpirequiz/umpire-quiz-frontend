@@ -35,7 +35,7 @@
           "id": 309
         }
       ],
-      "difficulty": "UMPIRE_3",
+      "difficulty": "U3",
       "enabled": true,
       "gameState": {
         "balls": 0,
@@ -76,7 +76,7 @@
           "id": 359
         }
       ],
-      "difficulty": "UMPIRE_3",
+      "difficulty": "U3",
       "enabled": true,
       "gameState": {
         "balls": 0,
@@ -117,7 +117,7 @@
           "id": 398
         }
       ],
-      "difficulty": "UMPIRE_1",
+      "difficulty": "U1",
       "enabled": true,
       "gameState": {
         "balls": 0,
@@ -165,7 +165,7 @@
           "id": 429
         }
       ],
-      "difficulty": "UMPIRE_4",
+      "difficulty": "U4",
       "enabled": true,
       "gameState": {
         "balls": 0,
@@ -213,7 +213,7 @@
           "id": 397
         }
       ],
-      "difficulty": "UMPIRE_1",
+      "difficulty": "U1",
       "enabled": true,
       "gameState": {
         "balls": 0,
@@ -253,7 +253,7 @@
           "id": 420
         }
       ],
-      "difficulty": "UMPIRE_1",
+      "difficulty": "U1",
       "enabled": true,
       "gameState": {
         "balls": 0,
@@ -293,7 +293,7 @@
           "id": 418
         }
       ],
-      "difficulty": "UMPIRE_2",
+      "difficulty": "U2",
       "enabled": true,
       "gameState": {
         "balls": 0,
@@ -349,7 +349,7 @@
           "id": 389
         }
       ],
-      "difficulty": "UMPIRE_3",
+      "difficulty": "U3",
       "enabled": true,
       "gameState": {
         "balls": 1,
@@ -389,7 +389,7 @@
           "id": 310
         }
       ],
-      "difficulty": "UMPIRE_3",
+      "difficulty": "U3",
       "enabled": true,
       "gameState": {
         "balls": 2,
@@ -437,7 +437,7 @@
           "id": 470
         }
       ],
-      "difficulty": "UMPIRE_1",
+      "difficulty": "U1",
       "enabled": true,
       "gameState": {
         "balls": 0,
@@ -461,10 +461,10 @@
   ],
   "quizzes": {
     "difficulties": [
-      "UMPIRE_1",
-      "UMPIRE_2",
-      "UMPIRE_3",
-      "UMPIRE_4"
+      "U1",
+      "U2",
+      "U3",
+      "U4"
     ],
     "questions": [
       {
@@ -484,7 +484,7 @@
             "id": 169
           }
         ],
-        "difficulty": "UMPIRE_1",
+        "difficulty": "U1",
         "link": "https://youtube.com",
         "gameState": {
           "balls": 0,
@@ -522,7 +522,7 @@
             "id": 214
           }
         ],
-        "difficulty": "UMPIRE_2",
+        "difficulty": "U2",
         "gameState": {
           "balls": 0,
           "batterRunner": false,
@@ -559,7 +559,7 @@
             "id": 351
           }
         ],
-        "difficulty": "UMPIRE_3",
+        "difficulty": "U3",
         "gameState": {
           "balls": 0,
           "batterRunner": true,
@@ -610,7 +610,7 @@
             "id": 424
           }
         ],
-        "difficulty": "UMPIRE_4",
+        "difficulty": "U4",
         "gameState": {
           "balls": 0,
           "batterRunner": true,
@@ -654,7 +654,7 @@
             "id": 250
           }
         ],
-        "difficulty": "UMPIRE_4",
+        "difficulty": "U4",
         "link": "https://jemoeder.com",
         "gameState": {
           "balls": 0,
