@@ -20,7 +20,9 @@
               </p>
               <ul>
                 @for (c of count; track $index) {
-                  <li>{{ c.difficulty }}: {{ c.count }}</li>
+                  @if (c.difficulty) {
+                    <li>{{ c.difficulty }}: {{ c.count }}</li>
+                  }
                 }
               </ul>
               <p i18n="@@home.explore">

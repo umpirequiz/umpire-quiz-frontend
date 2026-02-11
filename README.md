@@ -26,11 +26,11 @@ ng build --localize --aot --output-hashing=all
 ```
 
 ```shell
-docker build -t bramjanssens/umpire-quiz-frontend:0.8.0 -t bramjanssens/umpire-quiz-frontend:latest .
+docker build -t bramjanssens/umpire-quiz-frontend:0.8.1 -t bramjanssens/umpire-quiz-frontend:latest .
 ```
 
 ```shell
-docker push bramjanssens/umpire-quiz-frontend:0.8.0
+docker push bramjanssens/umpire-quiz-frontend:0.8.1
 docker push bramjanssens/umpire-quiz-frontend:latest
 ```
 
@@ -39,3 +39,10 @@ To run the image, run:
 ```shell
 docker run -p 8080:80 bramjanssens/umpire-quiz-frontend
 ```
+
+## Release log
+
+- 0.8.1
+  - fixed difficulty mapping (UMPIRE_1 -> U1)
+- 0.8.0
+  - Added question counter
