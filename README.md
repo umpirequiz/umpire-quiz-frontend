@@ -43,6 +43,6 @@ docker run -p 8080:80 bramjanssens/umpire-quiz-frontend
 ## Release log
 
 - 0.8.1
-  - fixed difficulty mapping (UMPIRE_1 -> U1)
+  - fixed difficulty mapping (UMPIRE_1 -> U1 and missing difficulty)
 - 0.8.0
   - Added question counter
