@@ -53,12 +53,7 @@ export class QuestionsComponent implements OnInit {
   getQuestions() {
     this.questionService.search(this.searchTerm, this.includeAll, this.includeBugs);
     this.questions$?.subscribe(r => {
-        this.totalItems = r.length
-
-        let start = this.currentPage * this.pageSize;
-        let end = start + this.pageSize;
-        this.questions = r.slice(start, end);
-        this.questions = this.questions.filter(q => {
+        r = r.filter(q => {
           switch (q.difficulty) {
             case "U1":
               return this.levels.u1
@@ -68,9 +63,15 @@ export class QuestionsComponent implements OnInit {
               return this.levels.u3
             case "U4":
               return this.levels.u4
-            default: return none
+            default:
+              return none
           }
         })
+
+        this.totalItems = r.length
+        let start = this.currentPage * this.pageSize;
+        let end = start + this.pageSize;
+        this.questions = r.slice(start, end);
       }
     )
   }
