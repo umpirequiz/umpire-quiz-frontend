@@ -9,8 +9,10 @@ input {
 }
 
 label {
-  display: inline-block;
-  width: 235px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 0.25rem;
 }
 
 .striped-list .row:nth-child(even) {
@@ -44,4 +46,16 @@ label {
   border-top-left-radius: 10px;  /* Adjust the radius as needed */
   border-top-right-radius: 10px;
   overflow: hidden;  /* Ensures child elements respect the rounded corners */
+}
+
+.controls-container {
+  flex-wrap: nowrap !important;
+  width: fit-content;
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+}
+
+.controls-col {
+  overflow: visible;
 }

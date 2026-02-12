@@ -19,13 +19,15 @@ import {MatIcon} from "@angular/material/icon";
 export class SelectDifficultiesComponent {
 
   @Input() levels: Levels = {u1: false, u2: false, u3: false, u4: false}
-  @Input() admin = false;
+  @Input() label = "Difficulty";
+  @Input() singleSelect = false;
+  @Input() showIcon = true;
   @Output() choose = new EventEmitter<Difficulty>();
 
   tooltipVisible = false;
 
   select(selectedLevel: Difficulty) {
-    if (this.admin) {
+    if (this.singleSelect) {
       this.choose.emit(selectedLevel)
       this.levels = fromDiff(selectedLevel)
     }

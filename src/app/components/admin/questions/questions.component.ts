@@ -9,20 +9,20 @@ import {SearchComponent} from "../../search/search.component";
 import {QuestionService} from "../../../services/question.service";
 import {FormsModule} from "@angular/forms";
 import {MatTooltip} from "@angular/material/tooltip";
+import {SelectDifficultiesComponent} from "../../quiz/select-difficulties/select-difficulties.component";
+import {Levels} from "../../../domain/Levels";
+import {Difficulty} from "../../../domain/Difficulty";
 
 @Component({
   selector: 'app-questions',
   standalone: true,
   imports: [
     RouterLink,
-    AsyncPipe,
-    UpperCasePipe,
-    LowerCasePipe,
-    DatePipe,
     MatPaginator,
     SearchComponent,
     FormsModule,
     MatTooltip,
+    SelectDifficultiesComponent,
   ],
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.scss',
@@ -31,6 +31,7 @@ import {MatTooltip} from "@angular/material/tooltip";
 export class QuestionsComponent implements OnInit {
   questions: Question[] = [];
   questions$!: Observable<Question[]>;
+  levels: Levels;
 
   // for paging:
   totalItems = 100;
@@ -42,6 +43,7 @@ export class QuestionsComponent implements OnInit {
   private searchTerm: string = '';
 
   constructor(private questionService: QuestionService) {
+    this.levels = {u1: true, u2: true, u3: true, u4: true}
   }
 
   ngOnInit(): void {
@@ -88,6 +90,11 @@ export class QuestionsComponent implements OnInit {
 
   handleSearchInputChanged(input: string) {
     this.searchTerm = input;
+  }
+
+  select(diff: Difficulty) {
+    // this.question.difficulty = diff
+    console.log(diff);
   }
 }
 

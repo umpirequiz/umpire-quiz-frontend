@@ -1,16 +1,17 @@
 <div class="d-flex align-items-center">
-  <div class="input-group mb-3 p-2">
-    <label class="me-1" i18n="@@select-difficulties.label">Difficulty</label>
-    <mat-icon
-      class="help-icon text-black me-3"
-      matTooltip="Corresponds to U1-U4 levels (1=beginner, 4=veteran)"
-      i18n-matTooltip="@@select-difficulties.icon.tooltip"
-      [matTooltipShowDelay]="300"
-      [matTooltipTouchGestures]="'on'"
-      matTooltipPosition="above">
-      help_outline
-    </mat-icon>
-
+  <div class="input-group m-2">
+    <label class="me-1" i18n="@@select-difficulties.label" >{{ label }}</label>
+    @if (showIcon) {
+      <mat-icon
+        class="help-icon text-black me-3"
+        matTooltip="Corresponds to U1-U4 levels (1=beginner, 4=veteran)"
+        i18n-matTooltip="@@select-difficulties.icon.tooltip"
+        [matTooltipShowDelay]="300"
+        [matTooltipTouchGestures]="'on'"
+        matTooltipPosition="above">
+        help_outline
+      </mat-icon>
+    }
     <label for="u1" class="form-check-label me-1">1</label>
     <input type="checkbox" class="form-check-input me-2"
            id="u1" name="u1"
@@ -28,7 +29,6 @@
            id="u3" name="u3"
            [(ngModel)]="levels.u3"
            (change)="select(u3)">
-
     <label for="u4" class="form-check-label me-1">4</label>
     <input type="checkbox" class="form-check-input me-2"
            id="u4" name="u4"

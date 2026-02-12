@@ -1,24 +1,25 @@
 <div class="row g-1">
-  <div class="col-lg-2 col-md-3 my-auto">
-    <div class="d-flex justify-content-start align-items-center">
+  <div class="col-xl-3 col-lg-4 col-md-5 col-sm-7 my-auto controls-col">
+    <div class="d-flex justify-content-start align-items-center controls-container">
       <label class="form-check-label" routerLink="/questions/add" matTooltip="New question" i18n-matTooltip="@@questions.tooltip.new">
         <i class="fa-solid fa-square-plus text-success mx-1"></i>
       </label>
-      <label for="all" class="form-check-label" matTooltip="Include inactive questions" i18n-matTooltip="@@questions.tooltip.inactive">
+      <label for="all" class="form-check-label m-2" matTooltip="Include inactive questions" i18n-matTooltip="@@questions.tooltip.inactive">
         <i class="fa-solid fa-check-double"></i>
-        <input type="checkbox" class="form-check-input mx-1" id="all" name="all" (click)="toggleAll()">
+        <input type="checkbox" class="form-check-input mx-0" id="all" name="all" (click)="toggleAll()">
       </label>
-      <label class="form-check-label" matTooltip="Find questions with errors" i18n-matTooltip="@@questions.tooltip.errors">
+      <label for="bug" class="form-check-label m-2" matTooltip="Find questions with errors" i18n-matTooltip="@@questions.tooltip.errors">
         <i class="fa-solid fa-bug mw-1"></i>
-        <input type="checkbox" class="form-check-input mx-1" id="bug" name="bug" (click)="toggleBug()">
+        <input type="checkbox" class="form-check-input mx-0" id="bug" name="bug" (click)="toggleBug()">
       </label>
+      <app-select-difficulties [label]="'U'" [showIcon]="false" [levels]="levels" [singleSelect]="false" (choose)="select($event)"/>
     </div>
   </div>
-  <div class="col-lg-5 col-md-4 my-auto">
+  <div class="col-xl-6 col-lg-5 col-md-4 col-sm-5 my-auto">
     <app-search placeholder="Search question..." i18n-placeholder="@@questions.search.placeholder" (inputChanged)="handleSearchInputChanged($event)"
                 (search)="handleSearch($event)"></app-search>
   </div>
-  <div class="col-5 my-auto radius">
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 my-auto radius">
     <mat-paginator [length]="totalItems" [pageIndex]="currentPage"
                    [showFirstLastButtons]="true" [hidePageSize]="false"
                    [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
