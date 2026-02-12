@@ -26,11 +26,11 @@ ng build --localize --aot --output-hashing=all
 ```
 
 ```shell
-docker build -t bramjanssens/umpire-quiz-frontend:0.8.1 -t bramjanssens/umpire-quiz-frontend:latest .
+docker build -t bramjanssens/umpire-quiz-frontend:0.9.0 -t bramjanssens/umpire-quiz-frontend:latest .
 ```
 
 ```shell
-docker push bramjanssens/umpire-quiz-frontend:0.8.1
+docker push bramjanssens/umpire-quiz-frontend:0.9.0
 docker push bramjanssens/umpire-quiz-frontend:latest
 ```
 

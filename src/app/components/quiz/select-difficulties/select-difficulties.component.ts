@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {fromDiff, Levels} from "../../../domain/Levels";
 import {FormsModule} from "@angular/forms";
 import {Difficulty} from "../../../domain/Difficulty";
@@ -16,13 +16,19 @@ import {MatIcon} from "@angular/material/icon";
   templateUrl: './select-difficulties.component.html',
   styleUrl: './select-difficulties.component.scss'
 })
-export class SelectDifficultiesComponent {
+export class SelectDifficultiesComponent implements OnInit {
 
   @Input() levels: Levels = {u1: false, u2: false, u3: false, u4: false}
-  @Input() label = "Difficulty";
+  @Input() label = "";
   @Input() singleSelect = false;
   @Input() showIcon = true;
   @Output() choose = new EventEmitter<Levels>();
+
+  labelDisplay = "";
+
+  ngOnInit(): void {
+    this.labelDisplay = this.label == "" ? $localize`:@@select-difficulties.label:Difficulty` : this.label
+  }
 
   select($event: Event) {
     let target = $event.target as HTMLInputElement;
