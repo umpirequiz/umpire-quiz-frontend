@@ -26,11 +26,11 @@ ng build --localize --aot --output-hashing=all
 ```
 
 ```shell
-docker build -t bramjanssens/umpire-quiz-frontend:0.9.0 -t bramjanssens/umpire-quiz-frontend:latest .
+docker build -t bramjanssens/umpire-quiz-frontend:0.9.1 -t bramjanssens/umpire-quiz-frontend:latest .
 ```
 
 ```shell
-docker push bramjanssens/umpire-quiz-frontend:0.9.0
+docker push bramjanssens/umpire-quiz-frontend:0.9.1
 docker push bramjanssens/umpire-quiz-frontend:latest
 ```
 
@@ -41,7 +41,8 @@ docker run -p 8080:80 bramjanssens/umpire-quiz-frontend
 ```
 
 ## Release log
-
+- 0.9.1
+  - fixed pagination bug on admin/questions when filtering on level
 - 0.9.0
   - added difficulty filter to admin
 - 0.8.1
