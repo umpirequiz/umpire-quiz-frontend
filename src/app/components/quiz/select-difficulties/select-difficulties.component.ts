@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {fromDiff, Levels} from "../../../domain/Levels";
 import {FormsModule} from "@angular/forms";
-import {Difficulty, u1, u2, u3, u4} from "../../../domain/Difficulty";
+import {Difficulty} from "../../../domain/Difficulty";
 import {MatTooltip} from "@angular/material/tooltip";
 import {MatIcon} from "@angular/material/icon";
 
@@ -22,24 +22,14 @@ export class SelectDifficultiesComponent {
   @Input() label = "Difficulty";
   @Input() singleSelect = false;
   @Input() showIcon = true;
-  @Output() choose = new EventEmitter<Difficulty>();
+  @Output() choose = new EventEmitter<Levels>();
 
-  tooltipVisible = false;
-
-  select(selectedLevel: Difficulty) {
-    if (this.singleSelect) {
-      this.choose.emit(selectedLevel)
-      this.levels = fromDiff(selectedLevel)
+  select($event: Event) {
+    let target = $event.target as HTMLInputElement;
+    if (this.singleSelect && target.checked) {
+      this.levels = fromDiff(target.id.toUpperCase() as Difficulty)
     }
+    this.choose.emit(this.levels)
   }
 
-  protected readonly u1 = u1;
-  protected readonly u2 = u2;
-  protected readonly u3 = u3;
-  protected readonly u4 = u4;
-
-
-  toggle() {
-    this.tooltipVisible = !this.tooltipVisible
-  }
 }

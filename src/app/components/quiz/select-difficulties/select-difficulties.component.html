@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center">
   <div class="input-group m-2">
-    <label class="me-1" i18n="@@select-difficulties.label" >{{ label }}</label>
+    <label class="me-1" i18n="@@select-difficulties.label">{{ label }}</label>
     @if (showIcon) {
       <mat-icon
         class="help-icon text-black me-3"
@@ -16,24 +16,24 @@
     <input type="checkbox" class="form-check-input me-2"
            id="u1" name="u1"
            [(ngModel)]="levels.u1"
-           (change)="select(u1)">
+           (change)="select($event)">
 
     <label for="u2" class="form-check-label me-1">2</label>
     <input type="checkbox" class="form-check-input me-2"
            id="u2" name="u2"
            [(ngModel)]="levels.u2"
-           (change)="select(u2)">
+           (change)="select($event)">
 
     <label for="u3" class="form-check-label me-1">3</label>
     <input type="checkbox" class="form-check-input me-2"
            id="u3" name="u3"
            [(ngModel)]="levels.u3"
-           (change)="select(u3)">
+           (change)="select($event)">
     <label for="u4" class="form-check-label me-1">4</label>
     <input type="checkbox" class="form-check-input me-2"
            id="u4" name="u4"
            [(ngModel)]="levels.u4"
-           (change)="select(u4)">
+           (change)="select($event)">
   </div>
 
 </div>

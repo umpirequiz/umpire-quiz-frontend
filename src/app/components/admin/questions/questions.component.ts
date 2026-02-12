@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {Question} from "../../../domain/Question";
 import {Observable} from "rxjs";
-import {AsyncPipe, DatePipe, LowerCasePipe, UpperCasePipe} from "@angular/common";
 import {MatPaginator, MatPaginatorIntl, PageEvent} from "@angular/material/paginator";
 import {MyPaginatorConfig} from "../../../my.paginator.config";
 import {SearchComponent} from "../../search/search.component";
@@ -11,7 +10,7 @@ import {FormsModule} from "@angular/forms";
 import {MatTooltip} from "@angular/material/tooltip";
 import {SelectDifficultiesComponent} from "../../quiz/select-difficulties/select-difficulties.component";
 import {Levels} from "../../../domain/Levels";
-import {Difficulty} from "../../../domain/Difficulty";
+import {none} from "../../../domain/Difficulty";
 
 @Component({
   selector: 'app-questions',
@@ -59,6 +58,19 @@ export class QuestionsComponent implements OnInit {
         let start = this.currentPage * this.pageSize;
         let end = start + this.pageSize;
         this.questions = r.slice(start, end);
+        this.questions = this.questions.filter(q => {
+          switch (q.difficulty) {
+            case "U1":
+              return this.levels.u1
+            case "U2":
+              return this.levels.u2
+            case "U3":
+              return this.levels.u3
+            case "U4":
+              return this.levels.u4
+            default: return none
+          }
+        })
       }
     )
   }
@@ -92,9 +104,8 @@ export class QuestionsComponent implements OnInit {
     this.searchTerm = input;
   }
 
-  select(diff: Difficulty) {
-    // this.question.difficulty = diff
-    console.log(diff);
+  filterByLevel() {
+    this.getQuestions();
   }
 }
 

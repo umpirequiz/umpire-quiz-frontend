@@ -12,7 +12,7 @@
         <i class="fa-solid fa-bug mw-1"></i>
         <input type="checkbox" class="form-check-input mx-0" id="bug" name="bug" (click)="toggleBug()">
       </label>
-      <app-select-difficulties [label]="'U'" [showIcon]="false" [levels]="levels" [singleSelect]="false" (choose)="select($event)"/>
+      <app-select-difficulties [label]="'U'" [showIcon]="false" [levels]="levels" [singleSelect]="false" (change)="filterByLevel()"/>
     </div>
   </div>
   <div class="col-xl-6 col-lg-5 col-md-4 col-sm-5 my-auto">
@@ -34,6 +34,7 @@
     <div class="col d-flex text-decoration-none clickable-group">
       <div class="col-fixed-small border-end pe-2 text-center" i18n="@@questions.header.id">#</div>
       <div class="col-fixed border-end pe-2 text-center" i18n="@@questions.header.active">Active</div>
+      <div class="col-fixed border-end pe-2 text-center" i18n="@@questions.header.active">Level</div>
       <div class="col-grow ps-2" i18n="@@questions.header.question">Question</div>
     </div>
   </div>
@@ -46,6 +47,7 @@
          class="col-11 d-flex text-decoration-none clickable-group text-dark">
         <div class="col-fixed-small border-end pe-2 text-center">{{ q.id }}</div>
         <div class="col-fixed border-end pe-2 text-center">{{ q.enabled }}</div>
+        <div class="col-fixed border-end pe-2 text-center">{{ q.difficulty }}</div>
         <div class="col-grow ps-2">{{ q.i18nValue.EN_US }}</div>
       </a>
 

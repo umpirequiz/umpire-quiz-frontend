@@ -35,7 +35,7 @@
           "id": 309
         }
       ],
-      "difficulty": "U3",
+      "difficulty": "U4",
       "enabled": true,
       "gameState": {
         "balls": 0,
@@ -117,7 +117,7 @@
           "id": 398
         }
       ],
-      "difficulty": "U1",
+      "difficulty": "U3",
       "enabled": true,
       "gameState": {
         "balls": 0,
@@ -457,6 +457,49 @@
         "NL_NL": "NL Ball hits home plate"
       },
       "id": "182"
+    },
+    {
+      "id": 0,
+      "difficulty": "U4",
+      "i18nValue": {
+        "NL_NL": "Niet beschikbaar...",
+        "EN_US": "Not available..."
+      },
+      "gameState": {
+        "balls": 0,
+        "outs": 0,
+        "strikes": 0,
+        "runnerBase1": false,
+        "runnerBase2": false,
+        "runnerBase3": false,
+        "batterRunner": false
+      },
+      "enabled": true,
+      "link": "",
+      "answers": [
+        {
+          "id": 0,
+          "i18nValue": {
+            "NL_NL": "Niet beschikbaar...",
+            "EN_US": "Not available..."
+          },
+          "correct": false
+        },
+        {
+          "id": 0,
+          "i18nValue": {
+            "NL_NL": "Niet beschikbaar...",
+            "EN_US": "Not available..."
+          },
+          "correct": false
+        }
+      ],
+      "selectedAnswer": 0,
+      "questionIndex": 0,
+      "i18nRuling": {
+        "NL_NL": "Niet beschikbaar...",
+        "EN_US": "Not available..."
+      }
     }
   ],
   "quizzes": {
@@ -734,6 +777,11 @@
       "id": "1798",
       "username": "bram",
       "password": "bram"
+    },
+    {
+      "id": "5518",
+      "username": "bram",
+      "password": "bram"
     }
   ],
   "errors": [
@@ -811,11 +859,13 @@
     },
     {
       "difficulty": "U3",
-      "count": "33"
+      "count": "33",
+      "id": "c238"
     },
     {
       "difficulty": "U4",
-      "count": "44"
+      "count": "44",
+      "id": "dfc3"
     }
   ]
 }

@@ -8,8 +8,7 @@ import {GameStateComponent} from "../../quiz/game-state/game-state.component";
 import {QuestionComponent as QuizQuestionComponent} from "../../quiz/question/question.component";
 import {QuestionErrorsComponent} from "../question-errors/question-errors.component";
 import {SelectDifficultiesComponent} from "../../quiz/select-difficulties/select-difficulties.component";
-import {fromDiff, Levels} from "../../../domain/Levels";
-import {Difficulty} from "../../../domain/Difficulty";
+import {anySelected, fromDiff, Levels, toFirstDiff} from "../../../domain/Levels";
 
 
 @Component({
@@ -23,13 +22,14 @@ export class QuestionComponent implements OnInit {
 
   editMode = true;
   question = emptyQuestion();
-  modeLabel = $localize `:@@QuestionComponent.modeLabel.edit:Edit`;
+  modeLabel = $localize`:@@QuestionComponent.modeLabel.edit:Edit`;
   levels: Levels;
+  message = "";
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private service: QuestionService) {
-    this.levels = {u1: false, u2: false, u3: false, u4: false}
+    this.levels = {u1: true, u2: false, u3: false, u4: false}
   }
 
   ngOnInit(): void {
@@ -41,7 +41,7 @@ export class QuestionComponent implements OnInit {
   private processUrlParams(subPath: string) {
     if (subPath === 'add') {
       this.editMode = false;
-      this.modeLabel = $localize `:@@QuestionComponent.modeLabel.add:Add`;
+      this.modeLabel = $localize`:@@QuestionComponent.modeLabel.add:Add`;
     } else {
       this.loadQuestion(subPath);
     }
@@ -56,6 +56,11 @@ export class QuestionComponent implements OnInit {
   }
 
   save(questionForm: NgForm) {
+    if (!anySelected(this.levels)) {
+      this.message = $localize`:@@quiz.home.select.difficulty:Select at least one difficulty.`;
+      return
+    }
+
     if (!questionForm.valid) return;
 
     if (this.editMode) {
@@ -74,8 +79,9 @@ export class QuestionComponent implements OnInit {
     this.router.navigate(['admin'])
   }
 
-  select(diff: Difficulty) {
-    this.question.difficulty = diff
-    console.log(this.question);
+  select(levels: Levels) {
+    console.log(levels);
+    this.levels = levels;
+    this.question.difficulty = toFirstDiff(levels)
   }
 }

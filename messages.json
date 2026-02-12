@@ -113,6 +113,7 @@
     "quiz.home.play.often": "You can play as often as you want. Each time, you get different questions.",
     "quiz.home.options": " Options ",
     "quiz.home.start": "Start!",
+    "quiz.home.select.difficulty": "Select at least one difficulty.",
     "quiz.home.continue.text": " To continue your quiz in progress: ",
     "quiz.home.continue.button": "Continue quiz",
     "quiz.play.question.number": "Question",

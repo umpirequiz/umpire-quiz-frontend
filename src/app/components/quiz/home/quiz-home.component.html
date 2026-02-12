@@ -5,7 +5,8 @@
         Ready?
       </h5>
       <div class="card-body">
-        <p i18n="@@quiz.home.description">The next quiz has five <b>random</b> questions. Answer them all, then click "Finish" to see the results.</p>
+        <p i18n="@@quiz.home.description">The next quiz has five <b>random</b> questions. Answer them all, then click
+          "Finish" to see the results.</p>
         <p i18n="@@quiz.home.play.often">You can play as often as you want. Each time, you get different questions.</p>
       </div>
     </div>
@@ -22,18 +23,12 @@
       </div>
     </div>
     <div>
-      <a routerLink="play">
-        <button class="btn btn-primary" (click)="newQuiz()" i18n="@@quiz.home.start">Start!</button>
-      </a>
+      <button class="btn btn-primary" (click)="newQuiz()" i18n="@@quiz.home.start">Start!</button> <span class="badge text-bg-danger m-2">{{message}}</span>
     </div>
     @if (quizInProgress()) {
       <hr/>
-      <p i18n="@@quiz.home.continue.text">
-        To continue your quiz in progress:
-      </p>
-      <a routerLink="play">
-        <button class="btn btn-outline-primary" i18n="@@quiz.home.continue.button">Continue quiz</button>
-      </a>
+      <p i18n="@@quiz.home.continue.text"> To continue your quiz in progress: </p>
+      <button class="btn btn-outline-primary" (click)="play()" i18n="@@quiz.home.continue.button">Continue quiz</button>
     }
   </div>
 </div>
